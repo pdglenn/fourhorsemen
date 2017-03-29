@@ -1,0 +1,201 @@
+# ----- religions ---------
+- model: fourhorsemen.religions
+  pk: 1
+  fields:
+    religion: Protestant
+- model: fourhorsemen.religions
+  pk: 2
+  fields:
+    religion: Catholic
+- model: fourhorsemen.religions
+  pk: 3
+  fields:
+    religion: Other Christian
+- model: fourhorsemen.religions
+  pk: 4
+  fields:
+    religion: Jewish
+- model: fourhorsemen.religions
+  pk: 5
+  fields:
+    religion: Muslim
+- model: fourhorsemen.religions
+  pk: 6
+  fields:
+    religion: Buddhist
+- model: fourhorsemen.religions
+  pk: 7
+  fields:
+    religion: Hindu
+- model: fourhorsemen.religions
+  pk: 8
+  fields:
+    religion: Atheist
+- model: fourhorsemen.religions
+  pk: 9
+  fields:
+    religion: Unaffiliated
+- model: fourhorsemen.religions
+  pk: 10
+  fields:
+    religion: Other
+# ------------------------
+# ----- races ---------
+- model: fourhorsemen.races
+  pk: 1
+  fields:
+    race: White
+- model: fourhorsemen.races
+  pk: 2
+  fields:
+    race: Hispanic, Latino, or Spanish origin
+- model: fourhorsemen.races
+  pk: 3
+  fields:
+    race: Black or African-American
+- model: fourhorsemen.races
+  pk: 4
+  fields:
+    race: Asian
+- model: fourhorsemen.races
+  pk: 5
+  fields:
+    race: American Indian or Alaska Native
+- model: fourhorsemen.races
+  pk: 6
+  fields:
+    race: Middle Eastern or North African
+- model: fourhorsemen.races
+  pk: 7
+  fields:
+    race: Native Hawaiian or Other Pacific Islander
+- model: fourhorsemen.races
+  pk: 8
+  fields:
+    race: Other
+# ------------------------
+# ----- orientations ---------
+- model: fourhorsemen.orientations
+  pk: 1
+  fields:
+    orientation: Heterosexual or straight
+- model: fourhorsemen.orientations
+  pk: 2
+  fields:
+    orientation: Homosexual, Gay, or Lesbian
+- model: fourhorsemen.orientations
+  pk: 3
+  fields:
+    orientation: Bisexual
+- model: fourhorsemen.orientations
+  pk: 4
+  fields:
+    orientation: I don't know
+- model: fourhorsemen.orientations
+  pk: 5
+  fields:
+    orientation: Something else
+# ------------------------
+# ----- socialfrequency ---------
+- model: fourhorsemen.socialfrequency
+  pk: 1
+  fields:
+    frequency: Daily
+- model: fourhorsemen.socialfrequency
+  pk: 2
+  fields:
+    frequency: Weekly
+- model: fourhorsemen.socialfrequency
+  pk: 3
+  fields:
+    frequency: Monthly
+- model: fourhorsemen.socialfrequency
+  pk: 4
+  fields:
+    frequency: Rarely/Never
+# ------------------------
+# ----- genders ---------
+- model: fourhorsemen.genders
+  pk: 1
+  fields:
+    gender: Male
+- model: fourhorsemen.genders
+  pk: 2
+  fields:
+    gender: Female
+- model: fourhorsemen.genders
+  pk: 3
+  fields:
+    gender: Non-Conforming
+# ------------------------
+# ----- socialmost ---------
+- model: fourhorsemen.socialmost
+  pk: 1
+  fields:
+    most_used: Facebook
+- model: fourhorsemen.socialmost
+  pk: 2
+  fields:
+    most_used: Reddit
+- model: fourhorsemen.socialmost
+  pk: 3
+  fields:
+    most_used: Twitter
+- model: fourhorsemen.socialmost
+  pk: 4
+  fields:
+    most_used: Pinterest
+- model: fourhorsemen.socialmost
+  pk: 5
+  fields:
+    most_used: Instagram
+- model: fourhorsemen.socialmost
+  pk: 6
+  fields:
+    most_used: Other
+# ------------------------
+# ----- ages ---------
+- model: fourhorsemen.ages
+  pk: 1
+  fields:
+    age: 18 - 29
+- model: fourhorsemen.ages
+  pk: 2
+  fields:
+    age: 30 - 49
+- model: fourhorsemen.ages
+  pk: 3
+  fields:
+    age: 50 - 64
+- model: fourhorsemen.ages
+  pk: 4
+  fields:
+    age: 65+
+# ------------------------
+# ----- socialusage ---------
+- model: fourhorsemen.socialusage
+  pk: 1
+  fields:
+    usage: Facebook
+- model: fourhorsemen.socialusage
+  pk: 2
+  fields:
+    usage: Reddit
+- model: fourhorsemen.socialusage
+  pk: 3
+  fields:
+    usage: Twitter
+- model: fourhorsemen.socialusage
+  pk: 4
+  fields:
+    usage: Pinterest
+- model: fourhorsemen.socialusage
+  pk: 5
+  fields:
+    usage: Instagram
+- model: fourhorsemen.socialusage
+  pk: 6
+  fields:
+    usage: Other
+# ------------------------
+
