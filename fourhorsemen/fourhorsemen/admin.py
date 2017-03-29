@@ -22,4 +22,4 @@ admin.site.register(Orientations)
 admin.site.register(SocialFrequency)
 admin.site.register(SocialUsage)
 admin.site.register(SocialMost)
-
+    
