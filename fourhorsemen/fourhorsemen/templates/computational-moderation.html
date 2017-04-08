@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Moderation Machine: Computational Moderation</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static /css/bootstrap.min.css %}" rel="stylesheet">
+
+    <!-- <link href="css/likert.css" rel="stylesheet"> -->
+
+    <!-- Custom CSS -->
+    <style>
+    body {
+        padding-top: 70px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        padding-bottom: 100px;
+    }
+    .form-group {
+      padding-top: 25px;
+    }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Moderation Machine</a>
+            </div>
+        </div>
+        <!-- /.container -->
+    </nav>    
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-offset-2 text-center">
+                <h1>Computational Moderation</h1>
+                <h4>For the following questions, imagine you’ve been tasked with building a computational tool to automatically detect abusive or harassing content online.</h4>
+            </div>
+            
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+          <form action="#" method="post" role="form">
+              
+              <div class="form-group">
+                <label for="q8">Select up to three criteria that you think will be most useful in detecting this type of content.</label>
+                <br>
+                <label class="checkbox">
+                  <input type="checkbox" name="q8chkboxes" id="q8opt1" value="1">Lorem ipsum
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="q8chkboxes" id="q8opt2" value="2">Lorem ipsum
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="q8chkboxes" id="q8opt3" value="3">Lorem ipsum
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="q8chkboxes" id="q8opt4" value="4">Lorem ipsum
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="q8chkboxes" id="q8opt5" value="5">Lorem ipsum
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="q8chkboxes" id="q8opt6" value="6">Lorem ipsum
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="q8chkboxes" id="q8opt7" value="7">Lorem ipsum
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="q8chkboxes" id="q8opt8" value="8">Lorem ipsum
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="q8chkboxes" id="q8opt9" value="9">Lorem ipsum
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="q8chkboxes" id="q8opt10" value="10">Lorem ipsum
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label for="q9">As you design this tool, what do you think is more important to prevent?</label>
+                <br>
+                <label class="radio">
+                  <input type="radio" name="q9-radios" id="q9opt1" value="1">False positives (this is actually a much longer text field)
+                </label>
+                <label class="radio">
+                  <input type="radio" name="q9-radios" id="q9opt2" value="2">False negatives
+                </label>
+                <label class="radio">
+                  <input type="radio" name="q9-radios" id="q9opt3" value="3">No preference
+                </label>
+                <label class="radio">
+                  <input type="radio" name="q9-radios" id="q9opt4" value="4">I don't know
+                </label>
+              </div>
+              <div class="form-group">
+                <label for="q10">If you’d like to explain your response to the above question, please do so here:</label>
+                <textarea class="form-control" rows="3" placeholder="Lorem ipsum" name="q10textarea" id="q10text"></textarea>
+              </div>
+            <div class="col-lg-12 text-center">
+              <!-- <button type="submit" class="btn btn-default">Placeholder form submission</button> -->
+              <a href="social-media-usage.html" class="btn btn-primary" role="button">Continue</a>
+              </form>
+      </div>
+</div>
+
+
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

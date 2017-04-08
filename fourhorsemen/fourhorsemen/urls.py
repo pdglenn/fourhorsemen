@@ -19,7 +19,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'^additional_comments/$', views.additional_comments, name='additional_comments'),
     url(r'^(?P<race_id>[0-9]+)/$', views.detail, name='detail'),
-    url(r'^test/', views.foo), 
     url(r'^admin/', admin.site.urls),
 ]

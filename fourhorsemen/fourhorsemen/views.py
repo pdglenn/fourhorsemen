@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def index(request):
     return HttpResponse('hello world')
@@ -8,3 +9,6 @@ def detail(request, race_id):
 
 def foo(request):
     return HttpResponse('foo')
+
+def additional_comments(request):
+    return render(request, 'additional_comments.html')
