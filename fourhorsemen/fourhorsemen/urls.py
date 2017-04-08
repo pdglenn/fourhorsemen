@@ -20,6 +20,13 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^additional_comments/$', views.additional_comments, name='additional_comments'),
+    url(r'^completion_code/$', views.completion_code, name='completion_code'),
+    url(r'^computational_moderation/$', views.computational_moderation, name='computational_moderation'),
+    url(r'^content_assessment/$', views.content_assessment, name='content_assessment'),
+    url(r'^demographic_info/$', views.demographic_info, name='demographic_info'),
+    url(r'^harassment_experience/$', views.harassment_experience, name='harassment_experience'),
+    url(r'^remediation_assessment/$', views.remediation_assessment, name='remediation_assessment'),
+    url(r'^social_media_usage/$', views.social_media_usage, name='social_media_usage'),
     url(r'^(?P<race_id>[0-9]+)/$', views.detail, name='detail'),
     url(r'^admin/', admin.site.urls),
 ]
