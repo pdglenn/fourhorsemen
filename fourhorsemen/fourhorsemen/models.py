@@ -5,51 +5,52 @@ class Users(models.Model):
     timestamp = models.DateTimeField(default=timezone.now)
 
 
-class SurveyQuestion(models.Model):
-    text = models.TextField()
+# class SurveyQuestion(models.Model):
+#     text = models.TextField()
 
-    def __str__(self):
-        return self.text
+#     def __str__(self):
+#         return self.text
 
-class SurveyAnswers(models.Model):
-    question = models.ForeignKey(SurveyQuestion)
-    rating = models.IntegerField()
+# class SurveyAnswers(models.Model):
+#     question = models.ForeignKey(SurveyQuestion)
+#     rating = models.IntegerField()
 
-    def __str__(self):
-        return self.question
-
-
-class ExperimentalConditionMap(models.Model):
-    description = models.TextField()
-    def __str__(self):
-        return self.description
+#     def __str__(self):
+#         return self.question
 
 
-class ExperimentalConditions(models.Model):
-    name = models.TextField()
-    context1 = models.TextField()
-    context2 = models.TextField()
-    context3 = models.TextField()
-    image_url1 = models.TextField()
-    image_url2 = models.TextField()
-    image_url3 = models.TextField()
-    def __str__(self):
-        return self.name
+# # class ExperimentalConditionMap(models.Model):
+# #     description = models.TextField()
+# #     def __str__(self):
+# #         return self.description
+
+
+# class ExperimentalConditions(models.Model):
+#     name = models.TextField()
+#     context1 = models.TextField()
+#     context2 = models.TextField()
+#     context3 = models.TextField()
+#     image_url1 = models.TextField()
+#     image_url2 = models.TextField()
+#     image_url3 = models.TextField()
+#     def __str__(self):
+#         return self.name
 
 
 
-class ExperimentQuestion(models.Model):
-    text = models.TextField()
-    condition = models.ForeignKey(ExperimentalConditions)
-    def __str__(self):
-        return self.text
+# class ExperimentQuestion(models.Model):
+#     text = models.TextField()
+#     condition = models.ForeignKey(ExperimentalConditions)
+#     def __str__(self):
+#         return self.text
 
 
-class DemoTypes(models.Model):
-    demo_type = models.TextField()
-    def __str__(self):
-        return self.demo_type
+# class DemoTypes(models.Model):
+#     demo_type = models.TextField()
+#     def __str__(self):
+#         return self.demo_type
 
+# Demographics
 
 class Ages(models.Model):
     age = models.TextField()
@@ -80,6 +81,7 @@ class Orientations(models.Model):
     def __str__(self):
         return self.orientation
 
+# Social Use Frequency
 
 class SocialFrequency(models.Model):
     frequency = models.TextField()
@@ -99,11 +101,46 @@ class SocialMost(models.Model):
         return self.most_used
 
 
-class UserDemographic(models.Model):
-    user = models.ForeignKey(Users)
-    demo_type = models.ForeignKey(DemoTypes)
-    demo_value = models.IntegerField()
+class HowHarassing(models.Model):
+    harassing = models.TextField()
     def __str__(self):
-        return self.user
+        return self.harassing
+
+class HowAbusive(models.Model):
+    abusive = models.TextField()
+    def __str__(self):
+        return self.abusive
+
+class HowAppropriate(models.Model):
+    appropriate = models.TextField()
+    def __str__(self):
+        return self.appropriate
+
+
+class HowOften(models.Model):
+    often = models.TextField()
+    def __str__(self):
+        return self.appropriate
+
+
+class WhichRemediation(models.Model):
+    remediation = models.TextField()
+    def __str__(self):
+        return self.remediation
+
+
+class HowSevere(models.Model):
+    severe = models.TextField()
+    def __str__(self):
+        return self.severe
+
+# class UserDemographic(models.Model):
+#     user = models.ForeignKey(Users)
+#     demo_type = models.ForeignKey(DemoTypes)
+#     demo_value = models.IntegerField()
+#     def __str__(self):
+#         return self.user
+
+
 
 

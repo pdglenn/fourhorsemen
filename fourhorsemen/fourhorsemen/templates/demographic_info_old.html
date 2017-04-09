@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-8 col-md-offset-2 text-center">
+                
+                <h1>Demographic Information</h1>
+                <h4>Please answer a few questions about yourself.</h4>
+                <br>
+                
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+          <form action="#" method="post" role="form">
+              
+              <div class="form-group">
+                <label for="q13">How old are you?</label>
+                <br>
+                <label class="radio">
+                  <input type="radio" name="q13-radios" id="q13opt1" value="1">18-24
+                </label>
+                <label class="radio">
+                  <input type="radio" name="q13-radios" id="q13opt2" value="2">25-34
+                </label>
+                <label class="radio">
+                  <input type="radio" name="q13-radios" id="q13opt3" value="3">35-44
+                </label>
+                <label class="radio">
+                  <input type="radio" name="q13-radios" id="q13opt4" value="4">45-54
+                </label>
+                <label class="radio">
+                  <input type="radio" name="q13-radios" id="q13opt5" value="5">65+
+                </label>
+              </div>
+              <br>
+              
+              <div class="form-group">
+                <label for="q14">Which racial or ethnic categories describe you?</label>
+                <br>
+                <label class="checkbox">
+                  <input type="checkbox" name="q14chkboxes" id="q14opt1" value="1">Lorem ipsum
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="q14chkboxes" id="q14opt2" value="2">Lorem ipsum
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="q14chkboxes" id="q14opt3" value="3">Lorem ipsum
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="q14chkboxes" id="q14opt4" value="4">Lorem ipsum
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="q14chkboxes" id="q14opt5" value="5">Lorem ipsum
+                </label>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label for="q15">Which gender category best describes you?</label>
+                <br>
+                <label class="radio">
+                  <input type="radio" name="q15-radios" id="q15opt1" value="1">Male
+                </label>
+                <label class="radio">
+                  <input type="radio" name="q15-radios" id="q15opt2" value="2">Female
+                </label>
+                <label class="radio">
+                  <input type="radio" name="q15-radios" id="q15opt3" value="3">Non-conforming
+                </label>
+              </div>
+              <br>
+
+              <div class="form-group">
+                <label for="q16">Do you consider yourself to be:</label>
+                <br>
+                <label class="radio">
+                  <input type="radio" name="q16-radios" id="q16opt1" value="1">Loreum ipsum
+                </label>
+                <label class="radio">
+                  <input type="radio" name="q16-radios" id="q16opt2" value="2">Lorem ipsum
+                </label>
+                <label class="radio">
+                  <input type="radio" name="q16-radios" id="q16opt3" value="3">Lorem ipsum
+                </label>
+              </div>
+            
+            <div class="col-lg-12 text-center">
+            <br><br>
+            <!-- <button type="submit" class="btn btn-default">Placeholder form submission</button> -->
+            <a href="{% url 'harassment_experience' %}" class="btn btn-primary" role="button">Continue</a>
+            </div>
+            
+            </form>
+
+            <form action="/demographic_info/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
+        </div>
+</div>
+{% endblock %}
