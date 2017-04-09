@@ -1,3 +1,119 @@
+# ----- howsevere ---------
+- model: fourhorsemen.howsevere
+  pk: 1
+  fields:
+    severe: Not at all severe
+- model: fourhorsemen.howsevere
+  pk: 2
+  fields:
+    severe: Slightly severe
+- model: fourhorsemen.howsevere
+  pk: 3
+  fields:
+    severe: Somewhat severe
+- model: fourhorsemen.howsevere
+  pk: 4
+  fields:
+    severe: Moderately severe
+- model: fourhorsemen.howsevere
+  pk: 5
+  fields:
+    severe: Extremely severe
+# ------------------------
+# ----- howappropriate ---------
+- model: fourhorsemen.howappropriate
+  pk: 1
+  fields:
+    appropriate: Asolutely inappropriate
+- model: fourhorsemen.howappropriate
+  pk: 2
+  fields:
+    appropriate: Inappropriate
+- model: fourhorsemen.howappropriate
+  pk: 3
+  fields:
+    appropriate: Slightly inappropriate
+- model: fourhorsemen.howappropriate
+  pk: 4
+  fields:
+    appropriate: Neutral
+- model: fourhorsemen.howappropriate
+  pk: 5
+  fields:
+    appropriate: Slightly appropriate
+- model: fourhorsemen.howappropriate
+  pk: 6
+  fields:
+    appropriate: Appropriate
+- model: fourhorsemen.howappropriate
+  pk: 7
+  fields:
+    appropriate: Absolutely appropriate
+# ------------------------
+# ----- ages ---------
+- model: fourhorsemen.ages
+  pk: 1
+  fields:
+    age: 18 - 29
+- model: fourhorsemen.ages
+  pk: 2
+  fields:
+    age: 30 - 49
+- model: fourhorsemen.ages
+  pk: 3
+  fields:
+    age: 50 - 64
+- model: fourhorsemen.ages
+  pk: 4
+  fields:
+    age: 65+
+# ------------------------
+# ----- whichremediation ---------
+- model: fourhorsemen.whichremediation
+  pk: 1
+  fields:
+    remediation: Take no action
+- model: fourhorsemen.whichremediation
+  pk: 2
+  fields:
+    remediation: Remove the message from the platform and take no further action
+- model: fourhorsemen.whichremediation
+  pk: 3
+  fields:
+    remediation: Before the user can post the message, notify them it has been deemed potentially abusive or harassing by an automated system and require confirmation to post it
+- model: fourhorsemen.whichremediation
+  pk: 4
+  fields:
+    remediation: Add poster to a block-list which hides their posts from all subscribers to that block-list
+- model: fourhorsemen.whichremediation
+  pk: 5
+  fields:
+    remediation: Prevent the user from posting again until they complete an empathy exercise
+- model: fourhorsemen.whichremediation
+  pk: 6
+  fields:
+    remediation: Activate a bot which targets offensive comments to the poster for 12 hours
+- model: fourhorsemen.whichremediation
+  pk: 7
+  fields:
+    remediation: Send the poster a private reminder of community code of conduct
+- model: fourhorsemen.whichremediation
+  pk: 8
+  fields:
+    remediation: Post an attention-grabbing anti-bullying message directed at the poster
+- model: fourhorsemen.whichremediation
+  pk: 9
+  fields:
+    remediation: Publicly flag the poster's profile indicating the user posted harassing content
+- model: fourhorsemen.whichremediation
+  pk: 10
+  fields:
+    remediation: Temporarily suspend the poster
+- model: fourhorsemen.whichremediation
+  pk: 11
+  fields:
+    remediation: Permanently ban the poster
+# ------------------------
 # ----- religions ---------
 - model: fourhorsemen.religions
   pk: 1
@@ -39,6 +155,28 @@
   pk: 10
   fields:
     religion: Other
+# ------------------------
+# ----- howharassing ---------
+- model: fourhorsemen.howharassing
+  pk: 1
+  fields:
+    harassing: Not at all harassing
+- model: fourhorsemen.howharassing
+  pk: 2
+  fields:
+    harassing: Slightly harassing
+- model: fourhorsemen.howharassing
+  pk: 3
+  fields:
+    harassing: Somewhat harassing
+- model: fourhorsemen.howharassing
+  pk: 4
+  fields:
+    harassing: Very harassing
+- model: fourhorsemen.howharassing
+  pk: 5
+  fields:
+    harassing: Extremely harassing
 # ------------------------
 # ----- races ---------
 - model: fourhorsemen.races
@@ -96,38 +234,6 @@
   fields:
     orientation: Something else
 # ------------------------
-# ----- socialfrequency ---------
-- model: fourhorsemen.socialfrequency
-  pk: 1
-  fields:
-    frequency: Daily
-- model: fourhorsemen.socialfrequency
-  pk: 2
-  fields:
-    frequency: Weekly
-- model: fourhorsemen.socialfrequency
-  pk: 3
-  fields:
-    frequency: Monthly
-- model: fourhorsemen.socialfrequency
-  pk: 4
-  fields:
-    frequency: Rarely/Never
-# ------------------------
-# ----- genders ---------
-- model: fourhorsemen.genders
-  pk: 1
-  fields:
-    gender: Male
-- model: fourhorsemen.genders
-  pk: 2
-  fields:
-    gender: Female
-- model: fourhorsemen.genders
-  pk: 3
-  fields:
-    gender: Non-Conforming
-# ------------------------
 # ----- socialmost ---------
 - model: fourhorsemen.socialmost
   pk: 1
@@ -154,23 +260,23 @@
   fields:
     most_used: Other
 # ------------------------
-# ----- ages ---------
-- model: fourhorsemen.ages
+# ----- socialfrequency ---------
+- model: fourhorsemen.socialfrequency
   pk: 1
   fields:
-    age: 18 - 29
-- model: fourhorsemen.ages
+    frequency: Daily
+- model: fourhorsemen.socialfrequency
   pk: 2
   fields:
-    age: 30 - 49
-- model: fourhorsemen.ages
+    frequency: Weekly
+- model: fourhorsemen.socialfrequency
   pk: 3
   fields:
-    age: 50 - 64
-- model: fourhorsemen.ages
+    frequency: Monthly
+- model: fourhorsemen.socialfrequency
   pk: 4
   fields:
-    age: 65+
+    frequency: Rarely/Never
 # ------------------------
 # ----- socialusage ---------
 - model: fourhorsemen.socialusage
@@ -197,5 +303,63 @@
   pk: 6
   fields:
     usage: Other
+# ------------------------
+# ----- howoften ---------
+- model: fourhorsemen.howoften
+  pk: 1
+  fields:
+    often: Never
+- model: fourhorsemen.howoften
+  pk: 2
+  fields:
+    often: Rarely
+- model: fourhorsemen.howoften
+  pk: 3
+  fields:
+    often: Occasionally
+- model: fourhorsemen.howoften
+  pk: 4
+  fields:
+    often: A moderate amount
+- model: fourhorsemen.howoften
+  pk: 5
+  fields:
+    often: A great deal
+# ------------------------
+# ----- genders ---------
+- model: fourhorsemen.genders
+  pk: 1
+  fields:
+    gender: Male
+- model: fourhorsemen.genders
+  pk: 2
+  fields:
+    gender: Female
+- model: fourhorsemen.genders
+  pk: 3
+  fields:
+    gender: Non-Conforming
+# ------------------------
+# ----- howabusive ---------
+- model: fourhorsemen.howabusive
+  pk: 1
+  fields:
+    abusive: Not at all abusive
+- model: fourhorsemen.howabusive
+  pk: 2
+  fields:
+    abusive: Slightly abusive
+- model: fourhorsemen.howabusive
+  pk: 3
+  fields:
+    abusive: Somewhat abusive
+- model: fourhorsemen.howabusive
+  pk: 4
+  fields:
+    abusive: Very abusive
+- model: fourhorsemen.howabusive
+  pk: 5
+  fields:
+    abusive: Extremely abusive
 # ------------------------
 

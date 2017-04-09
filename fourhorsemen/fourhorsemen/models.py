@@ -120,7 +120,7 @@ class HowAppropriate(models.Model):
 class HowOften(models.Model):
     often = models.TextField()
     def __str__(self):
-        return self.appropriate
+        return self.often
 
 
 class WhichRemediation(models.Model):

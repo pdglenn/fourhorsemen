@@ -23,7 +23,15 @@ def computational_moderation(request):
     return render(request, 'computational_moderation.html')
 
 def content_assessment(request):
-    return render(request, 'content_assessment.html')
+    if request.method == 'POST':
+        form = forms.ContentAssessmentForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect(reverse('remediation_assessment'))
+    else:
+        form = forms.ContentAssessmentForm()
+
+    return render(request, 'content_assessment.html', {'form': form})
+    
 
 def demographic_info(request):
     if request.method == 'POST':
