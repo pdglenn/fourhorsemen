@@ -1,0 +1,469 @@
+# ----- computationalmoderation ---------
+- model: fourhorsemen.computationalmoderation
+  pk: 1
+  fields:
+    moderation: Presence or lack of certain words that you define
+- model: fourhorsemen.computationalmoderation
+  pk: 2
+  fields:
+    moderation: Sentiment analysis - does the comment seem negative or positive overall?
+- model: fourhorsemen.computationalmoderation
+  pk: 3
+  fields:
+    moderation: Length of message
+- model: fourhorsemen.computationalmoderation
+  pk: 4
+  fields:
+    moderation: Conversational balance - have both parties contributed to the conversation, or is one person doing all of the communicating?
+- model: fourhorsemen.computationalmoderation
+  pk: 5
+  fields:
+    moderation: Image recognition - does the message contain any images that are recognized as commonly harassing or abusive?
+- model: fourhorsemen.computationalmoderation
+  pk: 6
+  fields:
+    moderation: Message has been flagged by other humans
+- model: fourhorsemen.computationalmoderation
+  pk: 7
+  fields:
+    moderation: Poster has previously been flagged for harassing content
+- model: fourhorsemen.computationalmoderation
+  pk: 8
+  fields:
+    moderation: Other - What other elements would you include?
+# ------------------------
+# ----- howsevere ---------
+- model: fourhorsemen.howsevere
+  pk: 1
+  fields:
+    severe: Not at all severe
+- model: fourhorsemen.howsevere
+  pk: 2
+  fields:
+    severe: Slightly severe
+- model: fourhorsemen.howsevere
+  pk: 3
+  fields:
+    severe: Somewhat severe
+- model: fourhorsemen.howsevere
+  pk: 4
+  fields:
+    severe: Moderately severe
+- model: fourhorsemen.howsevere
+  pk: 5
+  fields:
+    severe: Extremely severe
+# ------------------------
+# ----- harassmenttypes ---------
+- model: fourhorsemen.harassmenttypes
+  pk: 1
+  fields:
+    harassmenttype: Harassing or abusive messages sent in public channels
+- model: fourhorsemen.harassmenttypes
+  pk: 2
+  fields:
+    harassmenttype: Harassing or abusive messages sent through private channels
+- model: fourhorsemen.harassmenttypes
+  pk: 3
+  fields:
+    harassmenttype: Doxxing (public release of someone's personal information)
+- model: fourhorsemen.harassmenttypes
+  pk: 4
+  fields:
+    harassmenttype: Hate speech
+- model: fourhorsemen.harassmenttypes
+  pk: 5
+  fields:
+    harassmenttype: Threat of violence
+- model: fourhorsemen.harassmenttypes
+  pk: 6
+  fields:
+    harassmenttype: False information posted about someone
+- model: fourhorsemen.harassmenttypes
+  pk: 7
+  fields:
+    harassmenttype: Revenge porn
+- model: fourhorsemen.harassmenttypes
+  pk: 8
+  fields:
+    harassmenttype: Messages encouraging others to harass someone
+- model: fourhorsemen.harassmenttypes
+  pk: 9
+  fields:
+    harassmenttype: Impersonation
+- model: fourhorsemen.harassmenttypes
+  pk: 10
+  fields:
+    harassmenttype: Other
+# ------------------------
+# ----- howappropriate ---------
+- model: fourhorsemen.howappropriate
+  pk: 1
+  fields:
+    appropriate: Asolutely inappropriate
+- model: fourhorsemen.howappropriate
+  pk: 2
+  fields:
+    appropriate: Inappropriate
+- model: fourhorsemen.howappropriate
+  pk: 3
+  fields:
+    appropriate: Slightly inappropriate
+- model: fourhorsemen.howappropriate
+  pk: 4
+  fields:
+    appropriate: Neutral
+- model: fourhorsemen.howappropriate
+  pk: 5
+  fields:
+    appropriate: Slightly appropriate
+- model: fourhorsemen.howappropriate
+  pk: 6
+  fields:
+    appropriate: Appropriate
+- model: fourhorsemen.howappropriate
+  pk: 7
+  fields:
+    appropriate: Absolutely appropriate
+# ------------------------
+# ----- socialfrequency ---------
+- model: fourhorsemen.socialfrequency
+  pk: 1
+  fields:
+    frequency: Daily
+- model: fourhorsemen.socialfrequency
+  pk: 2
+  fields:
+    frequency: Weekly
+- model: fourhorsemen.socialfrequency
+  pk: 3
+  fields:
+    frequency: Monthly
+- model: fourhorsemen.socialfrequency
+  pk: 4
+  fields:
+    frequency: Rarely/Never
+# ------------------------
+# ----- ages ---------
+- model: fourhorsemen.ages
+  pk: 1
+  fields:
+    age: 18 - 29
+- model: fourhorsemen.ages
+  pk: 2
+  fields:
+    age: 30 - 49
+- model: fourhorsemen.ages
+  pk: 3
+  fields:
+    age: 50 - 64
+- model: fourhorsemen.ages
+  pk: 4
+  fields:
+    age: 65+
+# ------------------------
+# ----- socialusage ---------
+- model: fourhorsemen.socialusage
+  pk: 1
+  fields:
+    usage: Facebook
+- model: fourhorsemen.socialusage
+  pk: 2
+  fields:
+    usage: Reddit
+- model: fourhorsemen.socialusage
+  pk: 3
+  fields:
+    usage: Twitter
+- model: fourhorsemen.socialusage
+  pk: 4
+  fields:
+    usage: Pinterest
+- model: fourhorsemen.socialusage
+  pk: 5
+  fields:
+    usage: Instagram
+- model: fourhorsemen.socialusage
+  pk: 6
+  fields:
+    usage: Other
+# ------------------------
+# ----- whichremediation ---------
+- model: fourhorsemen.whichremediation
+  pk: 1
+  fields:
+    remediation: Take no action
+- model: fourhorsemen.whichremediation
+  pk: 2
+  fields:
+    remediation: Remove the message from the platform and take no further action
+- model: fourhorsemen.whichremediation
+  pk: 3
+  fields:
+    remediation: Before the user can post the message, notify them it has been deemed potentially abusive or harassing by an automated system and require confirmation to post it
+- model: fourhorsemen.whichremediation
+  pk: 4
+  fields:
+    remediation: Add poster to a block-list which hides their posts from all subscribers to that block-list
+- model: fourhorsemen.whichremediation
+  pk: 5
+  fields:
+    remediation: Prevent the user from posting again until they complete an empathy exercise
+- model: fourhorsemen.whichremediation
+  pk: 6
+  fields:
+    remediation: Activate a bot which targets offensive comments to the poster for 12 hours
+- model: fourhorsemen.whichremediation
+  pk: 7
+  fields:
+    remediation: Send the poster a private reminder of community code of conduct
+- model: fourhorsemen.whichremediation
+  pk: 8
+  fields:
+    remediation: Post an attention-grabbing anti-bullying message directed at the poster
+- model: fourhorsemen.whichremediation
+  pk: 9
+  fields:
+    remediation: Publicly flag the poster's profile indicating the user posted harassing content
+- model: fourhorsemen.whichremediation
+  pk: 10
+  fields:
+    remediation: Temporarily suspend the poster
+- model: fourhorsemen.whichremediation
+  pk: 11
+  fields:
+    remediation: Permanently ban the poster
+# ------------------------
+# ----- howoften ---------
+- model: fourhorsemen.howoften
+  pk: 1
+  fields:
+    often: Never
+- model: fourhorsemen.howoften
+  pk: 2
+  fields:
+    often: Rarely
+- model: fourhorsemen.howoften
+  pk: 3
+  fields:
+    often: Occasionally
+- model: fourhorsemen.howoften
+  pk: 4
+  fields:
+    often: A moderate amount
+- model: fourhorsemen.howoften
+  pk: 5
+  fields:
+    often: A great deal
+# ------------------------
+# ----- importantprevent ---------
+- model: fourhorsemen.importantprevent
+  pk: 1
+  fields:
+    prevention: Non-harassing and non-abusive messages being flagged as "harassing" or "abusive" and potentially subjected to remediation ("false positive" result)
+- model: fourhorsemen.importantprevent
+  pk: 2
+  fields:
+    prevention: Harassing or abusive content not being flagged and not subjected to remediation ("false negative" results)
+- model: fourhorsemen.importantprevent
+  pk: 3
+  fields:
+    prevention: I don't know
+# ------------------------
+# ----- religions ---------
+- model: fourhorsemen.religions
+  pk: 1
+  fields:
+    religion: Protestant
+- model: fourhorsemen.religions
+  pk: 2
+  fields:
+    religion: Catholic
+- model: fourhorsemen.religions
+  pk: 3
+  fields:
+    religion: Other Christian
+- model: fourhorsemen.religions
+  pk: 4
+  fields:
+    religion: Jewish
+- model: fourhorsemen.religions
+  pk: 5
+  fields:
+    religion: Muslim
+- model: fourhorsemen.religions
+  pk: 6
+  fields:
+    religion: Buddhist
+- model: fourhorsemen.religions
+  pk: 7
+  fields:
+    religion: Hindu
+- model: fourhorsemen.religions
+  pk: 8
+  fields:
+    religion: Atheist
+- model: fourhorsemen.religions
+  pk: 9
+  fields:
+    religion: Unaffiliated
+- model: fourhorsemen.religions
+  pk: 10
+  fields:
+    religion: Other
+# ------------------------
+# ----- howharassing ---------
+- model: fourhorsemen.howharassing
+  pk: 1
+  fields:
+    harassing: Not at all harassing
+- model: fourhorsemen.howharassing
+  pk: 2
+  fields:
+    harassing: Slightly harassing
+- model: fourhorsemen.howharassing
+  pk: 3
+  fields:
+    harassing: Somewhat harassing
+- model: fourhorsemen.howharassing
+  pk: 4
+  fields:
+    harassing: Very harassing
+- model: fourhorsemen.howharassing
+  pk: 5
+  fields:
+    harassing: Extremely harassing
+# ------------------------
+# ----- races ---------
+- model: fourhorsemen.races
+  pk: 1
+  fields:
+    race: White
+- model: fourhorsemen.races
+  pk: 2
+  fields:
+    race: Hispanic, Latino, or Spanish origin
+- model: fourhorsemen.races
+  pk: 3
+  fields:
+    race: Black or African-American
+- model: fourhorsemen.races
+  pk: 4
+  fields:
+    race: Asian
+- model: fourhorsemen.races
+  pk: 5
+  fields:
+    race: American Indian or Alaska Native
+- model: fourhorsemen.races
+  pk: 6
+  fields:
+    race: Middle Eastern or North African
+- model: fourhorsemen.races
+  pk: 7
+  fields:
+    race: Native Hawaiian or Other Pacific Islander
+- model: fourhorsemen.races
+  pk: 8
+  fields:
+    race: Other
+# ------------------------
+# ----- orientations ---------
+- model: fourhorsemen.orientations
+  pk: 1
+  fields:
+    orientation: Heterosexual or straight
+- model: fourhorsemen.orientations
+  pk: 2
+  fields:
+    orientation: Homosexual, Gay, or Lesbian
+- model: fourhorsemen.orientations
+  pk: 3
+  fields:
+    orientation: Bisexual
+- model: fourhorsemen.orientations
+  pk: 4
+  fields:
+    orientation: I don't know
+- model: fourhorsemen.orientations
+  pk: 5
+  fields:
+    orientation: Something else
+# ------------------------
+# ----- genders ---------
+- model: fourhorsemen.genders
+  pk: 1
+  fields:
+    gender: Male
+- model: fourhorsemen.genders
+  pk: 2
+  fields:
+    gender: Female
+- model: fourhorsemen.genders
+  pk: 3
+  fields:
+    gender: Non-Conforming
+# ------------------------
+# ----- socialmost ---------
+- model: fourhorsemen.socialmost
+  pk: 1
+  fields:
+    most_used: Facebook
+- model: fourhorsemen.socialmost
+  pk: 2
+  fields:
+    most_used: Reddit
+- model: fourhorsemen.socialmost
+  pk: 3
+  fields:
+    most_used: Twitter
+- model: fourhorsemen.socialmost
+  pk: 4
+  fields:
+    most_used: Pinterest
+- model: fourhorsemen.socialmost
+  pk: 5
+  fields:
+    most_used: Instagram
+- model: fourhorsemen.socialmost
+  pk: 6
+  fields:
+    most_used: Other
+# ------------------------
+# ----- howabusive ---------
+- model: fourhorsemen.howabusive
+  pk: 1
+  fields:
+    abusive: Not at all abusive
+- model: fourhorsemen.howabusive
+  pk: 2
+  fields:
+    abusive: Slightly abusive
+- model: fourhorsemen.howabusive
+  pk: 3
+  fields:
+    abusive: Somewhat abusive
+- model: fourhorsemen.howabusive
+  pk: 4
+  fields:
+    abusive: Very abusive
+- model: fourhorsemen.howabusive
+  pk: 5
+  fields:
+    abusive: Extremely abusive
+# ------------------------
+# ----- yesno ---------
+- model: fourhorsemen.yesno
+  pk: 1
+  fields:
+    answer: Yes
+- model: fourhorsemen.yesno
+  pk: 2
+  fields:
+    answer: No
+- model: fourhorsemen.yesno
+  pk: 3
+  fields:
+    answer: I don't know
+# ------------------------
+

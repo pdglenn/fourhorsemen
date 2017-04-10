@@ -134,6 +134,28 @@ class HowSevere(models.Model):
     def __str__(self):
         return self.severe
 
+class ComputationalModeration(models.Model):
+    moderation = models.TextField()
+    def __str__(self):
+        return self.moderation
+
+
+class ImportantPrevent(models.Model):
+    prevention = models.TextField()
+    def __str__(self):
+        return self.prevention
+
+
+class HarassmentTypes(models.Model):
+    harassmenttype = models.TextField()
+    def __str__(self):
+        return self.harassmenttype
+
+
+class YesNo(models.Model):
+    answer = models.TextField()
+    def __str__(self):
+        return self.answer
 # class UserDemographic(models.Model):
 #     user = models.ForeignKey(Users)
 #     demo_type = models.ForeignKey(DemoTypes)
