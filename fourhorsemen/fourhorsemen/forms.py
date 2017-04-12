@@ -1,5 +1,5 @@
 from django import forms
-import models
+from . import models
 
 class ContentAssessmentForm(forms.Form):
     how_harassing = forms.ModelChoiceField(queryset=models.HowHarassing.objects.all(),
