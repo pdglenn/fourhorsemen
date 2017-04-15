@@ -1,6 +1,6 @@
 from django import forms
-import models
 from django.utils.safestring import mark_safe
+from . import models
 
 class HorizRadioRenderer(forms.RadioSelect.renderer):
     """ this overrides widget method to put radio buttons horizontally
@@ -9,8 +9,7 @@ class HorizRadioRenderer(forms.RadioSelect.renderer):
     def render(self):
             """Outputs radios"""
             return mark_safe(u'\n'.join([u'%s\n' % w for w in self]) + '<br><br>')
-
-
+        
 class ContentAssessmentForm(forms.Form):
     how_harassing = forms.ModelChoiceField(queryset=models.HowHarassing.objects.all(),
                                            widget=forms.RadioSelect(renderer=HorizRadioRenderer),
