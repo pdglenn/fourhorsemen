@@ -3,8 +3,11 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from . import forms
+from . import image_logic
 
 def index(request):
+    request.session.flush()
+    request.session['exp_group'] = image_logic.get_experimental_group()
     return render(request, 'index.html')
 
 def detail(request, race_id):
@@ -14,6 +17,7 @@ def foo(request):
     return HttpResponse('foo')
 
 def additional_comments(request):
+    print request.session
     return render(request, 'additional_comments.html')
 
 def completion_code(request):
@@ -23,14 +27,28 @@ def computational_moderation(request):
     return render(request, 'computational_moderation.html')
 
 def content_assessment(request):
+
+    images_seen = request.session.get('images_seen', [])
+    image = image_logic.get_random_image(request)
+    images_seen.append(image)
+    request.session['images_seen'] = images_seen
+    
     if request.method == 'POST':
         form = forms.ContentAssessmentForm(request.POST)
         if form.is_valid():
+            ca_count = request.session.get('ca_count', 0)
+            print ca_count
+            if ca_count < 5:
+                request.session['assesment_' + str(ca_count)] = form.cleaned_data
+                ca_count += 1
+                request.session['ca_count'] = ca_count
+                form = forms.ContentAssessmentForm()
+                return render(request, 'content_assessment.html', {'form': form, 'image': image})
             return HttpResponseRedirect(reverse('remediation_assessment'))
     else:
         form = forms.ContentAssessmentForm()
 
-    return render(request, 'content_assessment.html', {'form': form})
+    return render(request, 'content_assessment.html', {'form': form, 'image': image})
     
 
 def demographic_info(request):

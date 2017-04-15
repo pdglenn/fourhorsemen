@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
+{% load static %}
     <!-- Page Content -->
     <div class="container">
 
@@ -10,12 +10,12 @@
                 <h4>Please consider the social media post below when responding to the following questions.</h4>
             </div>
             <div class="col-sm-offset-3 col-md-6">
-                    <img src="http://i3.kym-cdn.com/photos/images/facebook/001/062/023/49e.jpg" class="img-responsive center-block" alt="insert content placeholder here">
+                    <img src="{{ baseURL }}{{ image }}" class="img-responsive center-block" alt="insert content placeholder here">
                     <br>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-          <form action="/demographic_info/" method="POST" role="form">
+          <form action="/content_assessment/" method="POST" role="form">
                 {% csrf_token %}
                 {{ form }}
               
