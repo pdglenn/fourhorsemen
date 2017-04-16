@@ -21,7 +21,10 @@ def additional_comments(request):
     return render(request, 'additional_comments.html')
 
 def completion_code(request):
-    return render(request, 'completion_code.html')
+    output = {}
+    for k in request.session.keys():
+        output[k] = request.session[k]
+    return render(request, 'completion_code.html', {'output': output})
 
 def computational_moderation(request):
     return render(request, 'computational_moderation.html')
