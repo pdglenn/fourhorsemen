@@ -69,6 +69,9 @@ class ComputationalModerationForm(forms.Form):
                                                required=False,
                                                label='As you design this tool, what do you think is more important to prevent?')
 
+    additional_information=forms.CharField(widget=forms.Textarea,
+                                           label="If you'd like to tell us more about your response to the above questions, please do so here:")
+
     def clean_computational_moderation(self):
         value = self.cleaned_data['computational_moderation']
         if len(value) > 3:
