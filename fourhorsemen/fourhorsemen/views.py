@@ -64,8 +64,7 @@ def demographic_info(request):
     if request.method == 'POST':
         form = forms.DemographicForm(request.POST)
         if form.is_valid():
-            print('form is valid')
-            print(form.cleaned_data)
+            request.session['demographic_info'] = form.cleaned_data
             return HttpResponseRedirect(reverse('harassment_experience'))
     else:
         form = forms.DemographicForm()
@@ -73,10 +72,27 @@ def demographic_info(request):
     return render(request, 'demographic_info.html', {'form': form})
 
 def harassment_experience(request):
-    return render(request, 'harassment_experience.html')
+    if request.method == 'POST':
+        form = forms.HarassmentExperienceForm(request.POST)
+        if form.is_valid():
+            request.session['harassment_experience'] = form.cleaned_data
+            return HttpResponseRedirect(reverse('additional_comments'))
+    else:
+        form = forms.HarassmentExperienceForm()
+    return render(request, 'harassment_experience.html', {'form': form})
 
 def remediation_assessment(request):
     return render(request, 'remediation_assessment.html')
 
 def social_media_usage(request):
-    return render(request, 'social_media_usage.html')
+    if request.method == 'POST':
+        form = forms.SocialUsageForm(request.POST)
+        if form.is_valid():
+            print form.cleaned_data
+            return HttpResponseRedirect(reverse('demographic_info'))
+    else:
+        form = forms.SocialUsageForm()
+    return render(request, 'social_media_usage.html', {'platforms': list(form)[:-1],
+                                                        'most_used': list(form)[-1]})
+
+
