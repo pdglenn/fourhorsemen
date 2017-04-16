@@ -64,8 +64,7 @@ def demographic_info(request):
     if request.method == 'POST':
         form = forms.DemographicForm(request.POST)
         if form.is_valid():
-            print('form is valid')
-            print(form.cleaned_data)
+            request.session['demographic_info'] = form.cleaned_data
             return HttpResponseRedirect(reverse('harassment_experience'))
     else:
         form = forms.DemographicForm()
@@ -73,7 +72,14 @@ def demographic_info(request):
     return render(request, 'demographic_info.html', {'form': form})
 
 def harassment_experience(request):
-    return render(request, 'harassment_experience.html')
+    if request.method == 'POST':
+        form = forms.HarassmentExperienceForm(request.POST)
+        if form.is_valid():
+            request.session['harassment_experience'] = form.cleaned_data
+            return HttpResponseRedirect(reverse('additional_comments'))
+    else:
+        form = forms.HarassmentExperienceForm()
+    return render(request, 'harassment_experience.html', {'form': form})
 
 def remediation_assessment(request):
     return render(request, 'remediation_assessment.html')
