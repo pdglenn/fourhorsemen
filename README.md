@@ -1,3 +1,7 @@
+## Public link
+http://fourhorsemen.us-west-1.elasticbeanstalk.com/
+
+## Running on your local machine
 1. open terminal
 2. "source activate fourhorsemen" <-- emily/jason, your command is "source activate py27"
 3. cd to the place you've cloned the repository. emily/molly, for you it's "cd ~/documents/fourhorsemen"
