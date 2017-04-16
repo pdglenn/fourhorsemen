@@ -1,6 +1,6 @@
 import random
 def get_experimental_group():
-    groups = ['moderators', 'algorithmic']#, 'generic', 'no_flag', 'users']
+    groups = ['moderators', 'algorithmic', 'generic', 'no_flag', 'users']
     return random.choice(groups)
 
 
@@ -30,7 +30,7 @@ def get_random_image(request):
               'who_has_more.jpg', 
               'wishing_everyone_a.jpg', 
               'women_are_naturally.jpg']
-    chosen = request.session.get('images', [])
+    chosen = request.session.get('images_seen', [])
     image = random.choice(images)
     while image in chosen:
         image = random.choice(images)
