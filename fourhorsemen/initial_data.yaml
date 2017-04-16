@@ -166,27 +166,23 @@
 - model: fourhorsemen.socialusage
   pk: 1
   fields:
-    usage: Facebook
+    usage: Multiple times a day
 - model: fourhorsemen.socialusage
   pk: 2
   fields:
-    usage: Reddit
+    usage: Daily
 - model: fourhorsemen.socialusage
   pk: 3
   fields:
-    usage: Twitter
+    usage: Weekly
 - model: fourhorsemen.socialusage
   pk: 4
   fields:
-    usage: Pinterest
+    usage: Monthly
 - model: fourhorsemen.socialusage
   pk: 5
   fields:
-    usage: Instagram
-- model: fourhorsemen.socialusage
-  pk: 6
-  fields:
-    usage: Other
+    usage: Rarely/Never
 # ------------------------
 # ----- whichremediation ---------
 - model: fourhorsemen.whichremediation

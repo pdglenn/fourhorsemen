@@ -95,6 +95,35 @@ class HarassmentExperienceForm(forms.Form):
                                              required=False,
                                              label="Do you think anyone would describe something you've done on the internet as abusive or harassing?")
                                                         
+class SocialUsageForm(forms.Form):
+    facebook = forms.ModelChoiceField(queryset=models.SocialFrequency.objects.all(),
+                                       widget=forms.RadioSelect(),#renderer=HorizRadioRenderer),
+                                       required=False,
+                                       label='Facebook',)
+    reddit = forms.ModelChoiceField(queryset=models.SocialFrequency.objects.all(),
+                                   widget=forms.RadioSelect(),#renderer=HorizRadioRenderer),
+                                   required=False,
+                                   label='Reddit',)
+    twitter = forms.ModelChoiceField(queryset=models.SocialFrequency.objects.all(),
+                                       widget=forms.RadioSelect(),#renderer=HorizRadioRenderer),
+                                       required=False,
+                                       label='Twitter',)
+    pinterest = forms.ModelChoiceField(queryset=models.SocialFrequency.objects.all(),
+                                       widget=forms.RadioSelect(),#renderer=HorizRadioRenderer),
+                                       required=False,
+                                       label='Pinterest',)
+    instagram = forms.ModelChoiceField(queryset=models.SocialFrequency.objects.all(),
+                                       widget=forms.RadioSelect(),#renderer=HorizRadioRenderer),
+                                       required=False,
+                                       label='Instagram',)
+    snapchat = forms.ModelChoiceField(queryset=models.SocialFrequency.objects.all(),
+                                       widget=forms.RadioSelect(),#renderer=HorizRadioRenderer),
+                                       required=False,
+                                       label='Snapchat',)
+    most_used = forms.ModelChoiceField(queryset=models.SocialMost.objects.all(),
+                                       widget=forms.RadioSelect(),
+                                       required=False,
+                                       label='Which social media platform do you use most frequently?')
 
 
 

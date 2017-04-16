@@ -85,4 +85,14 @@ def remediation_assessment(request):
     return render(request, 'remediation_assessment.html')
 
 def social_media_usage(request):
-    return render(request, 'social_media_usage.html')
+    if request.method == 'POST':
+        form = forms.SocialUsageForm(request.POST)
+        if form.is_valid():
+            print form.cleaned_data
+            return HttpResponseRedirect(reverse('demographic_info'))
+    else:
+        form = forms.SocialUsageForm()
+    return render(request, 'social_media_usage.html', {'platforms': list(form)[:-1],
+                                                        'most_used': list(form)[-1]})
+
+

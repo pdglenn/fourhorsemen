@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+
     <!-- Page Content -->
     <div class="container">
 
@@ -15,12 +16,13 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-          <form action="#" method="post" role="form">
-              
+          <form action="/social_media_usage/" method="POST" role="form">
+              {% csrf_token %}
               <div class="form-group">
                 <br><br>
                 <label for="q11">On average, how often do you visit the following social media sites?</label>
                 <br>
+                {{ form.errors }}
                 <table style="width:100%">
                   <tr>
                     <th>Platform/Site</th>
@@ -30,65 +32,44 @@
                     <th>Monthly</th> 
                     <th>Rarely/Never</th>
                   </tr>
-                  <tr>
-                    <td><label for="q11A">Facebook</label></td>
-                    <td><input type="radio" name="q11A-radios" id="q11Aopt1" value="1"</td> 
-                    <td><input type="radio" name="q11A-radios" id="q11Aopt2" value="2"</td>
-                    <td><input type="radio" name="q11A-radios" id="q11Aopt3" value="3"</td>
-                    <td><input type="radio" name="q11A-radios" id="q11Aopt4" value="4"</td>
-                    <td><input type="radio" name="q11A-radios" id="q11Aopt5" value="5"</td>
-                  </tr>
-                  <tr>
+                  {% for f in platforms %}
+                    <tr>
+                      <td><label for="{{ f.id_for_label }}">{{ f.label }}</label></td>
+                      {% for value, text in f.field.choices %}
+                        <td><center><input type="radio" name="{{ f.html_name }}" id="q11Aopt1" value="{{ value }}"></center></td> 
+                      {% endfor %}
+                    </tr>
+                  {% endfor %}
+                 <!--  <tr>
                     <td><label for="q11B">Reddit</label></td>
-                    <td><input type="radio" name="q11B-radios" id="q11Bopt1" value="1"</td> 
-                    <td><input type="radio" name="q11B-radios" id="q11Bopt2" value="2"</td>
-                    <td><input type="radio" name="q11B-radios" id="q11Bopt3" value="3"</td>
-                    <td><input type="radio" name="q11B-radios" id="q11Bopt4" value="4"</td>
-                    <td><input type="radio" name="q11B-radios" id="q11Bopt5" value="5"</td>
+                    <td><input type="radio" name="q11B-radios" id="q11Bopt1" value="1"></td> 
+                    <td><input type="radio" name="q11B-radios" id="q11Bopt2" value="2"></td>
+                    <td><input type="radio" name="q11B-radios" id="q11Bopt3" value="3"></td>
+                    <td><input type="radio" name="q11B-radios" id="q11Bopt4" value="4"></td>
+                    <td><input type="radio" name="q11B-radios" id="q11Bopt5" value="5"></td>
                   </tr>
                   <tr>
                     <td><label for="q11C">Twitter</label></td>
-                    <td><input type="radio" name="q11C-radios" id="q11Copt1" value="1"</td> 
-                    <td><input type="radio" name="q11C-radios" id="q11Copt2" value="2"</td>
-                    <td><input type="radio" name="q11C-radios" id="q11Copt3" value="3"</td>
-                    <td><input type="radio" name="q11C-radios" id="q11Copt4" value="4"</td>
-                    <td><input type="radio" name="q11C-radios" id="q11Copt5" value="5"</td>
-                  </tr>
+                    <td><input type="radio" name="q11C-radios" id="q11Copt1" value="1"></td> 
+                    <td><input type="radio" name="q11C-radios" id="q11Copt2" value="2"></td>
+                    <td><input type="radio" name="q11C-radios" id="q11Copt3" value="3"></td>
+                    <td><input type="radio" name="q11C-radios" id="q11Copt4" value="4"></td>
+                    <td><input type="radio" name="q11C-radios" id="q11Copt5" value="5"></td>
+                  </tr> -->
                 </table>
               </div>
               <br><br>
               
               <div class="form-group">
-                <label for="q12">Which social media platform do you use most frequently?</label>
-                <br>
-                <label class="radio">
-                  <input type="radio" name="q12-radios" id="q12opt1" value="1">Facebook
-                </label>
-                <label class="radio">
-                  <input type="radio" name="q12-radios" id="q12opt2" value="2">Reddit
-                </label>
-                <label class="radio">
-                  <input type="radio" name="q12-radios" id="q12opt3" value="3">Twitter
-                </label>
-                <label class="radio">
-                  <input type="radio" name="q12-radios" id="q12opt4" value="4">Pinterest
-                </label>
-                <label class="radio">
-                  <input type="radio" name="q12-radios" id="q12opt5" value="5">Instagram
-                </label>
-                <label class="radio">
-                  <input type="radio" name="q12-radios" id="q12opt6" value="6">Snapchat
-                </label>
-                <label class="radio">
-                  <input type="radio" name="q12-radios" id="q12opt7" value="7">Other (please specify below)
-                </label>
-                <input type="text" class="form-control" placeholder="Lorem ipsum" name="q12textfield" id="q12text">
+                <b>{{ most_used.label }}
+                {{ most_used }}</b>
+                
               </div>
             
             <div class="col-lg-12 text-center">
             <br><br>
             <!-- <button type="submit" class="btn btn-default">Placeholder form submission</button> -->
-            <a href="{% url 'demographic_info' %}" class="btn btn-primary" role="button">Continue</a>
+            <button type="submit" class="btn btn-primary">Continue</button>
             </div>
             
             </form>
