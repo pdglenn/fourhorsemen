@@ -58,6 +58,24 @@ class DemographicForm(forms.Form):
                                          label='Do you consider yourself to be:')
 
 
+class ComputationalModerationForm(forms.Form):
+    computational_moderation = forms.ModelMultipleChoiceField(queryset=models.ComputationalModeration.objects.all(),
+                                                              widget=forms.CheckboxSelectMultiple(),
+                                                              required=False,
+                                                              label='Which criteria do you think would be most useful in detecting harassing or abusive social media posts?\nPlease select up to three')
+
+    important_prevent = forms.ModelChoiceField(queryset=models.ImportantPrevent.objects.all(),
+                                               widget=forms.RadioSelect(),
+                                               required=False,
+                                               label='As you design this tool, what do you think is more important to prevent?')
+
+    def clean_computational_moderation(self):
+        value = self.cleaned_data['computational_moderation']
+        if len(value) > 3:
+            raise forms.ValidationError("Please select only three options")
+        return value
+
+
 
 class NameForm(forms.Form):
     your_name = forms.CharField(label='Your name', max_length=100)

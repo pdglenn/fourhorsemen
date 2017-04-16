@@ -27,10 +27,16 @@ def completion_code(request):
     return render(request, 'completion_code.html', {'output': output})
 
 def computational_moderation(request):
-    return render(request, 'computational_moderation.html')
+    if request.method == 'POST':
+        form = forms.ComputationalModerationForm(request.POST)
+        if form.is_valid():
+            request.session['computational_moderation'] = form.cleaned_data
+            return HttpResponseRedirect(reverse('social_media_usage'))
+    else:
+        form = forms.ComputationalModerationForm()
+    return render(request, 'computational_moderation.html', {'form': form})
 
 def content_assessment(request):
-
     images_seen = request.session.get('images_seen', [])
     image = image_logic.get_random_image(request)
     images_seen.append(image)
