@@ -41,7 +41,7 @@ def content_assessment(request):
         if form.is_valid():
             ca_count = request.session.get('ca_count', 0)
             print ca_count
-            if ca_count < 5:
+            if ca_count < 4:
                 request.session['assesment_' + str(ca_count)] = form.cleaned_data
                 ca_count += 1
                 request.session['ca_count'] = ca_count
