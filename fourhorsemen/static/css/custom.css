@@ -52,3 +52,24 @@ body {
 /*  background-color: #4FC1E9;*/
   /*text-align: center;*/
 }
+
+.matrix-centered {
+    text-align: center; /* center checkbox, radio, or text horizontally */
+    vertical-align: middle; /* center checkbox, radio, or text vertically */
+}
+
+.options {
+    font-weight: normal !important;
+}
+
+.question {
+    font-size: 1.2em;
+}
+
+tr:nth-child(even) {
+    background-color: #e8e8e8;
+}
+
+tr .scale {
+  background-color: #ffffff;
+}
