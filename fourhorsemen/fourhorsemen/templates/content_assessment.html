@@ -21,21 +21,22 @@
                     <br><br>
                     {{ form.errors }}
                     {% for f in how_much %}
-                        {{ f.label }}
+                        <b>{{ f.label }}</b>
                         <table>
                             <tr>
                                 {% for value, text in f.field.choices %}
-                                    <th width="20%">{{ text }}</th>
+                                    <th width="20%" class="matrix-centered options">{{ text }}</th>
                                 {% endfor %}
                             </tr>
                             <tr>
                                 {% for value, text in f.field.choices %}
-                                    <td>
-                                        <center><input type="radio" name="{{ f.html_name }}" value="{{ value }}"></center>
+                                    <td class="matrix-centered scale">
+                                        <input type="radio" name="{{ f.html_name }}" value="{{ value }}">
                                     </td>
                                 {% endfor %}
                             </tr>
                         </table>
+                        <br><br>
                     {% endfor %}
                 </div>
                 <div class="form-group">
