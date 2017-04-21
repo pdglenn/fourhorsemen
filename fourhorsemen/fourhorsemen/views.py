@@ -20,11 +20,11 @@ def additional_comments(request):
     print request.session
     return render(request, 'additional_comments.html')
 
-def completion_code(request):
+def visualizations(request):
     output = {}
     for k in request.session.keys():
         output[k] = request.session[k]
-    return render(request, 'completion_code.html', {'output': output})
+    return render(request, 'visualizations.html', {'output': output})
 
 def computational_moderation(request):
     if request.method == 'POST':
@@ -79,7 +79,7 @@ def harassment_experience(request):
         form = forms.HarassmentExperienceForm(request.POST)
         if form.is_valid():
             request.session['harassment_experience'] = form.cleaned_data
-            return HttpResponseRedirect(reverse('additional_comments'))
+            return HttpResponseRedirect(reverse('visualizations'))
     else:
         form = forms.HarassmentExperienceForm()
     return render(request, 'harassment_experience.html', {'form': form})

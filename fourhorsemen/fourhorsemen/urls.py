@@ -20,7 +20,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^additional_comments/$', views.additional_comments, name='additional_comments'),
-    url(r'^completion_code/$', views.completion_code, name='completion_code'),
+    url(r'^visualizations/$', views.visualizations, name='visualizations'),
     url(r'^computational_moderation/$', views.computational_moderation, name='computational_moderation'),
     url(r'^content_assessment/$', views.content_assessment, name='content_assessment'),
     url(r'^demographic_info/$', views.demographic_info, name='demographic_info'),
