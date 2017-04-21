@@ -20,42 +20,27 @@
               {% csrf_token %}
               <div class="form-group">
                 <br><br>
-                <label for="q11">On average, how often do you visit the following social media sites?</label>
+                <label for="q11" class="question">On average, how often do you visit the following social media sites?</label>
                 <br>
                 {{ form.errors }}
                 <table style="width:100%">
                   <tr>
-                    <th>Platform/Site</th>
-                    <th>Multiple times a day</th> 
-                    <th>Daily</th>
-                    <th>Weekly</th>
-                    <th>Monthly</th> 
-                    <th>Rarely/Never</th>
+                    <th width="20%">Platform/Site</th>
+                    <th width="8%" class="matrix-centered">Multiple times a day</th> 
+                    <th width="8%" class="matrix-centered">Daily</th>
+                    <th width="8%" class="matrix-centered">Weekly</th>
+                    <th width="8%" class="matrix-centered">Monthly</th> 
+                    <th width="8%" class="matrix-centered">Rarely/Never</th>
                   </tr>
                   {% for f in platforms %}
                     <tr>
-                      <td><label for="{{ f.id_for_label }}">{{ f.label }}</label></td>
+                      <td><label for="{{ f.id_for_label }}" class="options">{{ f.label }}</label></td>
                       {% for value, text in f.field.choices %}
-                        <td><center><input type="radio" name="{{ f.html_name }}" id="q11Aopt1" value="{{ value }}"></center></td> 
+                        <td class="matrix-centered"><center><input type="radio" name="{{ f.html_name }}" id="q11Aopt1" value="{{ value }}"></center></td> 
                       {% endfor %}
                     </tr>
                   {% endfor %}
-                 <!--  <tr>
-                    <td><label for="q11B">Reddit</label></td>
-                    <td><input type="radio" name="q11B-radios" id="q11Bopt1" value="1"></td> 
-                    <td><input type="radio" name="q11B-radios" id="q11Bopt2" value="2"></td>
-                    <td><input type="radio" name="q11B-radios" id="q11Bopt3" value="3"></td>
-                    <td><input type="radio" name="q11B-radios" id="q11Bopt4" value="4"></td>
-                    <td><input type="radio" name="q11B-radios" id="q11Bopt5" value="5"></td>
-                  </tr>
-                  <tr>
-                    <td><label for="q11C">Twitter</label></td>
-                    <td><input type="radio" name="q11C-radios" id="q11Copt1" value="1"></td> 
-                    <td><input type="radio" name="q11C-radios" id="q11Copt2" value="2"></td>
-                    <td><input type="radio" name="q11C-radios" id="q11Copt3" value="3"></td>
-                    <td><input type="radio" name="q11C-radios" id="q11Copt4" value="4"></td>
-                    <td><input type="radio" name="q11C-radios" id="q11Copt5" value="5"></td>
-                  </tr> -->
+                 
                 </table>
               </div>
               <br><br>
