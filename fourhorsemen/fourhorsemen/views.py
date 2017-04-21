@@ -35,6 +35,7 @@ def computational_moderation(request):
     else:
         form = forms.ComputationalModerationForm()
     return render(request, 'computational_moderation.html', {'form': form})
+                                                             
 
 def content_assessment(request):
     images_seen = request.session.get('images_seen', [])
@@ -57,7 +58,9 @@ def content_assessment(request):
     else:
         form = forms.ContentAssessmentForm()
 
-    return render(request, 'content_assessment.html', {'form': form, 'image': image})
+    return render(request, 'content_assessment.html', {'form': form, 'image': image,
+                                                       'how_much': list(form)[:-1],
+                                                       'which_remediation': list(form)[-1]})
     
 
 def demographic_info(request):

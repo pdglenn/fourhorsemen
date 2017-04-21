@@ -22,10 +22,10 @@ class ContentAssessmentForm(forms.Form):
                                          required=False,
                                          label='How abusive is this social media post?')
 
-    how_appropriate = forms.ModelChoiceField(queryset=models.HowAppropriate.objects.all(),
-                                             widget=forms.RadioSelect(),
-                                             required=False,
-                                             label='How appropriate is this social media post?')
+    # how_appropriate = forms.ModelChoiceField(queryset=models.HowAppropriate.objects.all(),
+    #                                          widget=forms.RadioSelect(),
+    #                                          required=False,
+    #                                          label='How appropriate is this social media post?')
 
     how_often = forms.ModelChoiceField(queryset=models.HowOften.objects.all(),
                                        widget=forms.RadioSelect(),
