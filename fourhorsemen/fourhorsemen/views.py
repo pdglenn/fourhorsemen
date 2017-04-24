@@ -53,7 +53,9 @@ def content_assessment(request):
                 ca_count += 1
                 request.session['ca_count'] = ca_count
                 form = forms.ContentAssessmentForm()
-                return render(request, 'content_assessment.html', {'form': form, 'image': image})
+                return render(request, 'content_assessment.html', {'form': form, 'image': image,
+                                                                   'how_much': list(form)[:-1],
+                                                                   'which_remediation': list(form)[-1]})
             return HttpResponseRedirect(reverse('remediation_assessment'))
     else:
         form = forms.ContentAssessmentForm()
