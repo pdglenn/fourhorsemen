@@ -1,22 +1,107 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-    <!-- Page Content -->
-    <div class="container">
 
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <img src="{{ baseURL }}{{ image }}" class="img-responsive center-block" alt="insert content placeholder here">
-                <div class="col-md-2"></div>
-                <div class="col-md-8 text-center center-block">
-                    <br><br>
-                    {{ form }}
-                    
+<div class="overlay"></div>
+
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">Moderation Machine</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-home"></i> Research Section 1</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-folder"></i> Research Section 2</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-file-o"></i> Research Section 3</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-cog"></i> Research Section 4</a>
+                </li>
+                <hr>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-plus"></i> Global Filters <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li class="dropdown-header">DEMOGRAPHICS</li>
+                    <li><a href="#"><i class="fa fa-square-o"></i> Action</a></li>
+                    <li><a href="#"><i class="fa fa-square-o"></i> Another action</a></li>
+                    <li><a href="#"><i class="fa fa-square-o"></i> Something else here</a></li>
+                    <li><a href="#"><i class="fa fa-square-o"></i> Separated link</a></li>
+                    <li><a href="#"><i class="fa fa-square-o"></i> One more separated link</a></li>
+                    <li class="dropdown-header">SOCIAL MEDIA USAGE</li>
+                    <li><a href="#"><i class="fa fa-square-o"></i> Action</a></li>
+                    <li><a href="#"><i class="fa fa-square-o"></i> Another action</a></li>
+                    <li><a href="#"><i class="fa fa-square-o"></i> Something else here</a></li>
+                    <li><a href="#"><i class="fa fa-square-o"></i> Separated link</a></li>
+                    <li><a href="#"><i class="fa fa-square-o"></i> One more separated link</a></li>
+                    <li class="dropdown-header">RATED HARASSMENT LEVEL</li>
+                    <li><a href="#"><i class="fa fa-square-o"></i> Action</a></li>
+                    <li><a href="#"><i class="fa fa-square-o"></i> Another action</a></li>
+                    <li><a href="#"><i class="fa fa-square-o"></i> Something else here</a></li>
+                    <li><a href="#"><i class="fa fa-square-o"></i> Separated link</a></li>
+                    <li><a href="#"><i class="fa fa-square-o"></i> One more separated link</a></li>
+                  </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+            </button>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <p class="lead">Here's how others responded to this same social media message:</p>
+                        <img src="{{ baseURL }}{{ image }}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
+
+                        {{ form }}
+
+                    <section id="">
+                        <h3>Visualization Title</h3>
+                        <p>Here's a brief explanation of what you'll learn from the chart below. Nam dapibus erat magna. Nullam ullamcorper facilisis augue nec finibus.</p>
+                        <i class="fa fa-area-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-line-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
+                    </section>
+
+                    <section id="">
+                        <h3>Visualization Title</h3>
+                        <p>Here's a brief explanation of what you'll learn from the chart below. Nam dapibus erat magna. Nullam ullamcorper facilisis augue nec finibus.</p>
+                        <i class="fa fa-area-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-line-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
+                    </section>
+
+                    <section id="">
+                        <h3>Visualization Title</h3>
+                        <p>Here's a brief explanation of what you'll learn from the chart below. Nam dapibus erat magna. Nullam ullamcorper facilisis augue nec finibus.</p>
+                        <i class="fa fa-area-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-line-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
+                    </section>
+
+                    <section class="last">
+                        <a href="{% url 'content_assessment' %}"><button class="btn btn-primary" type="button"><i class="fa fa-fw fa-commenting-o"></i> Rate More Content</button></a>
+                        <a href="{% url 'visualizations' %}"><button class="btn btn-primary" type="button"><i class="fa fa-fw fa-line-chart"></i> View Visualizations</button></a>
+                    </section>
+
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- /.row -->
+        <!-- /#page-content-wrapper -->
 
-    </div>
-    <!-- /.container -->
 {% endblock %}
