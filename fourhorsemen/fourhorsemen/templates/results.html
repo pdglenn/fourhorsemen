@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>Thank you for taking our survey!</h1>
+                <div class="col-md-2"></div>
+                <div class="col-md-8 text-center center-block">
+                    <p class="lead">Please copy the following code and enter it into your referring HIT platform to receive payment for completing this survey:</p>
+                    <br><br>
+                    {{ output }}
+                    
+                </div>
+                <div class="col-md-8 text-center center-block">
+                    <link rel=stylesheet href="{% static '/css/test.css' %}" type="text/css">
+                    <script src="https://d3js.org/d3.v4.min.js"></script>
+                      <div id="chart" align="center">
+                        <script>var csv_url = "{% static '/data/testdata.csv' %}" </script>
+                        <script src="{% static '/js/test.js' %}"></script>
+
+                      </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+{% endblock %}
