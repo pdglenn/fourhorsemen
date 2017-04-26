@@ -130,17 +130,21 @@
 - model: fourhorsemen.socialfrequency
   pk: 1
   fields:
-    frequency: Daily
+    frequency: Multiple Times a Day
 - model: fourhorsemen.socialfrequency
   pk: 2
   fields:
-    frequency: Weekly
+    frequency: Daily
 - model: fourhorsemen.socialfrequency
   pk: 3
   fields:
-    frequency: Monthly
+    frequency: Weekly
 - model: fourhorsemen.socialfrequency
   pk: 4
+  fields:
+    frequency: Monthly
+- model: fourhorsemen.socialfrequency
+  pk: 5
   fields:
     frequency: Rarely/Never
 # ------------------------
@@ -161,74 +165,6 @@
   pk: 4
   fields:
     age: 65+
-# ------------------------
-# ----- socialusage ---------
-- model: fourhorsemen.socialusage
-  pk: 1
-  fields:
-    usage: Multiple times a day
-- model: fourhorsemen.socialusage
-  pk: 2
-  fields:
-    usage: Daily
-- model: fourhorsemen.socialusage
-  pk: 3
-  fields:
-    usage: Weekly
-- model: fourhorsemen.socialusage
-  pk: 4
-  fields:
-    usage: Monthly
-- model: fourhorsemen.socialusage
-  pk: 5
-  fields:
-    usage: Rarely/Never
-# ------------------------
-# ----- whichremediation ---------
-- model: fourhorsemen.whichremediation
-  pk: 1
-  fields:
-    remediation: Take no action
-- model: fourhorsemen.whichremediation
-  pk: 2
-  fields:
-    remediation: Remove the message from the platform and take no further action
-- model: fourhorsemen.whichremediation
-  pk: 3
-  fields:
-    remediation: Before the user can post the message, notify them it has been deemed potentially abusive or harassing by an automated system and require confirmation to post it
-- model: fourhorsemen.whichremediation
-  pk: 4
-  fields:
-    remediation: Add poster to a block-list which hides their posts from all subscribers to that block-list
-- model: fourhorsemen.whichremediation
-  pk: 5
-  fields:
-    remediation: Prevent the user from posting again until they complete an empathy exercise
-- model: fourhorsemen.whichremediation
-  pk: 6
-  fields:
-    remediation: Activate a bot which targets offensive comments to the poster for 12 hours
-- model: fourhorsemen.whichremediation
-  pk: 7
-  fields:
-    remediation: Send the poster a private reminder of community code of conduct
-- model: fourhorsemen.whichremediation
-  pk: 8
-  fields:
-    remediation: Post an attention-grabbing anti-bullying message directed at the poster
-- model: fourhorsemen.whichremediation
-  pk: 9
-  fields:
-    remediation: Publicly flag the poster's profile indicating the user posted harassing content
-- model: fourhorsemen.whichremediation
-  pk: 10
-  fields:
-    remediation: Temporarily suspend the poster
-- model: fourhorsemen.whichremediation
-  pk: 11
-  fields:
-    remediation: Permanently ban the poster
 # ------------------------
 # ----- howoften ---------
 - model: fourhorsemen.howoften
@@ -251,6 +187,44 @@
   pk: 5
   fields:
     often: A great deal
+# ------------------------
+# ----- whichremediation ---------
+- model: fourhorsemen.whichremediation
+  pk: 1
+  fields:
+    remediation: Take no action
+- model: fourhorsemen.whichremediation
+  pk: 2
+  fields:
+    remediation: Remove the message from the platform
+- model: fourhorsemen.whichremediation
+  pk: 3
+  fields:
+    remediation: Add the user to a block-list which hides their posts from all subscribers to that block-list
+- model: fourhorsemen.whichremediation
+  pk: 4
+  fields:
+    remediation: Prevent the user from posting again until they complete an empathy exercise
+- model: fourhorsemen.whichremediation
+  pk: 5
+  fields:
+    remediation: Send the user a private reminder of community code of conduct
+- model: fourhorsemen.whichremediation
+  pk: 6
+  fields:
+    remediation: Post a public reminder of the community code of conduct in response to message
+- model: fourhorsemen.whichremediation
+  pk: 7
+  fields:
+    remediation: Notify the user that the post has been deemed potentially abusive or harassing by an automated system and require confirmation prior to posting it
+- model: fourhorsemen.whichremediation
+  pk: 8
+  fields:
+    remediation: Temporarily suspend the user
+- model: fourhorsemen.whichremediation
+  pk: 9
+  fields:
+    remediation: Permanently ban the user
 # ------------------------
 # ----- importantprevent ---------
 - model: fourhorsemen.importantprevent

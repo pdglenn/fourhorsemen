@@ -1,24 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <!-- Page Content -->
-    <div class="container">
+<!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h1 class="page-header">Welcome to the Moderation Machine</h1>  
+                        <p class="lead">Here is our final research project. We hope you'll find some interesting tidbits in here to explore. You can choose to view and rate the potentially harassing content we used for our research, or you can view our research results.</p>
 
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1>Welcome to the Moderation Machine</h1>
-                <div class="col-sm-2"></div>
-                <div class="col-md-8 text-center center-block">
-                    <p class="lead">Welcome to the Moderation Machine, where you will make a series of judgments and decisions about steps you would take in addressing potentially harassing content. At the end we will map your decisions to a values framework to help you understand the values you may be designing into your platform, as well as those values you are not emphasizing that you may want to consider.</p>
-                    <br>
-                    <p><font color="red">CONTENT ADVISORY: This tool will present you with content that some may find disturbing. It may include hate speech based on gender, religion, sexual orientation, physical ability and race, as well as encouragement of suicide and descriptions of sexual assault.</font></p>
-                    <br>
-                    <a href="{% url 'visualizations' %}" class="btn btn-primary" role="button">See Results</a><br>
-                    <a href="{% url 'content_assessment' %}" class="btn btn-primary" role="button">Rate Content</a>
+                    <a href="{% url 'content_assessment' %}"><button class="btn btn-primary" type="button"><i class="fa fa-fw fa-commenting-o"></i> Rate Some Content</button></a>
+                    <a href="{% url 'visualizations' %}"><button class="btn btn-primary" type="button"><i class="fa fa-fw fa-line-chart"></i> View Visualizations</button></a>
+
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- /.row -->
+<!-- /#page-content-wrapper -->
 
-    </div>
  {% endblock %}
