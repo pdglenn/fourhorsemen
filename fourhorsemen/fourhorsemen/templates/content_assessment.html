@@ -61,15 +61,18 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <p class="lead">Please consider the social media post below when responding to the following questions:</p>
+                        <div class="col-lg-8 col-lg-offset-1">
                         <img src="{{ baseURL }}{{ image }}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
-
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-lg-offset-2"
                     <form action="/content_assessment/" method="POST" role="form">
                         {% csrf_token %}
                     <div class="form-group">
                         <br><br>
                         {{ form.errors }}
                         {% for f in how_much %}
-                        <b>{{ f.label }}</b>
+                        <b class="question">{{ f.label }}</b>
                         <table>
                             <tr>
                                 {% for value, text in f.field.choices %}
@@ -88,14 +91,15 @@
                         {% endfor %}
                     </div>
                     <div class="form-group">
-                        <b>{{ which_remediation.label }}
-                        {{ which_remediation }}</b>
+                        <b class="question">{{ which_remediation.label }}</b>
+                        <b class="options">{{ which_remediation }}</b>
                     </div>
-                            
-                    <button type="submit" class="btn btn-primary">Continue</button><br>
-                    </form>
 
-                    <a href="{% url 'visualizations' %}"><button class="btn btn-primary last">See Results</button></a>
+                    <section class="last">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-commenting-o"></i> Continue and Compare My Results</button>
+                    </form>
+                        <a href="{% url 'visualizations' %}"><button class="btn btn-primary" type="button"><i class="fa fa-fw fa-line-chart"></i> View Visualizations</button></a>
+                    </section>
 
                 </div>
             </div>
