@@ -6,14 +6,7 @@ from . import forms
 from . import image_logic
 
 def index(request):
-    return render(request, 'index.html')
-
-
-def visualizations(request):
-    output = {}
-    for k in request.session.keys():
-        output[k] = request.session[k]
-    return render(request, 'visualizations.html', {'output': output})
+    return render(request, 'index.html', {'next': 'content_assessment'})
 
 
 def content_assessment(request):
@@ -28,24 +21,41 @@ def content_assessment(request):
             request.session['image'] = image
             request.session['form'] = form.cleaned_data
             form = forms.ContentAssessmentForm()
-            return HttpResponseRedirect(reverse('content_visualization'))
+            return HttpResponseRedirect(reverse('free_speech'))
                                                                
     else:
         form = forms.ContentAssessmentForm()
 
     return render(request, 'content_assessment.html', {'form': form, 'image': image,
                                                        'how_much': list(form)[:-1],
-                                                       'which_remediation': list(form)[-1]})
+                                                       'which_remediation': list(form)[-1], 'next': reverse('free_speech')})
     
 
-def content_visualization(request):
-    try:
-        form = request.session.pop('form')
-        image = request.session.pop('image')
-    except KeyError:
-        form, image = None, None
+def free_speech(request):
+    return render(request, 'free_speech.html', {'next': reverse('who_moderates')})
 
-    return render(request, 'content_visualization.html', {'form': form,
-                                                          'image': image})
+
+def who_moderates(request):
+    return render(request, 'who_moderates.html', {'next': reverse('algorithmic_factors')})
+
+
+def algorithmic_factors(request):
+    return render(request, 'algorithmic_factors.html', {'next': reverse('remediation_options')})
+
+
+def remediation_options(request):
+    return render(request, 'remediation_options.html', {'next': reverse('content_flags')})
+
+
+def content_flags(request):
+    return render(request, 'content_flags.html', {'next': reverse('context_matters')})
+
+
+def context_matters(request):
+    return render(request, 'context_matters.html', {'next': reverse('fin')})
+
+
+def fin(request):
+    return render(request, 'fin.html', {'next': 'index'})
 
 

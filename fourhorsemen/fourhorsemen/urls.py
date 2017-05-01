@@ -19,8 +19,13 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^visualizations/$', views.visualizations, name='visualizations'),
     url(r'^content_assessment/$', views.content_assessment, name='content_assessment'),
-    url(r'^content_visualization/$', views.content_visualization, name='content_visualization'),
+    url(r'^free_speech/$', views.free_speech, name='free_speech'),
+    url(r'^who_moderates/$', views.who_moderates, name='who_moderates'),
+    url(r'^algorithmic_factors/$', views.algorithmic_factors, name='algorithmic_factors'),
+    url(r'^remediation_options/$', views.remediation_options, name='remediation_options'),
+    url(r'^content_flags/$', views.content_flags, name='content_flags'),
+    url(r'^context_matters/$', views.context_matters, name='context_matters'),
+    url(r'^fin/$', views.fin, name='fin'),
     url(r'^admin/', admin.site.urls),
 ]
