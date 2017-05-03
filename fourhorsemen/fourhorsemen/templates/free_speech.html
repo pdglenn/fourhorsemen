@@ -1,33 +1,75 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-    <!-- Page Content -->
+<!-- Page Content -->
+<div id="page-content-wrapper">
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1>Thank you for taking our survey!</h1>
-                <div class="col-md-2"></div>
-                <div class="col-md-8 text-center center-block">
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis purus ut eros dapibus auctor. Vestibulum scelerisque placerat nibh, maximus consequat diam consectetur in. Morbi lacinia arcu et mattis convallis. Maecenas dapibus tincidunt dolor, ut tristique purus sagittis ac. Mauris vitae efficitur enim. Pellentesque euismod id neque at ultricies. Curabitur ullamcorper consequat porta. Mauris laoreet auctor lacus ut eleifend. Fusce ut libero non dolor aliquam condimentum et nec orci. Morbi in ornare metus. Pellentesque mattis placerat est non malesuada.</p>
-                    <br><br>
-
-                    
+            <div class="col-lg-8 col-lg-offset-2">
+                <p class="lead">Which of the following scenarios is more important to prevent?
+                </p>
+                <div class="col-lg-6">
+                    <img src="../static/img/algorithmic/algorithmic-hillaryclinton_kill_yourself.jpg" class="img-responsive center-block" alt="image of a potentially harassing social media post">
+                    <p class="message-caption">This person being detained and jailed at the border before being refused entry to the US and sent back to Britain (“destroy” is British slang for “party hard and get drunk”).</p>
+                    <a href=""><button class="btn btn-primary" type="button" style="margin:auto;display:block">Prevent this one</button></a>
                 </div>
-                <div class="col-md-8 text-center center-block">
-                    <link rel=stylesheet href="{% static '/css/test.css' %}" type="text/css">
+                <div class="col-lg-6">
+                    <img src="../static/img/algorithmic/algorithmic-hillaryclinton_kill_yourself.jpg" class="img-responsive center-block" alt="image of a potentially harassing social media post">
+                    <p class="message-caption">This person's message not being flagged and not being removed from the platform.</p>
+                    <a href=""><button class="btn btn-primary" type="button" style="margin:auto;display:block">Prevent this one</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+
+                    <section id="">
+                        <h3>Free Speech vs. Hate Speech</h3>
+                        <p>We asked our participants whether, when designing an algorithm to prevent harassment, it would be more important to prevent:</p>
+                        <ul style="color:rgba(255, 255, 255, 0.7)">
+                            <li>Non-harassing content being flagged as harassing and potentially subjected to remediation</li>
+                            <li>Harassing content not being flagged as harassing and not subjected to remediation</li>
+                            <li>No preference</li>
+                        </ul>
+                        <p>We were surprised by the finding that <em>three times</em> as many people wanted to prevent false negatives, that is, having genuinely harassing content get through the filters and reach the public or its target. This is a big surprise because there is a vocal minority that advocates strongly that this type of content should be considered “free speech.”</p>
+                        <p>To that, we say: government censorship should be guarded against, but harassment does more to silence the public speech of women and minorities than does blocking genuinely harassing content. Our participants overwhelmingly seemed to agree with that assessment:</p>
+                    </section>
+
+                    <section id="">
+                        <i class="fa fa-area-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-line-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
+                    </section>
+
+                    <section id="chart">
+                    <!-- <link rel=stylesheet href="{% static '/css/test.css' %}" type="text/css"> -->
                     <script src="https://d3js.org/d3.v4.min.js"></script>
                       <div id="chart" align="center">
                         <script>var csv_url = "{% static '/data/testdata.csv' %}" </script>
                         <script src="{% static '/js/test.js' %}"></script>
+                    </div>
+                    </section>
 
-                      </div>
+                    <section id="">
+                        <p>We found this comic reflected a lot of what we're feeling:</p>
+                        <img src="https://imgs.xkcd.com/comics/free_speech.png">
+                        <p class="message-caption">Source: XKCD</p>
+                    </section>  
+
+                    <section id="">
+                        <h3>But What Are the Outcomes?</h3>
+                        <p>We need to put something else here that will stand in for a more complex description of what comes out of having platforms decide free speech, especially in regards to political speech, war, obscenity, etc.</p>
+                    </section>                      
+
+                    <section class="last">
+                        <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
+                    </section>
                 </div>
             </div>
-            <a href="{{ next }}">Next</a>
-        </div>
-        <!-- /.row -->
-
     </div>
-    <!-- /.container -->
+        <!-- /.container -->
+</div>
+    <!-- /.page-wrapper -->
 {% endblock %}

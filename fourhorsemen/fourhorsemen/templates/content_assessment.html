@@ -2,65 +2,14 @@
 {% block content %}
 {% load static %}
 
-<div class="overlay"></div>
-    <!-- Sidebar -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-            <ul class="nav sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">Moderation Machine</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-home"></i> Research Section 1</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-folder"></i> Research Section 2</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-file-o"></i> Research Section 3</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-fw fa-cog"></i> Research Section 4</a>
-                </li>
-                <hr>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-plus"></i> Global Filters <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li class="dropdown-header">DEMOGRAPHICS</li>
-                    <li><a href="#"><i class="fa fa-square-o"></i> Action</a></li>
-                    <li><a href="#"><i class="fa fa-square-o"></i> Another action</a></li>
-                    <li><a href="#"><i class="fa fa-square-o"></i> Something else here</a></li>
-                    <li><a href="#"><i class="fa fa-square-o"></i> Separated link</a></li>
-                    <li><a href="#"><i class="fa fa-square-o"></i> One more separated link</a></li>
-                    <li class="dropdown-header">SOCIAL MEDIA USAGE</li>
-                    <li><a href="#"><i class="fa fa-square-o"></i> Action</a></li>
-                    <li><a href="#"><i class="fa fa-square-o"></i> Another action</a></li>
-                    <li><a href="#"><i class="fa fa-square-o"></i> Something else here</a></li>
-                    <li><a href="#"><i class="fa fa-square-o"></i> Separated link</a></li>
-                    <li><a href="#"><i class="fa fa-square-o"></i> One more separated link</a></li>
-                    <li class="dropdown-header">RATED HARASSMENT LEVEL</li>
-                    <li><a href="#"><i class="fa fa-square-o"></i> Action</a></li>
-                    <li><a href="#"><i class="fa fa-square-o"></i> Another action</a></li>
-                    <li><a href="#"><i class="fa fa-square-o"></i> Something else here</a></li>
-                    <li><a href="#"><i class="fa fa-square-o"></i> Separated link</a></li>
-                    <li><a href="#"><i class="fa fa-square-o"></i> One more separated link</a></li>
-                  </ul>
-                </li>
-            </ul>
-        </nav>
-    <!-- /#sidebar-wrapper -->
-
-    <!-- Page Content -->
+<!-- Page Content -->
 
         <div id="page-content-wrapper">
-            <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
-            <span class="hamb-top"></span>
-            <span class="hamb-middle"></span>
-            <span class="hamb-bottom"></span>
-            </button>
+
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <p class="lead">Please consider the social media post below when responding to the following questions:</p>
+                        <p class="lead">To begin, please rate the following piece of online content:</p>
                         <div class="col-lg-8 col-lg-offset-1">
                         <img src="{{ baseURL }}{{ image }}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
                         </div>
@@ -90,15 +39,38 @@
                         <br><br>
                         {% endfor %}
                     </div>
-                    <div class="form-group">
-                        <b class="question">{{ which_remediation.label }}</b>
-                        <b class="options">{{ which_remediation }}</b>
+
+                    <a href=""><button type="button" class="btn btn-primary">Click to reveal stuff below</button></a>
+                    </form>
+
+                    <div>
+
+                    <section id="">
+                        <h3>Harassment Ratings: Our Results</h3>
+                        <p>In our survey, we asked people to rate pieces of content with similar levels of suggested violence. We expected to see wider variations in the means of rated harassment, but the messages were rated very similarly by most participants:</p>
+                    </section>
+                    <section id="">
+                        <i class="fa fa-area-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-line-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
+                    </section>
+                    <section id="chart">
+                    <!-- <link rel=stylesheet href="{% static '/css/test.css' %}" type="text/css"> -->
+                    <script src="https://d3js.org/d3.v4.min.js"></script>
+                      <div id="chart" align="center">
+                        <script>var csv_url = "{% static '/data/testdata.csv' %}" </script>
+                        <script src="{% static '/js/test.js' %}"></script>
+                    </div>
+                  </section>
+                    <section id="">
+                        <p>Interestingly, what has been typically defined as online harassment differs substantially from what American legal definitions of harassment are. This can lead to issues getting law enforcement involved. However, internet users seemed to be able to come to a consensus that material advocating violence does not belong on these channels.</p>
+                    </section>                        
+                    
                     </div>
 
                     <section class="last">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-commenting-o"></i> Don't click this</button>
-                    </form>
-                        <a href="{{ next }}"><button class="btn btn-primary" type="button"><i class="fa fa-fw fa-line-chart"></i> Next</button></a>
+                        <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
                     </section>
 
                 </div>

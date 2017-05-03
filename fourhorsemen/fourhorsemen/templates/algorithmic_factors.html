@@ -2,29 +2,55 @@
 {% block content %}
 {% load static %}
     <!-- Page Content -->
+<div id="page-content-wrapper">
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1>Thank you for taking our survey!</h1>
-                <div class="col-md-2"></div>
-                <div class="col-md-8 text-center center-block">
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis purus ut eros dapibus auctor. Vestibulum scelerisque placerat nibh, maximus consequat diam consectetur in. Morbi lacinia arcu et mattis convallis. Maecenas dapibus tincidunt dolor, ut tristique purus sagittis ac. Mauris vitae efficitur enim. Pellentesque euismod id neque at ultricies. Curabitur ullamcorper consequat porta. Mauris laoreet auctor lacus ut eleifend. Fusce ut libero non dolor aliquam condimentum et nec orci. Morbi in ornare metus. Pellentesque mattis placerat est non malesuada.</p>
-                    <br><br>
-
-                    
-                </div>
-                <div class="col-md-8 text-center center-block">
-                    <link rel=stylesheet href="{% static '/css/test.css' %}" type="text/css">
-                    <script src="https://d3js.org/d3.v4.min.js"></script>
-                      <div id="chart" align="center">
-                        <script>var csv_url = "{% static '/data/testdata.csv' %}" </script>
-                        <script src="{% static '/js/test.js' %}"></script>
-
-                      </div>
-                </div>
+            <div class="col-lg-8 col-lg-offset-2">
+                <p class="lead">What factors would you want to include in your own algorithm?</p>
             </div>
-            <a href="{{ next }}">Next</a>
+            
+            <div class="col-lg-8 col-lg-offset-2">
+                <form action="/content_assessment/" method="POST" role="form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <br><br>
+                    {{ form.errors }}
+                    {% for f in how_much %}
+                    <b class="question">{{ f.label }}</b>
+                    <table>
+                        <tr>
+                            {% for value, text in f.field.choices %}
+                                <th width="20%" class="matrix-centered options">{{ text }}</th>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for value, text in f.field.choices %}
+                                <td class="matrix-centered scale">
+                                    <input type="radio" name="{{ f.html_name }}" value="{{ value }}">
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    </table>
+                    <br><br>
+                    {% endfor %}
+                </div>
+                <p>form stuff should be appearing above this</p>
+                <a href=""><button type="button" class="btn btn-primary">Click to reveal stuff below</button></a>
+                </form>
+            </div>  
+        </div>      
+
+        <div class="row">           
+            <div class="col-lg-8 col-lg-offset-2">
+                <section id="">
+                    <p>We found it interesting that a large number of respondents replied with image recognition. This might show that they have come across offensive or harassing images quite often, though we didn’t ask them about that.</p>
+                </section>
+
+                <section class="last">
+                    <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
+                </section>
+            </div>
         </div>
         <!-- /.row -->
 

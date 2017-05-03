@@ -1,33 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-    <!-- Page Content -->
+<!-- Page Content -->
+<div id="page-content-wrapper">
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1>Thank you for taking our survey!</h1>
-                <div class="col-md-2"></div>
-                <div class="col-md-8 text-center center-block">
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis purus ut eros dapibus auctor. Vestibulum scelerisque placerat nibh, maximus consequat diam consectetur in. Morbi lacinia arcu et mattis convallis. Maecenas dapibus tincidunt dolor, ut tristique purus sagittis ac. Mauris vitae efficitur enim. Pellentesque euismod id neque at ultricies. Curabitur ullamcorper consequat porta. Mauris laoreet auctor lacus ut eleifend. Fusce ut libero non dolor aliquam condimentum et nec orci. Morbi in ornare metus. Pellentesque mattis placerat est non malesuada.</p>
-                    <br><br>
+                <div class="col-lg-8 col-lg-offset-2">
 
-                    
-                </div>
-                <div class="col-md-8 text-center center-block">
-                    <link rel=stylesheet href="{% static '/css/test.css' %}" type="text/css">
-                    <script src="https://d3js.org/d3.v4.min.js"></script>
-                      <div id="chart" align="center">
-                        <script>var csv_url = "{% static '/data/testdata.csv' %}" </script>
-                        <script src="{% static '/js/test.js' %}"></script>
+                    <section id="">
+                        <h3>Thank you for visiting our reflection site!</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent semper mauris in ipsum mollis luctus. Curabitur tempor nisi vel faucibus vulputate. Sed vestibulum massa ante, eget faucibus sem venenatis ac. Nulla malesuada sem vel felis sodales, sed porta diam mollis. Nulla facilisi. In lacinia laoreet ex, vitae egestas neque euismod nec. Nunc volutpat hendrerit semper. Fusce sed dictum quam, eget fringilla eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non egestas diam, et faucibus elit.</p>
+                    </section>                      
 
-                      </div>
                 </div>
             </div>
-            <a href="{{ next }}">Next</a>
-        </div>
-        <!-- /.row -->
-
     </div>
-    <!-- /.container -->
+        <!-- /.container -->
+</div>
+<!-- /.page-wrapper -->
 {% endblock %}
