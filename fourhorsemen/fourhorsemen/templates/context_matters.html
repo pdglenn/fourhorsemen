@@ -1,33 +1,57 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-    <!-- Page Content -->
+<!-- Page Content -->
+<div id="page-content-wrapper">
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1>Thank you for taking our survey!</h1>
-                <div class="col-md-2"></div>
-                <div class="col-md-8 text-center center-block">
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis purus ut eros dapibus auctor. Vestibulum scelerisque placerat nibh, maximus consequat diam consectetur in. Morbi lacinia arcu et mattis convallis. Maecenas dapibus tincidunt dolor, ut tristique purus sagittis ac. Mauris vitae efficitur enim. Pellentesque euismod id neque at ultricies. Curabitur ullamcorper consequat porta. Mauris laoreet auctor lacus ut eleifend. Fusce ut libero non dolor aliquam condimentum et nec orci. Morbi in ornare metus. Pellentesque mattis placerat est non malesuada.</p>
-                    <br><br>
-
-                    
+                <div class="col-lg-8 col-lg-offset-2">
+                        <p class="lead">This is placeholder for the interaction instructions:</p>
+                        <div class="col-lg-8 col-lg-offset-1">
+                            <img src="../static/img/algorithmic/algorithmic-hillaryclinton_kill_yourself.jpg" class="img-responsive center-block" alt="image of a potentially harassing social media post">
+                        </div>
+                        <a href=""><button type="button" class="btn btn-primary">Click to reveal stuff below</button></a>
                 </div>
-                <div class="col-md-8 text-center center-block">
-                    <link rel=stylesheet href="{% static '/css/test.css' %}" type="text/css">
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <section id="">
+                        <h3>Context Matters</h3>
+                        <p>Should there be places on the internet where content like this should be allowed?</p>
+                        <p>What does that mean for people who go there?</p>
+                        <p>Who becomes included or excluded in those discussions?</p>
+                        <p>Do you think of some places as already being that?</p>
+                        <p>Would you want to go there?</p>
+                    </section>
+
+                    <section id="">
+                        <i class="fa fa-area-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-line-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
+                    </section>
+
+                    <section id="chart">
+                    <!-- <link rel=stylesheet href="{% static '/css/test.css' %}" type="text/css"> -->
                     <script src="https://d3js.org/d3.v4.min.js"></script>
                       <div id="chart" align="center">
                         <script>var csv_url = "{% static '/data/testdata.csv' %}" </script>
                         <script src="{% static '/js/test.js' %}"></script>
+                    </div>
+                    </section>
 
-                      </div>
+                    <section id="">
+                        <p>I'm not sure what chart we would put above.</p>
+                    </section>                       
+
+                    <section class="last">
+                        <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
+                    </section>
                 </div>
             </div>
-            <a href="{{ next }}">Next</a>
-        </div>
-        <!-- /.row -->
-
     </div>
-    <!-- /.container -->
+        <!-- /.container -->
+</div>
+<!-- /.page-wrapper -->
 {% endblock %}
