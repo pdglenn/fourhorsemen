@@ -25,6 +25,10 @@ svg {
   fill: black;
 }
 
+.d3_rect {
+  fill: black;
+}
+
 /*This is new stuff, probably gonna mess ish up*/
 /*.axis path,
 .axis line {
