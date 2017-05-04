@@ -27,5 +27,6 @@ urlpatterns = [
     url(r'^content_flags/$', views.content_flags, name='content_flags'),
     url(r'^context_matters/$', views.context_matters, name='context_matters'),
     url(r'^fin/$', views.fin, name='fin'),
+    url(r'^viz_playground/$', views.viz_playground, name='viz_playground'),
     url(r'^admin/', admin.site.urls),
 ]

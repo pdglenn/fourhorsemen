@@ -53,6 +53,8 @@ def content_flags(request):
 def context_matters(request):
     return render(request, 'context_matters.html', {'next': reverse('fin')})
 
+def viz_playground(request):
+    return render(request, 'viz_playground.html')
 
 def fin(request):
     return render(request, 'fin.html', {'next': 'index'})
