@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <!-- Page Content -->
+<div id="page-content-wrapper">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <p class="lead">What factors would you want to include in your own algorithm?</p>
+            </div>
+            
+            <div class="col-lg-8 col-lg-offset-2">
+                <form action="/content_assessment/" method="POST" role="form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <br><br>
+                    {{ form.errors }}
+                    {% for f in how_much %}
+                    <b class="question">{{ f.label }}</b>
+                    <table>
+                        <tr>
+                            {% for value, text in f.field.choices %}
+                                <th width="20%" class="matrix-centered options">{{ text }}</th>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for value, text in f.field.choices %}
+                                <td class="matrix-centered scale">
+                                    <input type="radio" name="{{ f.html_name }}" value="{{ value }}">
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    </table>
+                    <br><br>
+                    {% endfor %}
+                </div>
+                <p>form stuff should be appearing above this</p>
+                <a href=""><button type="button" class="btn btn-primary">Click to reveal stuff below</button></a>
+                </form>
+            </div>  
+        </div>      
+
+        <div class="row">           
+            <div class="col-lg-8 col-lg-offset-2">
+                <section id="">
+                    <p>We found it interesting that a large number of respondents replied with image recognition. This might show that they have come across offensive or harassing images quite often, though we didn’t ask them about that.</p>
+                </section>
+
+                <section class="last">
+                    <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
+                </section>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+{% endblock %}

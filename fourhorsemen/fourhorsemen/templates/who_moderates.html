@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+    <!-- Page Content -->
+<div id="page-content-wrapper">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                        <p class="lead">Replace these with our questions for fairness, accuracy, trustworthiness:</p>
+                        <div class="col-lg-8 col-lg-offset-1">
+                        <img src="{{ baseURL }}{{ image }}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <form action="/content_assessment/" method="POST" role="form">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <br><br>
+                            {{ form.errors }}
+                            {% for f in how_much %}
+                            <b class="question">{{ f.label }}</b>
+                            <table>
+                                <tr>
+                                    {% for value, text in f.field.choices %}
+                                        <th width="20%" class="matrix-centered options">{{ text }}</th>
+                                    {% endfor %}
+                                </tr>
+                                <tr>
+                                    {% for value, text in f.field.choices %}
+                                        <td class="matrix-centered scale">
+                                            <input type="radio" name="{{ f.html_name }}" value="{{ value }}">
+                                        </td>
+                                    {% endfor %}
+                                </tr>
+                            </table>
+                            <br><br>
+                            {% endfor %}
+                        </div>
+                        <a href=""><button type="button" class="btn btn-primary">Click to reveal stuff below</button></a>
+                        </form>
+                    </div>
+
+
+
+        <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <section id="">
+                        <h3>Who Moderates?</h3>
+                        <p>Less surprisingly, we found that most participants showed a preference for human moderation and judgment in determining whether content was genuinely harassing. We just don’t trust algorithms enough yet.</p>
+                        <p>However, what about the lives of the humans who have to dig through this shit, day in and day out? If receiving this type of message is traumatic, is it also traumatic to have to comb through thousands of similar messages (many with images!) per hour? (Short answer: Yes.) For instance, here are the selection of images we asked participants to rate, all were easily found on social media:</p>
+                        <i class="fa fa-area-chart fa-5x" style="color:white"></i>
+                        <p>Human moderators might do a better job, but is it worth the risks to their health? And they don’t scale as well as computers. If you want to learn more, you might want to check out some recent media coverage about content moderators:</p>
+                        <ul style="color:rgba(255, 255, 255, 0.7)">
+                            <li>WIRED: <a href="https://www.wired.com/2014/10/content-moderation/" target="_blank">“The Laborers Who Keep Dick Pics and Beheadings Out of Your Facebook Feed”</a></li>
+                            <li>The Atlantic: <a href="https://www.theatlantic.com/technology/archive/2017/03/commercial-content-moderation/518796/" target="_blank">“Social Media’s Silent Filter”</a></li>
+                            <li>Field of Vision: <a href="https://vimeo.com/213152344" target="_blank">“The Moderators”</a> (documentary)</li>
+                            <li>The Verge: <a href="https://www.theverge.com/2016/4/13/11387934/internet-moderator-history-youtube-facebook-reddit-censorship-free-speech" target="_blank">“THE SECRET RULES OF THE INTERNET: The murky history of moderation, and how it’s shaping the future of free speech”</a></li>
+                        </ul>
+                        <p>But the fact remains that most of us don’t trust algorithms and computers to make these kinds of decisions for us:</p>
+                    </section>
+
+                    <section id="">
+                        <i class="fa fa-area-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-line-chart fa-5x" style="color:white"></i>
+                        <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
+                    </section>
+
+                    <section id="chart">
+                    <!-- <link rel=stylesheet href="{% static '/css/test.css' %}" type="text/css"> -->
+                    <script src="https://d3js.org/d3.v4.min.js"></script>
+                      <div id="chart" align="center">
+                        <script>var csv_url = "{% static '/data/testdata.csv' %}" </script>
+                        <script src="{% static '/js/test.js' %}"></script>
+                    </div>
+                    </section>                   
+
+                    <section class="last">
+                        <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
+                    </section>
+                </div>
+            </div>
+    </div>
+        <!-- /.container -->
+</div>
+    <!-- /.page-wrapper -->
+{% endblock %}
