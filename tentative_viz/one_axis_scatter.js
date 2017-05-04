@@ -1,6 +1,7 @@
 // Code highly modified from https://bl.ocks.org/mbostock/3887118
 
-function one_axis_scatter(div_id, user_data) {
+function one_axis_scatter(div_id,user_data,file) {
+  
   var margin = {top: 20, right: 20, bottom: 30, left: 40},
       width = 960 - margin.left - margin.right,
       height = 350 - margin.top - margin.bottom;
@@ -21,7 +22,7 @@ function one_axis_scatter(div_id, user_data) {
     .append('g')
       .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-  d3.json('one_axis_scatter_data.json', function(error, data) {
+  d3.json(file, function(error, data) {
     if (error) throw error;
 
     // Update radius scaling here
