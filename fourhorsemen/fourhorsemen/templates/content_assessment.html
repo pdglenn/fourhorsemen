@@ -3,81 +3,81 @@
 {% load static %}
 
 <!-- Page Content -->
+<script> var data = "{% static 'data/one_axis_scatter_data.json' %}" </script>
+<script src="{% static 'js/one_axis_scatter.js' %}"></script>
+<script src="{% static 'js/content_assessment.js' %}"></script>
 
-        <div id="page-content-wrapper">
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <p class="lead">To begin, please rate the following piece of online content:</p>
-                        <div class="col-lg-8 col-lg-offset-1">
-                        <img src="{{ baseURL }}{{ image }}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-lg-offset-2">
-                    <form action="/content_assessment/" method="POST" role="form">
-                        {% csrf_token %}
-                    <div class="form-group">
-                        <br><br>
-                        {{ form.errors }}
-                        {% for f in how_much %}
-                        <b class="question">{{ f.label }}</b>
-                        <table>
-                            <tr>
-                                {% for value, text in f.field.choices %}
-                                    <th width="20%" class="matrix-centered options">{{ text }}</th>
-                                {% endfor %}
-                            </tr>
-                            <tr>
-                                {% for value, text in f.field.choices %}
-                                    <td class="matrix-centered scale">
-                                        <input type="radio" name="{{ f.html_name }}" value="{{ value }}">
-                                    </td>
-                                {% endfor %}
-                            </tr>
-                        </table>
-                        <br><br>
-                        {% endfor %}
-                    </div>
-
-                    <button type="button" id="next_button" class="btn btn-primary last" onclick="revealBottomContent()">Click to reveal stuff below</button>
-                    </form>
-
-                    <div class="bottom_content">
-                        <a name="bottom_content"></a>
-                    <section id="">
-                        <h3>Harassment Ratings: Our Results</h3>
-                        <p>In our survey, we asked people to rate pieces of content with similar levels of suggested violence. We expected to see wider variations in the means of rated harassment, but the messages were rated very similarly by most participants:</p>
-                    </section>
-
-                    <section id="">
-                        <i class="fa fa-area-chart fa-5x" style="color:white"></i>
-                        <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
-                        <i class="fa fa-line-chart fa-5x" style="color:white"></i>
-                        <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
-                    </section>
-                    <section id="chart">
-                    <!-- <link rel=stylesheet href="{% static '/css/test.css' %}" type="text/css"> -->
-                    <script src="https://d3js.org/d3.v4.min.js"></script>
-                      <div id="chart" align="center">
-                        <script>var csv_url = "{% static '/data/testdata.csv' %}" </script>
-                        <script src="{% static '/js/test.js' %}"></script>
-                    </div>
-                  </section>
-                    <section id="">
-                        <p>Interestingly, what has been typically defined as online harassment differs substantially from what American legal definitions of harassment are. This can lead to issues getting law enforcement involved. However, internet users seemed to be able to come to a consensus that material advocating violence does not belong on these channels.</p>
-                    </section>                        
-                    
-                    
-
-                    <section class="last">
-                        <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
-                    </section>
-                    </div>
-
-                </div>
-            </div>
+<div id="page-content-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <p class="lead">To begin, please rate the following piece of online content:</p>
+        <div class="col-lg-8 col-lg-offset-1">
+          <img src="{{ baseURL }}{{ image }}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
         </div>
-    </div>
+      </div>
+      <div class="col-lg-8 col-lg-offset-2">
+        <form action="/content_assessment/" method="POST" role="form">
+          {% csrf_token %}
+          <div class="form-group">
+            <br><br>
+            {{ form.errors }}
+            {% for f in form %}
+              <b class="question">{{ f.label }}</b>
+              <table>
+                <tr>
+                  {% for value, text in f.field.choices %}
+                    <th width="20%" class="matrix-centered options">{{ text }}</th>
+                  {% endfor %}
+                </tr>
+                <tr>
+                  {% for value, text in f.field.choices %}
+                      <td class="matrix-centered scale">
+                        <input type="radio" name="{{ f.html_name }}" value="{{ text }}">
+                      </td>
+                  {% endfor %}
+                </tr>
+              </table>
+              <br><br>
+            {% endfor %}
+          </div>
 
+          <button type="button" id="next_button" class="btn btn-primary last" onclick="contentAssessment()">Click to reveal stuff below</button>
+        </form>
+
+        <div class="bottom_content">
+          <a name="bottom_content"></a>
+          <section id="">
+            <h3>Harassment Ratings: Our Results</h3>
+            <p>In our survey, we asked people to rate pieces of content with similar levels of suggested violence. We expected to see wider variations in the means of rated harassment, but the messages were rated very similarly by most participants:</p>
+          </section>
+
+          <section id="">
+              <i class="fa fa-area-chart fa-5x" style="color:white"></i>
+              <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
+              <i class="fa fa-line-chart fa-5x" style="color:white"></i>
+              <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
+          </section>
+
+          <section id="chart">
+            <div id="chart" align="center">
+<!--               <script>
+                // Arguments are: div_id, user_data, datafile
+                one_axis_scatter('#chart',{"x": "Extremely harassing", "y": "0", "r": "30"},"{% static 'data/one_axis_scatter_data.json' %}");
+              </script> -->
+            </div>
+          </section>
+          <section id="">
+              <p>Interestingly, what has been typically defined as online harassment differs substantially from what American legal definitions of harassment are. This can lead to issues getting law enforcement involved. However, internet users seemed to be able to come to a consensus that material advocating violence does not belong on these channels.</p>
+          </section>                        
+          <section class="last">
+            <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% static 'data/one_axis_scatter_data.json' %}
 {% endblock %}

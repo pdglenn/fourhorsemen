@@ -27,8 +27,7 @@ def content_assessment(request):
         form = forms.ContentAssessmentForm()
 
     return render(request, 'content_assessment.html', {'form': form, 'image': image,
-                                                       'how_much': list(form)[:-1],
-                                                       'which_remediation': list(form)[-1], 'next': reverse('free_speech')})
+                                                        'next': reverse('free_speech')})
     
 
 def free_speech(request):
