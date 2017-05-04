@@ -2,11 +2,15 @@
 {% block content %}
 {% load static %}
 
-<script> var data = "{% static 'data/one_axis_scatter_data.json' %}" </script>
+<script> var data1 = "{% static 'data/one_axis_scatter_data.json' %}" </script>
+<script> var data2 = "{% static 'data/bar_chart_data.json' %}" </script>
+<script> var data3 = "{% static 'data/bar_with_mouseover_data.json' %}" </script>
+<script> var data4 = "{% static 'data/line_data.json' %}" </script>
+
 <script src="{% static 'js/one_axis_scatter.js' %}"></script>
-<script src="{% static 'js/content_assessment.js' %}"></script>
-
-
+<script src="{% static 'js/line_with_mouseover.js' %}"></script>
+<script src="{% static 'js/bar_with_mouseover.js' %}"></script>
+<script src="{% static 'js/bar_chart.js' %}"></script>
 
   <a name="bottom_content"></a>
   <section id="">
@@ -22,10 +26,28 @@
   </section>
 
   <section id="chart">
-    <div id="chart" align="center">
+    <div id="chart1" align="center">
       <script>
         // Arguments are: div_id, user_data, datafile
-        one_axis_scatter('#chart',{"x": "Extremely harassing", "y": "0", "r": "30"},"{% static 'data/one_axis_scatter_data.json' %}");
+        one_axis_scatter('#chart1',{"x": "Extremely harassing", "y": "0", "r": "30"},data1);
+      </script>
+    </div>
+    <div id="chart2" align="center">
+      <script>
+        // Arguments are: div_id, datafile
+        bar_chart('#chart2',data2)
+      </script>
+    </div>
+    <div id="chart3" align="center">
+      <script>
+        // Arguments are: div_id, datafile
+        bar_with_mouseover('#chart3',data3);
+      </script>
+    </div>
+    <div id="chart4" align="center">
+      <script>
+        // Arguments are: div_id, datafile
+        line_with_mouseover('#chart4',data4);
       </script>
     </div>
   </section>

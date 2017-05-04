@@ -55,8 +55,19 @@ def who_moderates(request):
                                                   'next': reverse('algorithmic_factors')})
 
 
-def algorithmic_factors(request):
-    return render(request, 'algorithmic_factors.html', {'next': reverse('remediation_options')})
+def algorithmic_factors(request):   
+    if request.method == 'POST':
+        form = forms.ContentAssessmentForm(request.POST)
+        if form.is_valid():
+            request.session['form'] = form.cleaned_data
+            form = forms.ContentAssessmentForm()
+            return HttpResponseRedirect(reverse('remediation_options'))
+                                                               
+    else:
+        form = forms.ContentAssessmentForm()
+
+    return render(request, 'algorithmic_factors.html', {'form': form, 
+                                                        'next': reverse('remediation_options')})
 
 
 def remediation_options(request):
