@@ -1,6 +1,7 @@
 // Code modified from http://bl.ocks.org/DStruths/9c042e3a6b66048b5bd4 and http://stackoverflow.com/questions/34886070/d3-js-multiseries-line-chart-with-mouseover-tooltip
 
-function line_with_mouseover(div_id) {
+function line_with_mouseover(div_id,file) {
+  
   var margin = {top: 20, right: 200, bottom: 20, left: 50},
       margin2 = { top: 430, right: 10, bottom: 20, left: 40 },
       width = 960 - margin.left - margin.right,
@@ -38,7 +39,7 @@ function line_with_mouseover(div_id) {
       .attr('id', 'mouse-tracker')
       .style('fill', 'white'); 
 
-  d3.json('line_data.json', function(error, data) {
+  d3.json(file, function(error, data) {
     color.domain(d3.keys(data[0]).filter(function(key) { // Set the domain of the color ordinal scale to be all the csv headers except 'date', matching a color to an issue
       return key !== 'x'; 
     }));

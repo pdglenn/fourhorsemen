@@ -24,3 +24,19 @@ svg {
 .d3_dot {
   fill: black;
 }
+
+/*This is new stuff, probably gonna mess ish up*/
+/*.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.x.axis path {
+  display: none;
+}*/
