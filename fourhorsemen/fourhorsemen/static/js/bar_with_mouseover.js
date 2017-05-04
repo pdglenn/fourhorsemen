@@ -101,7 +101,7 @@ function bar_with_mouseover(div_id,file) {
         .text(function(d) { return d; });
 
     var tooltip = svg.append('g')
-      .attr('class', 'tooltip')
+      .attr('class', 'd3_tooltip')
       .style('display', 'none');
         
     tooltip.append('rect')
