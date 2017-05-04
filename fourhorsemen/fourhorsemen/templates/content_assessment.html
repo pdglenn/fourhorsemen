@@ -3,7 +3,7 @@
 {% load static %}
 
 <!-- Page Content -->
-
+        <script src="{% static 'js/one_axis_scatter.js' %}"></script>
         <div id="page-content-wrapper">
 
             <div class="container">
@@ -60,8 +60,10 @@
                     <!-- <link rel=stylesheet href="{% static '/css/test.css' %}" type="text/css"> -->
                     <script src="https://d3js.org/d3.v4.min.js"></script>
                       <div id="chart" align="center">
-                        <script>var csv_url = "{% static '/data/testdata.csv' %}" </script>
-                        <script src="{% static '/js/test.js' %}"></script>
+                            <script>
+                              // Arguments are: div_id, user_data, datafile
+                              one_axis_scatter('#chart',{"x": "Extremely harassing", "y": "0", "r": "30"},"{% static 'data/one_axis_scatter_data.json' %}");
+                            </script>
                     </div>
                   </section>
                     <section id="">
