@@ -21,7 +21,7 @@
         <div class="form-group">
           <br><br>
           {{ form.errors }}
-          {% for f in how_much %}
+          {% for f in form %}
           <b class="question">{{ f.label }}</b>
           <table>
             <tr>
@@ -40,7 +40,7 @@
           <br><br>
           {% endfor %}
         </div>
-        <button type="button" class="btn btn-primary" onclick="whoModerates(0)">Click to reveal stuff below</button>
+        <button type="button" id="next_button" class="btn btn-primary last" onclick="whoModerates(0)">Click to reveal stuff below</button>
         </form>
       </div>
     </div>
