@@ -61,11 +61,12 @@ function bar_chart(div_id,file) {
         var xPosition = parseInt(d3.select(this).attr('transform').slice(10).split(',')[0]) + d3.mouse(this)[0] - 23;
         var yPosition = parseInt(d3.select(this).attr('transform').slice(10).split(',')[1]) + d3.mouse(this)[1] - 25;
         tooltip.attr('transform', 'translate(' + xPosition + ',' + yPosition + ')');
-        tooltip.select('text').text(d.y);
+        // tooltip.select('text').text(d.y);
+        tooltip.select('text').text(d3.format(',')(d.y));
       });
 
     var tooltip = svg.append('g')
-      .attr('class', 'tooltip')
+      .attr('class', 'd3_tooltip')
       .style('display', 'none');
         
     tooltip.append('rect')
