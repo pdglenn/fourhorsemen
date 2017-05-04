@@ -40,15 +40,16 @@
                         {% endfor %}
                     </div>
 
-                    <a href=""><button type="button" class="btn btn-primary">Click to reveal stuff below</button></a>
+                    <button type="button" id="next_button" class="btn btn-primary last" onclick="revealBottomContent()">Click to reveal stuff below</button>
                     </form>
 
-                    <div>
-
+                    <div class="bottom_content">
+                        <a name="bottom_content"></a>
                     <section id="">
                         <h3>Harassment Ratings: Our Results</h3>
                         <p>In our survey, we asked people to rate pieces of content with similar levels of suggested violence. We expected to see wider variations in the means of rated harassment, but the messages were rated very similarly by most participants:</p>
                     </section>
+
                     <section id="">
                         <i class="fa fa-area-chart fa-5x" style="color:white"></i>
                         <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
@@ -67,11 +68,12 @@
                         <p>Interestingly, what has been typically defined as online harassment differs substantially from what American legal definitions of harassment are. This can lead to issues getting law enforcement involved. However, internet users seemed to be able to come to a consensus that material advocating violence does not belong on these channels.</p>
                     </section>                        
                     
-                    </div>
+                    
 
                     <section class="last">
                         <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
                     </section>
+                    </div>
 
                 </div>
             </div>
