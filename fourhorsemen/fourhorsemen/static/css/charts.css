@@ -53,3 +53,7 @@ body {
   stroke: #FFF;
   shape-rendering: crispEdges;
 }
+
+.d3_user {
+  fill: red;
+}

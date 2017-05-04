@@ -14,6 +14,7 @@ class ContentAssessmentForm(forms.Form):
     how_harassing = forms.ModelChoiceField(queryset=models.HowHarassing.objects.all(),
                                            widget=forms.RadioSelect(renderer=HorizRadioRenderer),
                                            required=False,
+                                           # empty_label=None,
                                            label='How harrassing is this social media post?',)
 
 
