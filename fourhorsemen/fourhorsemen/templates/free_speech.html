@@ -2,26 +2,32 @@
 {% block content %}
 {% load static %}
 <!-- Page Content -->
+
+<!-- <script> var data = "{% static 'data/one_axis_scatter_data.json' %}" </script>
+<script src="{% static 'js/one_axis_scatter.js' %}"></script> -->
+<script src="{% static 'js/free_speech.js' %}"></script>
+
 <div id="page-content-wrapper">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2">
         <p class="lead">Which of the following scenarios is more important to prevent?</p>
         <div class="col-lg-6">
-          <img src="../static/img/algorithmic/algorithmic-hillaryclinton_kill_yourself.jpg" class="img-responsive center-block" alt="image of a potentially harassing social media post">
+          <img src="{% static 'img/algorithmic/algorithmic-hillaryclinton_kill_yourself.jpg' %}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
           <p class="message-caption">This person being detained and jailed at the border before being refused entry to the US and sent back to Britain (“destroy” is British slang for “party hard and get drunk”).</p>
-          <a href=""><button class="btn btn-primary" type="button" style="margin:auto;display:block">Prevent this one</button></a>
+          <button class="btn btn-primary next_button last" type="button" style="margin:auto;display:block" onclick="freeSpeech(1)">Prevent False Positives</button>
         </div>
         <div class="col-lg-6">
-          <img src="../static/img/algorithmic/algorithmic-hillaryclinton_kill_yourself.jpg" class="img-responsive center-block" alt="image of a potentially harassing social media post">
+          <img src="{% static 'img/algorithmic/algorithmic-hillaryclinton_kill_yourself.jpg' %}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
           <p class="message-caption">This person's message not being flagged and not being removed from the platform.</p>
-          <a href=""><button class="btn btn-primary" type="button" style="margin:auto;display:block">Prevent this one</button></a>
+          <button class="btn btn-primary next_button last" type="button" style="margin:auto;display:block" onclick="freeSpeech(1)">Prevent false negatives</button>
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row bottom_content">
       <div class="col-lg-8 col-lg-offset-2">
         <section id="">
+          <a name="bottom_content"></a>
           <h3>Free Speech vs. Hate Speech</h3>
           <p>We asked our participants whether, when designing an algorithm to prevent harassment, it would be more important to prevent:</p>
           <ul style="color:rgba(255, 255, 255, 0.7)">

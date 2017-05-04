@@ -35,11 +35,39 @@ def free_speech(request):
 
 
 def who_moderates(request):
-    return render(request, 'who_moderates.html', {'next': reverse('algorithmic_factors')})
+    images_seen = request.session.get('images_seen', [])
+    image = image_logic.get_random_image(request)
+    images_seen.append(image)
+    request.session['images_seen'] = images_seen
+    
+    if request.method == 'POST':
+        form = forms.ContentAssessmentForm(request.POST)
+        if form.is_valid():
+            request.session['image'] = image
+            request.session['form'] = form.cleaned_data
+            form = forms.ContentAssessmentForm()
+            return HttpResponseRedirect(reverse('algorithmic_factors'))
+                                                               
+    else:
+        form = forms.ContentAssessmentForm()
+
+    return render(request, 'who_moderates.html', {'form': form, 'image': image,
+                                                  'next': reverse('algorithmic_factors')})
 
 
-def algorithmic_factors(request):
-    return render(request, 'algorithmic_factors.html', {'next': reverse('remediation_options')})
+def algorithmic_factors(request):   
+    if request.method == 'POST':
+        form = forms.ContentAssessmentForm(request.POST)
+        if form.is_valid():
+            request.session['form'] = form.cleaned_data
+            form = forms.ContentAssessmentForm()
+            return HttpResponseRedirect(reverse('remediation_options'))
+                                                               
+    else:
+        form = forms.ContentAssessmentForm()
+
+    return render(request, 'algorithmic_factors.html', {'form': form, 
+                                                        'next': reverse('remediation_options')})
 
 
 def remediation_options(request):
