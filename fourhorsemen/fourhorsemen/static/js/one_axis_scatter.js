@@ -38,11 +38,14 @@ function one_axis_scatter(div_id,user_data,file) {
         .attr('cx', function(d) { return xScale(d.x); })
         .attr('cy', function(d) { return yScale(d.y); });
 
-    svg.append('circle')
-        .attr('class', 'd3_user')
-        .attr('r', user_data.r/5 ) // Update radius scaling here
-        .attr('cx', xScale(user_data.x) )
-        .attr('cy', yScale(user_data.y) );
+    if (user_data.x){
+      console.log('making circle')
+      svg.append('circle')
+          .attr('class', 'd3_user')
+          .attr('r', user_data.r/5 ) // Update radius scaling here
+          .attr('cx', xScale(user_data.x) )
+          .attr('cy', yScale(user_data.y) );
+    }
 
     svg.append('g')
         .attr('transform', 'translate(0,' + height + ')')
