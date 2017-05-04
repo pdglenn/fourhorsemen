@@ -46,18 +46,20 @@ function one_axis_scatter(div_id,user_data,file) {
           tooltip.select('text').text(d.r);
         });
 
-    svg.append('circle')
+    if (user_data.x) {
+      svg.append('circle')
         .attr('class', 'd3_user')
         .attr('r', user_data.r/5 ) // Update radius scaling here
         .attr('cx', xScale(user_data.x) )
         .attr('cy', yScale(user_data.y) );
+    };
 
     svg.append('g')
         .attr('transform', 'translate(0,' + height + ')')
         .call(xAxis);
 
     var tooltip = svg.append('g')
-      .attr('class', 'tooltip')
+      .attr('class', 'd3_tooltip')
       .style('display', 'none');
         
     tooltip.append('rect')
