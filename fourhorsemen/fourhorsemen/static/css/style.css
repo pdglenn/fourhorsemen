@@ -372,3 +372,8 @@ section {
 .message-caption {
   font-size: .8em;
 }
+
+/* PAUL's CSS for hide/unhide */
+.bottom_content{
+  display: none;
+}

@@ -300,6 +300,7 @@ body h4 {
   color: rgba(255, 255, 255, 0.9);
 }
 body p,
+body li,
 body blockquote {
   color: rgba(255, 255, 255, 0.7) !important;
 }
@@ -366,4 +367,13 @@ section {
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.2em;
     padding-top: 20px;
+}
+
+.message-caption {
+  font-size: .8em;
+}
+
+/* PAUL's CSS for hide/unhide */
+.bottom_content{
+  display: none;
 }
