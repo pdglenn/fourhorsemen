@@ -17,25 +17,25 @@ class ContentAssessmentForm(forms.Form):
                                            label='How harrassing is this social media post?',)
 
 
-    how_abusive = forms.ModelChoiceField(queryset=models.HowAbusive.objects.all(),
-                                         widget=forms.RadioSelect(),
-                                         required=False,
-                                         label='How abusive is this social media post?')
+    # how_abusive = forms.ModelChoiceField(queryset=models.HowAbusive.objects.all(),
+    #                                      widget=forms.RadioSelect(),
+    #                                      required=False,
+    #                                      label='How abusive is this social media post?')
 
-    # how_appropriate = forms.ModelChoiceField(queryset=models.HowAppropriate.objects.all(),
-    #                                          widget=forms.RadioSelect(),
-    #                                          required=False,
-    #                                          label='How appropriate is this social media post?')
+    # # how_appropriate = forms.ModelChoiceField(queryset=models.HowAppropriate.objects.all(),
+    # #                                          widget=forms.RadioSelect(),
+    # #                                          required=False,
+    # #                                          label='How appropriate is this social media post?')
 
-    how_often = forms.ModelChoiceField(queryset=models.HowOften.objects.all(),
-                                       widget=forms.RadioSelect(),
-                                       required=False,
-                                       label='How often do you come across this type of social media post?')
+    # how_often = forms.ModelChoiceField(queryset=models.HowOften.objects.all(),
+    #                                    widget=forms.RadioSelect(),
+    #                                    required=False,
+    #                                    label='How often do you come across this type of social media post?')
 
-    which_remediation = forms.ModelMultipleChoiceField(queryset=models.WhichRemediation.objects.all(),
-                                                       widget=forms.CheckboxSelectMultiple(),
-                                                       required=False,
-                                                       label='Which of the following remediation actions would you prefer be applied to this social media post?'
-                                                       )
+    # which_remediation = forms.ModelMultipleChoiceField(queryset=models.WhichRemediation.objects.all(),
+    #                                                    widget=forms.CheckboxSelectMultiple(),
+    #                                                    required=False,
+    #                                                    label='Which of the following remediation actions would you prefer be applied to this social media post?'
+    #                                                    )
 
 

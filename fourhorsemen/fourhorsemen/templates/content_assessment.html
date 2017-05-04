@@ -3,7 +3,10 @@
 {% load static %}
 
 <!-- Page Content -->
+<script> var data = "{% static 'data/one_axis_scatter_data.json' %}" </script>
 <script src="{% static 'js/one_axis_scatter.js' %}"></script>
+<script src="{% static 'js/content_assessment.js' %}"></script>
+
 
 <div id="page-content-wrapper">
   <div class="container">
@@ -20,7 +23,7 @@
           <div class="form-group">
             <br><br>
             {{ form.errors }}
-            {% for f in how_much %}
+            {% for f in form %}
               <b class="question">{{ f.label }}</b>
               <table>
                 <tr>
@@ -31,7 +34,7 @@
                 <tr>
                   {% for value, text in f.field.choices %}
                       <td class="matrix-centered scale">
-                        <input type="radio" name="{{ f.html_name }}" value="{{ value }}">
+                        <input type="radio" name="{{ f.html_name }}" value="{{ text }}">
                       </td>
                   {% endfor %}
                 </tr>
@@ -40,7 +43,7 @@
             {% endfor %}
           </div>
 
-          <button type="button" id="next_button" class="btn btn-primary last" onclick="revealBottomContent()">Click to reveal stuff below</button>
+          <button type="button" id="next_button" class="btn btn-primary last" onclick="contentAssessment()">Click to reveal stuff below</button>
         </form>
 
         <div class="bottom_content">
@@ -58,13 +61,11 @@
           </section>
 
           <section id="chart">
-            <!-- <link rel=stylesheet href="{% static '/css/test.css' %}" type="text/css"> -->
-
             <div id="chart" align="center">
-              <script>
+<!--               <script>
                 // Arguments are: div_id, user_data, datafile
                 one_axis_scatter('#chart',{"x": "Extremely harassing", "y": "0", "r": "30"},"{% static 'data/one_axis_scatter_data.json' %}");
-              </script>
+              </script> -->
             </div>
           </section>
           <section id="">
@@ -78,5 +79,5 @@
     </div>
   </div>
 </div>
-
+{% static 'data/one_axis_scatter_data.json' %}
 {% endblock %}
