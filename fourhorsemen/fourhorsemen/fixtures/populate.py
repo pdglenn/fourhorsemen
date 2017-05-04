@@ -52,7 +52,7 @@ data = {
                                     "Somewhat abusive",
                                     "Very abusive",
                                     "Extremely abusive"]),
-    'howappropriate': ('appropriate', ["Asolutely inappropriate",
+    'howappropriate': ('appropriate', ["Absolutely inappropriate",
                                     "Inappropriate",
                                     "Slightly inappropriate",
                                     "Neutral",
