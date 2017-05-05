@@ -75,7 +75,25 @@ def remediation_options(request):
 
 
 def content_flags(request):
-    return render(request, 'content_flags.html', {'next': reverse('context_matters')})
+    images_seen = request.session.get('images_seen', [])
+    image = image_logic.get_random_image(request)
+    images_seen.append(image)
+    request.session['images_seen'] = images_seen
+    
+    if request.method == 'POST':
+        form = forms.ContentAssessmentForm(request.POST)
+        if form.is_valid():
+            request.session['image'] = image
+            request.session['form'] = form.cleaned_data
+            form = forms.ContentAssessmentForm()
+            return HttpResponseRedirect(reverse('context_matters'))
+                                                               
+    else:
+        form = forms.ContentAssessmentForm()
+
+    return render(request, 'content_flags.html', {'form': form, 'image': image,
+                                                        'next': reverse('context_matters')})
+
 
 
 def context_matters(request):
