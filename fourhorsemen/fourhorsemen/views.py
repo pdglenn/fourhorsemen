@@ -97,7 +97,25 @@ def content_flags(request):
 
 
 def context_matters(request):
-    return render(request, 'context_matters.html', {'next': reverse('fin')})
+    images_seen = request.session.get('images_seen', [])
+    image = image_logic.get_random_image(request)
+    images_seen.append(image)
+    request.session['images_seen'] = images_seen
+    
+    if request.method == 'POST':
+        form = forms.SocialMostForm(request.POST)
+        if form.is_valid():
+            request.session['image'] = image
+            request.session['form'] = form.cleaned_data
+            form = forms.SocialMostForm()
+            return HttpResponseRedirect(reverse('fin'))
+                                                               
+    else:
+        form = forms.SocialMostForm()
+
+    return render(request, 'context_matters.html', {'form': form, 'image': image,
+                                                        'next': reverse('fin')})
+
 
 def viz_playground(request):
     return render(request, 'viz_playground.html')
