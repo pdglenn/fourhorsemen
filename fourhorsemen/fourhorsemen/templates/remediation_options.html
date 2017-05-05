@@ -1,61 +1,61 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+
+<!-- <script> var data = "{% static 'data/one_axis_scatter_data.json' %}" </script>
+<script src="{% static 'js/one_axis_scatter.js' %}"></script> -->
+<script src="{% static 'js/remediation_options.js' %}"></script>
+
 <!-- Page Content -->
 <div id="page-content-wrapper">
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <p class="lead">Thinking back to the message you saw earlier, which action would you want to take in response to it?</p>
-                <section>
-                    <div class="col-lg-6">
-                        <p>Description of option 1, which was ranked similarly for severity but is more remediative</p>
-                        <button class="btn btn-primary" type="button" style="margin:auto;display:block">Take this action</button>
-                    </div>
-                    <div class="col-lg-6">
-                        <p class="message-caption">Description of option 2, which was ranked similarly for severity but is more punitive</p>
-                        <button class="btn btn-primary" type="button" style="margin:auto;display:block">Take this action</button>
-                    </div>
-                </section>
-            </div>
-        </div>
-        <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-
-                    <section id="">
-                        <h3>Remediation Options</h3>
-                        <p>We didn’t ask our survey respondents this exact question, but we noticed a trend in what remediation options they preferred to apply to the messages they saw. We provided them with options that included common and relatively punitive actions, along with uncommon but potentially useful remediative actions. The main difference between those two might be considered as the difference between a short-term solution and longer-term solution: i.e. dealing with the symptom (harassing or violent messages) rather than the underlying problem (non-compliance with social norms, mental health issues, etc.).</p>
-                        <p>We were surprised that a large number of people chose the uncommon remediative options as one of their top three methods:</p>
-                    </section>
-
-                    <section id="">
-                        <i class="fa fa-area-chart fa-5x" style="color:white"></i>
-                        <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
-                        <i class="fa fa-line-chart fa-5x" style="color:white"></i>
-                        <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
-                    </section>
-
-                    <section id="chart">
-                    <!-- <link rel=stylesheet href="{% static '/css/test.css' %}" type="text/css"> -->
-                    <script src="https://d3js.org/d3.v4.min.js"></script>
-                      <div id="chart" align="center">
-                        <script>var csv_url = "{% static '/data/testdata.csv' %}" </script>
-                        <script src="{% static '/js/test.js' %}"></script>
-                    </div>
-                    </section>
-
-                    <section id="">
-                        <p>To us, this shows that people are willing to go beyond the simple choices between take it down or leave it up, and suspend or ban the user or do nothing to them. We recommend that platforms consider developing some of these methods further.</p>
-                    </section>                       
-
-                    <section class="last">
-                        <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
-                    </section>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <p class="lead">Thinking back to the message you saw earlier, which action would you want to take in response to it?</p>
+        <section>
+          <div class="col-lg-6">
+            <p>Description of option 1, which was ranked similarly for severity but is more remediative</p>
+            <button class="btn btn-primary last next_button" type="button" style="margin:auto;display:block" onclick="remediationOptions(1)">Take this action</button>
+          </div>
+          <div class="col-lg-6">
+            <p class="message-caption">Description of option 2, which was ranked similarly for severity but is more punitive</p>
+            <button class="btn btn-primary last next_button" type="button" style="margin:auto;display:block" onclick="remediationOptions(2)">Take this action</button>
+          </div>
+        </section>
+      </div>
     </div>
-        <!-- /.container -->
+    <div class="row bottom_content">
+      <div class="col-lg-8 col-lg-offset-2">
+        <section id="">
+          <a name="bottom_content"></a>
+          <h3>Remediation Options</h3>
+          <p>We didn’t ask our survey respondents this exact question, but we noticed a trend in what remediation options they preferred to apply to the messages they saw. We provided them with options that included common and relatively punitive actions, along with uncommon but potentially useful remediative actions. The main difference between those two might be considered as the difference between a short-term solution and longer-term solution: i.e. dealing with the symptom (harassing or violent messages) rather than the underlying problem (non-compliance with social norms, mental health issues, etc.).</p>
+          <p>We were surprised that a large number of people chose the uncommon remediative options as one of their top three methods:</p>
+        </section>
+
+        <section id="">
+          <i class="fa fa-area-chart fa-5x" style="color:white"></i>
+          <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
+          <i class="fa fa-line-chart fa-5x" style="color:white"></i>
+          <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
+        </section>
+
+        <section id="chart">
+          <div id="chart" align="center">
+            <script>var csv_url = "{% static '/data/testdata.csv' %}" </script>
+            <script src="{% static '/js/test.js' %}"></script>
+          </div>
+        </section>
+
+        <section id="">
+          <p>To us, this shows that people are willing to go beyond the simple choices between take it down or leave it up, and suspend or ban the user or do nothing to them. We recommend that platforms consider developing some of these methods further.</p>
+        </section>                       
+
+        <section class="last">
+          <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
+        </section>
+      </div>
+    </div>
+  </div>
 </div>
-    <!-- /.page-wrapper -->
 {% endblock %}

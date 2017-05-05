@@ -17,6 +17,13 @@ class ContentAssessmentForm(forms.Form):
                                            # empty_label=None,
                                            label='How harrassing is this social media post?',)
 
+class SocialMostForm(forms.Form):
+    how_harassing = forms.ModelChoiceField(queryset=models.SocialMost.objects.all(),
+                                           widget=forms.RadioSelect(renderer=HorizRadioRenderer),
+                                           required=False,
+                                           # empty_label=None,
+                                           label='What site do you spend the most time on?',)
+
 
     # how_abusive = forms.ModelChoiceField(queryset=models.HowAbusive.objects.all(),
     #                                      widget=forms.RadioSelect(),

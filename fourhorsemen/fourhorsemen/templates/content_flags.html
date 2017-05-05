@@ -1,86 +1,81 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+
 <!-- Page Content -->
+<script> var data = "{% static 'data/one_axis_scatter_data.json' %}" </script>
+<script src="{% static 'js/one_axis_scatter.js' %}"></script>
+<script src="{% static 'js/content_flags.js' %}"></script>
+
+
 <div id="page-content-wrapper">
-    <div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <p class="lead">To begin, please rate the following piece of online content:</p>
+        <div class="col-lg-8 col-lg-offset-1">
+          <img src="{{ baseURL }}{{ image }}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
+        </div>
+      </div>
+      <div class="col-lg-8 col-lg-offset-2">
+        <form action="/content_assessment/" method="POST" role="form">
+          {% csrf_token %}
+          <div class="form-group">
+            <br><br>
+            {{ form.errors }}
+            {% for f in form %}
+              <b class="question">{{ f.label }}</b>
+              <table>
+                <tr>
+                  {% for value, text in f.field.choices %}
+                    <th width="20%" class="matrix-centered options">{{ text }}</th>
+                  {% endfor %}
+                </tr>
+                <tr>
+                  {% for value, text in f.field.choices %}
+                      <td class="matrix-centered scale">
+                        <input type="radio" name="{{ f.html_name }}" value="{{ text }}">
+                      </td>
+                  {% endfor %}
+                </tr>
+              </table>
+              <br><br>
+            {% endfor %}
+          </div>
 
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <p class="lead">To begin, please rate the following piece of online content:</p>
-                <div class="col-lg-8 col-lg-offset-1">
-                <img src="../static/img/algorithmic/algorithmic-hillaryclinton_kill_yourself.jpg" class="img-responsive center-block" alt="image of a potentially harassing social media post">
-                </div>
+          <button type="button" id="next_button" class="btn btn-primary last" onclick="contentFlags()">Click to reveal stuff below</button>
+        </form>
+
+        <div class="bottom_content">
+          <a name="bottom_content"></a>
+          <section id="">
+            <h3>Safety in Numbers</h3>
+            <p>You probably rated it about the same as you did before, right? We tested a small selection of visual flags on the messages, expecting participants to rate them higher for harassment. However, that did not turn out to be true to a statistically significant percentage. We believe that the violence present in the messages we showed led to that result.</p>
+            <p>However, one interesting result did emerge: when there was a flag present, users were significantly more likely to opt to remove the message from the platform (as one of their preferred remediation options). We think this shows that users are more willing to remove content that they see as harassing, if there is safety in numbers—i.e. if they know that someone or something else agrees with their assessment.</p>
+          </section>
+
+          <section id="">
+              <i class="fa fa-area-chart fa-5x" style="color:white"></i>
+              <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
+              <i class="fa fa-line-chart fa-5x" style="color:white"></i>
+              <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
+          </section>
+
+          <section id="chart">
+            <div id="chart" align="center">
+
             </div>
-
-            <div class="col-lg-8 col-lg-offset-2">
-                <form action="/content_assessment/" method="POST" role="form">
-                    {% csrf_token %}
-                <div class="form-group">
-                    <br><br>
-                    {{ form.errors }}
-                    {% for f in how_much %}
-                    <b class="question">{{ f.label }}</b>
-                    <table>
-                        <tr>
-                            {% for value, text in f.field.choices %}
-                                <th width="20%" class="matrix-centered options">{{ text }}</th>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            {% for value, text in f.field.choices %}
-                                <td class="matrix-centered scale">
-                                    <input type="radio" name="{{ f.html_name }}" value="{{ value }}">
-                                </td>
-                            {% endfor %}
-                        </tr>
-                    </table>
-                    <br><br>
-                    {% endfor %}
-                </div>
-
-                <a href=""><button type="button" class="btn btn-primary">Click to reveal stuff below</button></a>
-                </form>
-            </div>
-
-        </div> <!-- End row -->
-
-        <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-
-                    <section id="">
-                        <h3>Safety in Numbers</h3>
-                        <p>You probably rated it about the same as you did before, right? We tested a small selection of visual flags on the messages, expecting participants to rate them higher for harassment. However, that did not turn out to be true to a statistically significant percentage. We believe that the violence present in the messages we showed led to that result.</p>
-                        <p>However, one interesting result did emerge: when there was a flag present, users were significantly more likely to opt to remove the message from the platform (as one of their preferred remediation options). We think this shows that users are more willing to remove content that they see as harassing, if there is safety in numbers—i.e. if they know that someone or something else agrees with their assessment.</p>
-                    </section>
-
-                    <section id="">
-                        <i class="fa fa-area-chart fa-5x" style="color:white"></i>
-                        <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
-                        <i class="fa fa-line-chart fa-5x" style="color:white"></i>
-                        <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
-                    </section>
-
-                    <section id="chart">
-                    <!-- <link rel=stylesheet href="{% static '/css/test.css' %}" type="text/css"> -->
-                    <script src="https://d3js.org/d3.v4.min.js"></script>
-                      <div id="chart" align="center">
-                        <script>var csv_url = "{% static '/data/testdata.csv' %}" </script>
-                        <script src="{% static '/js/test.js' %}"></script>
-                    </div>
-                    </section>
-
-                    <section id="">
-                        <p>This is not real text! Placeholder!</p>
-                    </section>                       
-
-                    <section class="last">
-                        <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
-                    </section>
-                </div>
-            </div>
+          </section>
+          <section id="">
+              <p>This is not real text! Placeholder!</p>
+          </section>                        
+          <section class="last">
+            <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
+          </section>
+        </div>
+      </div>
     </div>
-        <!-- /.container -->
+  </div>
 </div>
-<!-- /.page-wrapper -->
+
 {% endblock %}
