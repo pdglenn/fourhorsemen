@@ -18,7 +18,8 @@ function bar_chart(div_id,file) {
       .scale(xScale);
 
   var yAxis = d3.axisLeft()
-      .scale(yScale);
+      .scale(yScale)
+      .tickFormat(d3.format(','));
 
   var svg = d3.select(div_id).append('svg')
       .attr('width', width + margin.left + margin.right)
@@ -31,7 +32,7 @@ function bar_chart(div_id,file) {
 
     xScale.domain(data.map(function(d) { return d.x; }));
     xScale.range(Array.from(new Array(data.length),(val,index)=>index).map(function(x) { return x * (width / data.length); }));
-    yScale.domain([0, d3.max(data, function(d) { return +d.y; })]);
+    yScale.domain([0, 5]); // Fixed scale for Likert
 
     svg.append('g')
         .attr('class', 'x axis')
@@ -50,7 +51,7 @@ function bar_chart(div_id,file) {
     var x = svg.selectAll('.d3_rect')
         .data(data)
       .enter().append('rect')
-        .attr('class', 'g')
+        .attr('class', 'd3_rect')
         .attr('transform', function(d) { return 'translate(' + xScale(d.x) + ',' + yScale(d.y) + ')'; })
         .attr('width', width / data.length - 10)
         .attr('height', function(d) { return height - yScale(d.y); })

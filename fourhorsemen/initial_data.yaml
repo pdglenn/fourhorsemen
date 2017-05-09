@@ -100,7 +100,7 @@
 - model: fourhorsemen.howappropriate
   pk: 1
   fields:
-    appropriate: Asolutely inappropriate
+    appropriate: Absolutely inappropriate
 - model: fourhorsemen.howappropriate
   pk: 2
   fields:

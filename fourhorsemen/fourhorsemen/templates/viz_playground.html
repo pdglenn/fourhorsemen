@@ -2,15 +2,18 @@
 {% block content %}
 {% load static %}
 
-<script> var data1 = "{% static 'data/one_axis_scatter_data.json' %}" </script>
-<script> var data2 = "{% static 'data/bar_chart_data.json' %}" </script>
-<script> var data3 = "{% static 'data/bar_with_mouseover_data.json' %}" </script>
-<script> var data4 = "{% static 'data/line_data.json' %}" </script>
+<script> var harassment_distribution = "{% static 'data/harassment_distribution.json' %}" </script>
+<script> var false_pos_neg = "{% static 'data/false_pos_neg.json' %}" </script>
+<script> var fair_accurate_trust = "{% static 'data/fair_accurate_trust.json' %}" </script>
+<script> var  remove_message_flags = "{% static 'data/remove_message_flags.json' %}" </script>
+<script> var  most_freq_social_media = "{% static 'data/most_freq_social_media.json' %}" </script>
+<script> var  line_with_mouseover_data = "{% static 'data/line_data.json' %}" </script>
 
 <script src="{% static 'js/one_axis_scatter.js' %}"></script>
 <script src="{% static 'js/line_with_mouseover.js' %}"></script>
 <script src="{% static 'js/bar_with_mouseover.js' %}"></script>
 <script src="{% static 'js/bar_chart.js' %}"></script>
+<script src="{% static 'js/bar_chart_percent.js' %}"></script>
 
   <a name="bottom_content"></a>
   <section id="">
@@ -27,27 +30,52 @@
 
   <section id="chart">
     <div id="chart1" align="center">
+      Content Assessment: Harassment Distribution
       <script>
         // Arguments are: div_id, user_data, datafile
-        one_axis_scatter('#chart1',{"x": "Extremely harassing", "y": "0", "r": "30"},data1);
+        one_axis_scatter('#chart1',{"x": "Extremely harassing", "y": "0", "r": "30"},harassment_distribution);
       </script>
     </div>
     <div id="chart2" align="center">
+      Free Speech: False Postives and Negatives
       <script>
         // Arguments are: div_id, datafile
-        bar_chart('#chart2',data2)
+        bar_chart_percent('#chart2',false_pos_neg)
       </script>
     </div>
     <div id="chart3" align="center">
+      Who moderates? Fairness, Accuracy, Trustworthiness
       <script>
         // Arguments are: div_id, datafile
-        bar_with_mouseover('#chart3',data3);
+        bar_chart('#chart3',fair_accurate_trust)
+        // bar_with_mouseover('#chart3',data3);
       </script>
     </div>
     <div id="chart4" align="center">
+      Algorithmic Features?
+      <script>
+        // Horizontal bar??
+      </script>
+    </div>
+    <div id="chart5" align="center">
+      Remediation Option Selection Frequency
+      <script>
+        // Horizontal bar??
+        line_with_mouseover('#chart5',line_with_mouseover_data)
+      </script>
+    </div>
+    <div id="chart6" align="center">
+      Remove the message from the platform (by flag!)
       <script>
         // Arguments are: div_id, datafile
-        line_with_mouseover('#chart4',data4);
+        bar_chart_percent('#chart6',remove_message_flags)
+      </script>
+    </div>
+    <div id="chart7" align="center">
+      Users of all plaforms are sick of this shit...
+      <script>
+        // Arguments are: div_id, datafile
+        bar_chart('#chart7',most_freq_social_media)
       </script>
     </div>
   </section>
