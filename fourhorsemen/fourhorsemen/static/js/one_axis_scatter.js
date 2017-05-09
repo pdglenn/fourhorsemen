@@ -55,6 +55,7 @@ function one_axis_scatter(div_id,user_data,file) {
     };
 
     svg.append('g')
+        .attr('class', 'x axis')
         .attr('transform', 'translate(0,' + height + ')')
         .call(xAxis);
 

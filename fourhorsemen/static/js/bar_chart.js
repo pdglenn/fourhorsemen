@@ -31,7 +31,7 @@ function bar_chart(div_id,file) {
 
     xScale.domain(data.map(function(d) { return d.x; }));
     xScale.range(Array.from(new Array(data.length),(val,index)=>index).map(function(x) { return x * (width / data.length); }));
-    yScale.domain([0, d3.max(data, function(d) { return +d.y; })]);
+    yScale.domain([0, 5]); // Fixed scale for Likert
 
     svg.append('g')
         .attr('class', 'x axis')
@@ -61,11 +61,12 @@ function bar_chart(div_id,file) {
         var xPosition = parseInt(d3.select(this).attr('transform').slice(10).split(',')[0]) + d3.mouse(this)[0] - 23;
         var yPosition = parseInt(d3.select(this).attr('transform').slice(10).split(',')[1]) + d3.mouse(this)[1] - 25;
         tooltip.attr('transform', 'translate(' + xPosition + ',' + yPosition + ')');
-        tooltip.select('text').text(d.y);
+        // tooltip.select('text').text(d.y);
+        tooltip.select('text').text(d3.format(',')(d.y));
       });
 
     var tooltip = svg.append('g')
-      .attr('class', 'tooltip')
+      .attr('class', 'd3_tooltip')
       .style('display', 'none');
         
     tooltip.append('rect')
