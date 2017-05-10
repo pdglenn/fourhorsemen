@@ -2,24 +2,24 @@
 // Mike Bostock: https://bl.ocks.org/mbostock/3886208 and
 // Michael Stanaland: http://bl.ocks.org/mstanaland/6100713
 
-function bar_chart(div_id,user_data,file) {
+function horizontal_bar_chart(div_id,user_data,file,left_mar) {
 
-  var margin = {top: 20, right: 0, bottom: 30, left: 45},
+  var margin = {top: 22, right: 17, bottom: 0, left: left_mar},
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
   var xScale = d3.scaleOrdinal()
-      .range([0,width]);
+      .range([0,height]);
 
   var yScale = d3.scaleLinear()
-      .range([height,0]);
+      .range([0,width]);
 
-  var xAxis = d3.axisBottom()
+  var xAxis = d3.axisLeft()
       .scale(xScale);
 
-  var yAxis = d3.axisLeft()
+  var yAxis = d3.axisTop()
       .scale(yScale)
-      .tickFormat(d3.format(','));
+      .tickFormat(d3.format(".0%"));
 
   var svg = d3.select(div_id).append('svg')
       .attr('width', width + margin.left + margin.right)
@@ -31,30 +31,26 @@ function bar_chart(div_id,user_data,file) {
     if (error) throw error;
 
     xScale.domain(data.map(function(d) { return d.x; }));
-    xScale.range(Array.from(new Array(data.length),(val,index)=>index).map(function(x) { return x * (width / data.length); }));
-    yScale.domain([0, 5]); // Fixed scale for Likert
+    xScale.range(Array.from(new Array(data.length),(val,index)=>index).map(function(x) { return x * (height / data.length); }));
+    yScale.domain([0, d3.max(data, function(d) { return +d.y; })]);
 
     svg.append('g')
         .attr('class', 'x axis')
-        .attr('transform', 'translate(' + ((width / data.length - 10) / 2) + ',' + height + ')')
+        .attr('transform', 'translate(-6,' + ((height / data.length - 10) / 2) + ')')
         .call(xAxis);
 
     svg.append('g')
         .attr('class', 'y axis')
         .call(yAxis)
-      .append('text')
-        .attr('y', 6)
-        .attr('x', 90)
-        .attr('dy', '.71em')
-        .style('text-anchor', 'end');
+      .append('text');
 
     var x = svg.selectAll('.d3_rect')
         .data(data)
       .enter().append('rect')
         .attr('class', 'd3_rect')
-        .attr('transform', function(d) { return 'translate(' + xScale(d.x) + ',' + yScale(d.y) + ')'; })
-        .attr('width', width / data.length - 10)
-        .attr('height', function(d) { return height - yScale(d.y); })
+        .attr('transform', function(d) { return 'translate(-6,' + xScale(d.x) + ')'; })
+        .attr('width', function(d) { return yScale(d.y); })
+        .attr('height', height / data.length - 10)
       .on('mouseover', function() { tooltip.style('display', null); })
       .on('mouseout', function() { tooltip.style('display', 'none'); })
       .on('mousemove', function(d) {
@@ -62,7 +58,7 @@ function bar_chart(div_id,user_data,file) {
         var xPosition = parseInt(d3.select(this).attr('transform').slice(10).split(',')[0]) + d3.mouse(this)[0] - 23;
         var yPosition = parseInt(d3.select(this).attr('transform').slice(10).split(',')[1]) + d3.mouse(this)[1] - 25;
         tooltip.attr('transform', 'translate(' + xPosition + ',' + yPosition + ')');
-        tooltip.select('text').text(d3.format(',')(d.y));
+        tooltip.select('text').text(d3.format('.0%')(d.y));
       });
 
     // Update user_data y value as half the value for the column
@@ -75,9 +71,9 @@ function bar_chart(div_id,user_data,file) {
     if (user_data.x) {
       svg.append('circle')
         .attr('class', 'd3_user')
-        .attr('r', 30 )
-        .attr('cx', xScale(user_data.x) + (width / data.length - 10) / 2 )
-        .attr('cy', yScale(user_data.y) )
+        .attr('r', 17 )
+        .attr('cx', yScale(user_data.y) - 6)
+        .attr('cy', xScale(user_data.x) + (height / data.length - 10) / 2 )
         .on('mouseover', function() { tooltip_text.style('display', null); })
         .on('mouseout', function() { tooltip_text.style('display', 'none'); })
         .on('mousemove', function(d) {
