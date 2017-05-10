@@ -21,6 +21,10 @@
   fill: #34495e;
 }
 
+.d3_fixed {
+  fill: red;
+}
+
 .d3_dot {
   fill: rgba(255, 255, 255, 0.7);
 }

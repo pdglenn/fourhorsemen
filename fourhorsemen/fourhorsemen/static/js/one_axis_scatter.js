@@ -2,12 +2,12 @@
 
 function one_axis_scatter(div_id,user_data,file) {
   
-  var margin = {top: 20, right: 0, bottom: 30, left: 35},
+  var margin = {top: 20, right: 0, bottom: 30, left: 42},
       width = 960 - margin.left - margin.right,
       height = 350 - margin.top - margin.bottom;
 
   var xScale = d3.scalePoint()
-      .domain(['Not at all harassing','Slightly harassing','Somewhat harassing','Very harassing','Extremely harassing'])
+      .domain(['Not harassing','Slightly harassing','Somewhat harassing','Very harassing','Extremely harassing'])
       .range([0, width]);
 
   var yScale = d3.scaleLinear()
@@ -51,7 +51,15 @@ function one_axis_scatter(div_id,user_data,file) {
         .attr('class', 'd3_user')
         .attr('r', user_data.r/5 ) // Update radius scaling here
         .attr('cx', xScale(user_data.x) )
-        .attr('cy', yScale(user_data.y) );
+        .attr('cy', yScale(user_data.y) )
+        .on('mouseover', function() { tooltip_text.style('display', null); })
+        .on('mouseout', function() { tooltip_text.style('display', 'none'); })
+        .on('mousemove', function(d) {
+          var xPosition = d3.mouse(this)[0] - 43;
+          var yPosition = d3.mouse(this)[1] - 25;
+          tooltip_text.attr('transform', 'translate(' + xPosition + ',' + yPosition + ')');
+          tooltip_text.select('text').text('Your Response');
+        });
     };
 
     svg.append('g')
@@ -73,7 +81,20 @@ function one_axis_scatter(div_id,user_data,file) {
       .attr('dy', '1.2em')
       .style('text-anchor', 'middle')
       .attr('font-size', '12px');
-  });
 
-  
+    var tooltip_text = svg.append('g')
+      .attr('class', 'd3_tooltip')
+      .style('display', 'none');
+        
+    tooltip_text.append('rect')
+      .attr('width', 84)
+      .attr('height', 20)
+      .attr('fill', 'white')
+      .style('opacity', 0.33);
+    tooltip_text.append('text')
+      .attr('x', 42)
+      .attr('dy', '1.2em')
+      .style('text-anchor', 'middle')
+      .attr('font-size', '12px');
+  });
 };

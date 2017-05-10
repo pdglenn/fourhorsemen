@@ -73,7 +73,15 @@ function horizontal_bar_chart(div_id,user_data,file,left_mar) {
         .attr('class', 'd3_user')
         .attr('r', 17 )
         .attr('cx', yScale(user_data.y) - 6)
-        .attr('cy', xScale(user_data.x) + (height / data.length - 10) / 2 );
+        .attr('cy', xScale(user_data.x) + (height / data.length - 10) / 2 )
+        .on('mouseover', function() { tooltip_text.style('display', null); })
+        .on('mouseout', function() { tooltip_text.style('display', 'none'); })
+        .on('mousemove', function(d) {
+          var xPosition = d3.mouse(this)[0] - 43;
+          var yPosition = d3.mouse(this)[1] - 25;
+          tooltip_text.attr('transform', 'translate(' + xPosition + ',' + yPosition + ')');
+          tooltip_text.select('text').text('Your Response');
+        });
     };
 
     var tooltip = svg.append('g')
@@ -87,6 +95,21 @@ function horizontal_bar_chart(div_id,user_data,file,left_mar) {
       .style('opacity', 0.33);
     tooltip.append('text')
       .attr('x', 22)
+      .attr('dy', '1.2em')
+      .style('text-anchor', 'middle')
+      .attr('font-size', '12px');
+
+    var tooltip_text = svg.append('g')
+      .attr('class', 'd3_tooltip')
+      .style('display', 'none');
+        
+    tooltip_text.append('rect')
+      .attr('width', 84)
+      .attr('height', 20)
+      .attr('fill', 'white')
+      .style('opacity', 0.33);
+    tooltip_text.append('text')
+      .attr('x', 42)
       .attr('dy', '1.2em')
       .style('text-anchor', 'middle')
       .attr('font-size', '12px');
