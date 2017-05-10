@@ -2,9 +2,9 @@
 // Mike Bostock: https://bl.ocks.org/mbostock/3886208 and
 // Michael Stanaland: http://bl.ocks.org/mstanaland/6100713
 
-function bar_chart(div_id,file) {
+function bar_chart_percent(div_id,file) {
 
-  var margin = {top: 20, right: 0, bottom: 30, left: 45},
+  var margin = {top: 20, right: 0, bottom: 30, left: 50},
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
@@ -18,7 +18,8 @@ function bar_chart(div_id,file) {
       .scale(xScale);
 
   var yAxis = d3.axisLeft()
-      .scale(yScale);
+      .scale(yScale)
+      .tickFormat(d3.format(".0%"));
 
   var svg = d3.select(div_id).append('svg')
       .attr('width', width + margin.left + margin.right)
@@ -50,7 +51,7 @@ function bar_chart(div_id,file) {
     var x = svg.selectAll('.d3_rect')
         .data(data)
       .enter().append('rect')
-        .attr('class', 'g')
+        .attr('class', 'd3_rect')
         .attr('transform', function(d) { return 'translate(' + xScale(d.x) + ',' + yScale(d.y) + ')'; })
         .attr('width', width / data.length - 10)
         .attr('height', function(d) { return height - yScale(d.y); })
@@ -62,7 +63,7 @@ function bar_chart(div_id,file) {
         var yPosition = parseInt(d3.select(this).attr('transform').slice(10).split(',')[1]) + d3.mouse(this)[1] - 25;
         tooltip.attr('transform', 'translate(' + xPosition + ',' + yPosition + ')');
         // tooltip.select('text').text(d.y);
-        tooltip.select('text').text(d3.format(',')(d.y));
+        tooltip.select('text').text(d3.format('.0%')(d.y));
       });
 
     var tooltip = svg.append('g')

@@ -1,15 +1,15 @@
-svg {
-  font: 10px sans-serif;
+.tick text {
+  fill: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
 }
 
 .axis path,
 .axis line {
-  stroke: #E6E7E8;
+  stroke: none;
 }
 
 .d3_line {
   fill: none;
-
   stroke-width: 1.5px;
 }
 
@@ -18,29 +18,13 @@ svg {
 }
 
 .d3_user {
-  fill: red;
+  fill: #34495e;
 }
 
 .d3_dot {
-  fill: black;
+  fill: rgba(255, 255, 255, 0.7);
 }
 
 .d3_rect {
-  fill: black;
+  fill: rgba(255, 255, 255, 0.7);
 }
-
-/*This is new stuff, probably gonna mess ish up*/
-/*.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.bar {
-  fill: steelblue;
-}
-
-.x.axis path {
-  display: none;
-}*/

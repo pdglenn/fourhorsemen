@@ -54,13 +54,13 @@ function one_axis_scatter(div_id,user_data,file) {
         .attr('cy', yScale(user_data.y) );
     };
 
-
     svg.append('g')
+        .attr('class', 'x axis')
         .attr('transform', 'translate(0,' + height + ')')
         .call(xAxis);
 
     var tooltip = svg.append('g')
-      .attr('class', 'tooltip')
+      .attr('class', 'd3_tooltip')
       .style('display', 'none');
         
     tooltip.append('rect')
