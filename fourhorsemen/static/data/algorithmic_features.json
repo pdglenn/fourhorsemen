@@ -1,0 +1,9 @@
+[{"x": "Flagged by other humans", "y": "0.26"},
+{"x": "Poster harassment history", "y": "0.24"},
+{"x": "Image recognition", "y": "0.15"},
+{"x": "Keywords", "y": "0.12"},
+{"x": "Sentiment analysis", "y": "0.10"},
+{"x": "Conversational balance", "y": "0.057"},
+{"x": "I don't know", "y": "0.03"},
+{"x": "Length of message", "y": "0.03"},
+{"x": "Other", "y": "0.01"}]

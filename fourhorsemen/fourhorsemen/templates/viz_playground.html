@@ -3,6 +3,8 @@
 {% load static %}
 
 <script> var harassment_distribution = "{% static 'data/harassment_distribution.json' %}" </script>
+<script> var harassment_distribution_bar = "{% static 'data/harassment_distribution_bar.json' %}" </script>
+<script> var harassment_distribution_line = "{% static 'data/harassment_distribution_line.json' %}" </script>
 <script> var false_pos_neg = "{% static 'data/false_pos_neg.json' %}" </script>
 <script> var fair = "{% static 'data/fair.json' %}" </script>
 <script> var accurate = "{% static 'data/accurate.json' %}" </script>
@@ -19,6 +21,7 @@
 <script src="{% static 'js/bar_chart.js' %}"></script>
 <script src="{% static 'js/bar_chart_percent.js' %}"></script>
 <script src="{% static 'js/horizontal_bar_chart.js' %}"></script>
+<script src="{% static 'js/line_plot.js' %}"></script>
 
   <a name="bottom_content"></a>
   <section id="">
@@ -38,6 +41,8 @@
       <script>
         // Arguments are: div_id, user_data, datafile
         one_axis_scatter('#chart1',{"x": "Extremely harassing", "y": "0", "r": "30"},harassment_distribution);
+        line_plot('#chart1',{"x": "5"},harassment_distribution_line);
+        bar_chart_percent('#chart1',{"x": "Extremely harassing", "y": "0"},harassment_distribution_bar)
       </script>
     </div>
     <div id="chart2" align="center">

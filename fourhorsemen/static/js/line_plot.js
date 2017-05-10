@@ -1,13 +1,17 @@
 // Code highly modified from https://bl.ocks.org/mbostock/3887118
 
-function one_axis_scatter(div_id,user_data,file) {
+function line_plot(div_id,user_data,file) {
   
-  var margin = {top: 20, right: 0, bottom: 30, left: 42},
+  var margin = {top: 30, right: 90, bottom: 30, left: 110},
       width = 960 - margin.left - margin.right,
-      height = 350 - margin.top - margin.bottom;
+      height = 90 - margin.top - margin.bottom;
 
-  var xScale = d3.scalePoint()
-      .domain(['Not harassing','Slightly harassing','Somewhat harassing','Very harassing','Extremely harassing'])
+  // var xScale = d3.scalePoint()
+  //     .domain(['Not at all harassing','Slightly harassing','Somewhat harassing','Very harassing','Extremely harassing'])
+  //     .range([0, width]);
+
+  var xScale = d3.scaleLinear()
+      .domain([1, 5])
       .range([0, width]);
 
   var yScale = d3.scaleLinear()
@@ -34,7 +38,7 @@ function one_axis_scatter(div_id,user_data,file) {
         .data(data)
         .enter().append('circle')
         .attr('class', 'd3_dot')
-        .attr('r', function(d) { return d.r/5; }) // Update radius scaling here
+        .attr('r', function(d) { return 15; })
         .attr('cx', function(d) { return xScale(d.x); })
         .attr('cy', function(d) { return yScale(d.y); })
         .on('mouseover', function() { tooltip.style('display', null); })
@@ -46,16 +50,30 @@ function one_axis_scatter(div_id,user_data,file) {
           tooltip.select('text').text(d.r);
         });
 
-    if (user_data.x) {
-      svg.append('circle')
-        .attr('class', 'd3_user')
-        .attr('r', user_data.r/5 ) // Update radius scaling here
-        .attr('cx', xScale(user_data.x) )
-        .attr('cy', yScale(user_data.y) )
+    svg.append('circle')
+        .attr('class', 'd3_fixed')
+        .attr('r', 12 ) // Update radius scaling here
+        .attr('cx', xScale(4.2) )
+        .attr('cy', yScale(0) )
         .on('mouseover', function() { tooltip_text.style('display', null); })
         .on('mouseout', function() { tooltip_text.style('display', 'none'); })
         .on('mousemove', function(d) {
-          var xPosition = d3.mouse(this)[0] - 43;
+          var xPosition = d3.mouse(this)[0] - 23;
+          var yPosition = d3.mouse(this)[1] - 25;
+          tooltip_text.attr('transform', 'translate(' + xPosition + ',' + yPosition + ')');
+          tooltip_text.select('text').text('Average: 4.2');
+        });
+
+    if (user_data.x) {
+      svg.append('circle')
+        .attr('class', 'd3_user')
+        .attr('r', 12 ) // Update radius scaling here
+        .attr('cx', xScale(user_data.x) )
+        .attr('cy', yScale(0) )
+        .on('mouseover', function() { tooltip_text.style('display', null); })
+        .on('mouseout', function() { tooltip_text.style('display', 'none'); })
+        .on('mousemove', function(d) {
+          var xPosition = d3.mouse(this)[0] - 23;
           var yPosition = d3.mouse(this)[1] - 25;
           tooltip_text.attr('transform', 'translate(' + xPosition + ',' + yPosition + ')');
           tooltip_text.select('text').text('Your Response');
@@ -97,4 +115,6 @@ function one_axis_scatter(div_id,user_data,file) {
       .style('text-anchor', 'middle')
       .attr('font-size', '12px');
   });
+
+  
 };
