@@ -4,7 +4,9 @@
 
 <script> var harassment_distribution = "{% static 'data/harassment_distribution.json' %}" </script>
 <script> var false_pos_neg = "{% static 'data/false_pos_neg.json' %}" </script>
-<script> var fair_accurate_trust = "{% static 'data/fair_accurate_trust.json' %}" </script>
+<script> var fair = "{% static 'data/fair.json' %}" </script>
+<script> var accurate = "{% static 'data/accurate.json' %}" </script>
+<script> var trust = "{% static 'data/trust.json' %}" </script>
 <script> var  remove_message_flags = "{% static 'data/remove_message_flags.json' %}" </script>
 <script> var  most_freq_social_media = "{% static 'data/most_freq_social_media.json' %}" </script>
 <script> var  line_with_mouseover_data = "{% static 'data/line_data.json' %}" </script>
@@ -40,14 +42,16 @@
       Free Speech: False Postives and Negatives
       <script>
         // Arguments are: div_id, datafile
-        bar_chart_percent('#chart2',false_pos_neg)
+        bar_chart_percent('#chart2',{"x": "False Positive", "y": "0"},false_pos_neg)
       </script>
     </div>
     <div id="chart3" align="center">
       Who moderates? Fairness, Accuracy, Trustworthiness
       <script>
         // Arguments are: div_id, datafile
-        bar_chart('#chart3',fair_accurate_trust)
+        bar_chart('#chart3',{"x": "Users", "y": ""},fair)
+        bar_chart('#chart3',{"x": "Users", "y": ""},accurate)
+        bar_chart('#chart3',{"x": "Users", "y": ""},trust)
         // bar_with_mouseover('#chart3',data3);
       </script>
     </div>
@@ -61,21 +65,21 @@
       Remediation Option Selection Frequency
       <script>
         // Horizontal bar??
-        line_with_mouseover('#chart5',line_with_mouseover_data)
+        // line_with_mouseover('#chart5',{"x": "Extremely harassing", "y": "0"},line_with_mouseover_data)
       </script>
     </div>
     <div id="chart6" align="center">
       Remove the message from the platform (by flag!)
       <script>
         // Arguments are: div_id, datafile
-        bar_chart_percent('#chart6',remove_message_flags)
+        bar_chart_percent('#chart6',{"x": "Ambiguous", "y": "0"},remove_message_flags)
       </script>
     </div>
     <div id="chart7" align="center">
       Users of all plaforms are sick of this shit...
       <script>
         // Arguments are: div_id, datafile
-        bar_chart('#chart7',most_freq_social_media)
+        bar_chart('#chart7',{"x": "Instagram", "y": "0"},most_freq_social_media)
       </script>
     </div>
   </section>
