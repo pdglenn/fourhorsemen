@@ -7,15 +7,18 @@
 <script> var fair = "{% static 'data/fair.json' %}" </script>
 <script> var accurate = "{% static 'data/accurate.json' %}" </script>
 <script> var trust = "{% static 'data/trust.json' %}" </script>
-<script> var  remove_message_flags = "{% static 'data/remove_message_flags.json' %}" </script>
-<script> var  most_freq_social_media = "{% static 'data/most_freq_social_media.json' %}" </script>
-<script> var  line_with_mouseover_data = "{% static 'data/line_data.json' %}" </script>
+<script> var remove_message_flags = "{% static 'data/remove_message_flags.json' %}" </script>
+<script> var remediation_options = "{% static 'data/remediation_options.json' %}" </script>
+<script> var most_freq_social_media = "{% static 'data/most_freq_social_media.json' %}" </script>
+<script> var algorithmic_features = "{% static 'data/algorithmic_features.json' %}" </script>
+
 
 <script src="{% static 'js/one_axis_scatter.js' %}"></script>
 <script src="{% static 'js/line_with_mouseover.js' %}"></script>
 <script src="{% static 'js/bar_with_mouseover.js' %}"></script>
 <script src="{% static 'js/bar_chart.js' %}"></script>
 <script src="{% static 'js/bar_chart_percent.js' %}"></script>
+<script src="{% static 'js/horizontal_bar_chart.js' %}"></script>
 
   <a name="bottom_content"></a>
   <section id="">
@@ -32,60 +35,53 @@
 
   <section id="chart">
     <div id="chart1" align="center">
-      Content Assessment: Harassment Distribution
       <script>
         // Arguments are: div_id, user_data, datafile
         one_axis_scatter('#chart1',{"x": "Extremely harassing", "y": "0", "r": "30"},harassment_distribution);
       </script>
     </div>
     <div id="chart2" align="center">
-      Free Speech: False Postives and Negatives
       <script>
-        // Arguments are: div_id, datafile
+        // Arguments are: div_id, user_data, datafile
         bar_chart_percent('#chart2',{"x": "False Positive", "y": "0"},false_pos_neg)
       </script>
     </div>
     <div id="chart3" align="center">
-      Who moderates? Fairness, Accuracy, Trustworthiness
       <script>
-        // Arguments are: div_id, datafile
+        // Arguments are: div_id, user_data, datafile
         bar_chart('#chart3',{"x": "Users", "y": ""},fair)
         bar_chart('#chart3',{"x": "Users", "y": ""},accurate)
         bar_chart('#chart3',{"x": "Users", "y": ""},trust)
-        // bar_with_mouseover('#chart3',data3);
       </script>
     </div>
     <div id="chart4" align="center">
-      Algorithmic Features?
       <script>
-        // Horizontal bar??
+        // Arguments are: div_id, user_data, datafile, left margin width
+        horizontal_bar_chart('#chart4',{"x": "Keywords", "y": "0"},algorithmic_features,200)
       </script>
     </div>
     <div id="chart5" align="center">
-      Remediation Option Selection Frequency
       <script>
-        // Horizontal bar??
-        // line_with_mouseover('#chart5',{"x": "Extremely harassing", "y": "0"},line_with_mouseover_data)
+        // Arguments are: div_id, user_data, datafile, left margin width
+        horizontal_bar_chart('#chart5',{"x": "Take no action", "y": "0"},remediation_options,374)
       </script>
     </div>
     <div id="chart6" align="center">
-      Remove the message from the platform (by flag!)
       <script>
-        // Arguments are: div_id, datafile
+        // Arguments are: div_id, user_data, datafile
         bar_chart_percent('#chart6',{"x": "Ambiguous", "y": "0"},remove_message_flags)
       </script>
     </div>
     <div id="chart7" align="center">
-      Users of all plaforms are sick of this shit...
       <script>
-        // Arguments are: div_id, datafile
+        // Arguments are: div_id, user_data, datafile
         bar_chart('#chart7',{"x": "Instagram", "y": "0"},most_freq_social_media)
       </script>
     </div>
   </section>
   <section id="">
       <p>Interestingly, what has been typically defined as online harassment differs substantially from what American legal definitions of harassment are. This can lead to issues getting law enforcement involved. However, internet users seemed to be able to come to a consensus that material advocating violence does not belong on these channels.</p>
-  </section>                        
+  </section>
   <section class="last">
     <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
   </section>

@@ -62,7 +62,6 @@ function bar_chart_percent(div_id,user_data,file) {
         var xPosition = parseInt(d3.select(this).attr('transform').slice(10).split(',')[0]) + d3.mouse(this)[0] - 23;
         var yPosition = parseInt(d3.select(this).attr('transform').slice(10).split(',')[1]) + d3.mouse(this)[1] - 25;
         tooltip.attr('transform', 'translate(' + xPosition + ',' + yPosition + ')');
-        // tooltip.select('text').text(d.y);
         tooltip.select('text').text(d3.format('.0%')(d.y));
       });
 
