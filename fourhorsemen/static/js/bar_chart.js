@@ -18,7 +18,8 @@ function bar_chart(div_id,file) {
       .scale(xScale);
 
   var yAxis = d3.axisLeft()
-      .scale(yScale);
+      .scale(yScale)
+      .tickFormat(d3.format(','));
 
   var svg = d3.select(div_id).append('svg')
       .attr('width', width + margin.left + margin.right)
@@ -50,7 +51,7 @@ function bar_chart(div_id,file) {
     var x = svg.selectAll('.d3_rect')
         .data(data)
       .enter().append('rect')
-        .attr('class', 'g')
+        .attr('class', 'd3_rect')
         .attr('transform', function(d) { return 'translate(' + xScale(d.x) + ',' + yScale(d.y) + ')'; })
         .attr('width', width / data.length - 10)
         .attr('height', function(d) { return height - yScale(d.y); })
