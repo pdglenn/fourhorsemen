@@ -1,0 +1,9 @@
+[{"x": "Remove the message from the platform", "y": "0.519457014"},
+{"x": "Permanently ban the poster", "y": "0.402714932"},
+{"x": "Post a public reminder of the community code of conduct in response to the message", "y": "0.228054299"},
+{"x": "Before publicly posting, notify poster it has been flagged as harassing and require confirmation to post", "y": "0.219004525"},
+{"x": "Send the poster a private reminder of the community code of conduct", "y": "0.212669683"},
+{"x": "Temporarily suspend the poster", "y": "0.190045249"},
+{"x": "Add the poster to a blocklist which hides their posts from all people who subscribe to that blocklist", "y": "0.186425339"},
+{"x": "Prevent the poster from posting again until they complete an empathy exercise", "y": "0.123076923"},
+{"x": "Take no action", "y": "0.044343891"}]

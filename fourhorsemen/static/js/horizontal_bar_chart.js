@@ -2,9 +2,9 @@
 // Mike Bostock: https://bl.ocks.org/mbostock/3886208 and
 // Michael Stanaland: http://bl.ocks.org/mstanaland/6100713
 
-function bar_chart_percent(div_id,user_data,file) {
+function horizontal_bar_chart(div_id,user_data,file) {
 
-  var margin = {top: 20, right: 0, bottom: 30, left: 50},
+  var margin = {top: 20, right: 0, bottom: 30, left: 45},
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 

@@ -1,0 +1,9 @@
+[{"x": "Remove the message", "y": "0.52"},
+{"x": "Permanently ban the poster", "y": "0.40"},
+{"x": "Publicly reply with the community code of conduct", "y": "0.23"},
+{"x": "Notify poster and require confirmation to post", "y": "0.22"},
+{"x": "Privately reply with the community code of conduct", "y": "0.21"},
+{"x": "Temporarily suspend the poster", "y": "0.19"},
+{"x": "Add the poster to a blocklist", "y": "0.19"},
+{"x": "Require poster to complete an empathy exercise", "y": "0.12"},
+{"x": "Take no action", "y": "0.04"}]
