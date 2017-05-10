@@ -13,14 +13,14 @@
       <div class="col-lg-8 col-lg-offset-2">
         <p class="lead">Which of the following scenarios is more important to prevent?</p>
         <div class="col-lg-6">
-          <img src="{% static 'img/algorithmic/algorithmic-hillaryclinton_kill_yourself.jpg' %}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
-          <p class="message-caption">This person being detained and jailed at the border before being refused entry to the US and sent back to Britain (“destroy” is British slang for “party hard and get drunk”).</p>
+          <img src="{% static 'img/generic-un-free_speech.png' %}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
+          <p class="message-caption">Non-harassing content being flagged as harassing and potentially subjected to remediation</p>
           <button class="btn btn-primary next_button last" type="button" style="margin:auto;display:block" onclick="freeSpeech(1)">Prevent False Positives</button>
         </div>
         <div class="col-lg-6">
-          <img src="{% static 'img/algorithmic/algorithmic-hillaryclinton_kill_yourself.jpg' %}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
-          <p class="message-caption">This person's message not being flagged and not being removed from the platform.</p>
-          <button class="btn btn-primary next_button last" type="button" style="margin:auto;display:block" onclick="freeSpeech(1)">Prevent false negatives</button>
+          <img src="{% static 'img/no_flag-un-free_speech.png' %}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
+          <p class="message-caption">Harassing content not being flagged as harassing and not subjected to remediation</p>
+          <button class="btn btn-primary next_button last" type="button" style="margin:auto;display:block" onclick="freeSpeech(1)">Prevent False Negatives</button>
         </div>
       </div>
     </div>
@@ -28,22 +28,8 @@
       <div class="col-lg-8 col-lg-offset-2">
         <section id="">
           <a name="bottom_content"></a>
-          <h3>Free Speech vs. Hate Speech</h3>
-          <p>We asked our participants whether, when designing an algorithm to prevent harassment, it would be more important to prevent:</p>
-          <ul style="color:rgba(255, 255, 255, 0.7)">
-            <li>Non-harassing content being flagged as harassing and potentially subjected to remediation</li>
-            <li>Harassing content not being flagged as harassing and not subjected to remediation</li>
-            <li>No preference</li>
-          </ul>
-          <p>We were surprised by the finding that <em>three times</em> as many people wanted to prevent false negatives, that is, having genuinely harassing content get through the filters and reach the public or its target. This is a big surprise because there is a vocal minority that advocates strongly that this type of content should be considered “free speech.”</p>
-          <p>To that, we say: government censorship should be guarded against, but harassment does more to silence the public speech of women and minorities than does blocking genuinely harassing content. Our participants overwhelmingly seemed to agree with that assessment:</p>
-        </section>
-
-        <section id="">
-          <i class="fa fa-area-chart fa-5x" style="color:white"></i>
-          <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
-          <i class="fa fa-line-chart fa-5x" style="color:white"></i>
-          <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
+          <h3>Speech Considerations</h3>
+          <p>We asked our participants to answer this question while imagining they were building a computational tool to automatically detect harassing content online. We were surprised that three times as many people wanted to prevent false negatives, that is, having genuinely harassing content get through the filter and reach the public or its target. We found this surprising, given the open nature of the internet and frequent commentary about protected speech on the internet.</p>
         </section>
 
         <section id="chart">
@@ -54,15 +40,17 @@
         </section>
 
         <section id="">
-          <p>We found this comic reflected a lot of what we're feeling:</p>
-          <img src="https://imgs.xkcd.com/comics/free_speech.png">
-          <p class="message-caption">Source: XKCD</p>
-        </section>  
+          <p>Presently, the bulk of the work of content moderation is done by human moderators, but platforms are more and more turning to automated, algorithmic mechanisms to support or take over the work of addressing the problem of harassment at scale. This shift to algorithmic moderation raises interesting and important questions about the role technology should take, and the extent to which communities should delegate the work of enforcing their morals to machines. Do we envision a future where the machines themselves decide what is acceptable in public discourse?
+          </p>
+          <p>Under Section 230 of the Communications Decency Act, platforms in the United States can make these moderation and delegation choices behind the scenes, without any requirements to publicize any methodology or details of the process—regardless of whether the speech would be Constitutionally protected. This lack of procedural transparency raises questions about the role of free speech—both of and on platforms. As private corporations, platforms can legally make these moderation choices, yet complex decisions with potentially broad ramifications are made without public input or reflection. For instance, content moderators routinely make decisions on whether violent imagery, which might violate their terms of use, should have an exception if it’s newsworthy. But what constitutes “newsworthy,” and does it align with or contradict public policy?</p>
+          <p>The current method of flagging and deleting erases any evidence that there was, or should have been, a conflict about whether or not to remove content. Our finding that survey participants were more willing to put speech at risk becomes more worrisome as platforms become more dominant forms of public discourse. The disparity between what’s allowed in the physical public and what’s allowed in the virtual “public” can lead to intolerance of ideas at the margins within these spaces, which has greater and greater effects as platforms become widespread.</p>
+        </section> 
 
         <section id="">
-          <h3>But What Are the Outcomes?</h3>
-          <p>We need to put something else here that will stand in for a more complex description of what comes out of having platforms decide free speech, especially in regards to political speech, war, obscenity, etc.</p>
-        </section>                      
+          <p>In this vein, we love this comic and agree with its sentiment, but there’s also a bit more at stake with this particular issue:</p>
+          <img src="https://imgs.xkcd.com/comics/free_speech.png">
+          <p class="message-caption">Source: <a href="https://xkcd.com/1357/" target="_blank">XKCD</a></p>
+        </section>                       
 
         <section class="last">
           <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
