@@ -2,7 +2,7 @@
 // Mike Bostock: https://bl.ocks.org/mbostock/3886208 and
 // Michael Stanaland: http://bl.ocks.org/mstanaland/6100713
 
-function bar_chart(div_id,file) {
+function bar_chart(div_id,user_data,file) {
 
   var margin = {top: 20, right: 0, bottom: 30, left: 45},
       width = 960 - margin.left - margin.right,
@@ -62,9 +62,23 @@ function bar_chart(div_id,file) {
         var xPosition = parseInt(d3.select(this).attr('transform').slice(10).split(',')[0]) + d3.mouse(this)[0] - 23;
         var yPosition = parseInt(d3.select(this).attr('transform').slice(10).split(',')[1]) + d3.mouse(this)[1] - 25;
         tooltip.attr('transform', 'translate(' + xPosition + ',' + yPosition + ')');
-        // tooltip.select('text').text(d.y);
         tooltip.select('text').text(d3.format(',')(d.y));
       });
+
+    // Update user_data y value as half the value for the column
+    data.map(function(d) {
+      if (user_data.x === d.x) {
+        user_data.y = d.y / 2;
+      };
+    });
+
+    if (user_data.x) {
+      svg.append('circle')
+        .attr('class', 'd3_user')
+        .attr('r', 30 )
+        .attr('cx', xScale(user_data.x) + (width / data.length - 10) / 2 )
+        .attr('cy', yScale(user_data.y) );
+    };
 
     var tooltip = svg.append('g')
       .attr('class', 'd3_tooltip')
