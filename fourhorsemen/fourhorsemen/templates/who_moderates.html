@@ -22,7 +22,7 @@
           {{ form.errors }}
           {% for f in form %}
           <b class="question">{{ f.label }}</b>
-          <table>
+          <table id="{{ forloop.counter }}">
             <tr>
               {% for value, text in f.field.choices %}
                 <th width="20%" class="matrix-centered options">{{ text }}</th>
