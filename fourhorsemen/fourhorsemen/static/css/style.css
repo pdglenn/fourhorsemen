@@ -377,3 +377,23 @@ section {
 .bottom_content{
   display: none;
 }
+/*
+.chart-container {
+  margin: 30px auto;
+  width: 80%;
+}
+
+.chart-container > div {
+  width: 33%;
+}
+
+.rightChart {
+  float: right;
+}
+
+.leftChart {
+  float: left;
+}
+.middleChart {
+  margin: auto;
+}*/
