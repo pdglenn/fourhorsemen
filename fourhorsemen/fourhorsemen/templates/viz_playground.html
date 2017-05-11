@@ -55,9 +55,9 @@
     <div id="chart3" align="center">
       <script>
         // Arguments are: div_id, user_data, datafile
-        bar_chart('#chart3',{"x": "Users", "y": ""},fair)
-        bar_chart('#chart3',{"x": "Users", "y": ""},accurate)
-        bar_chart('#chart3',{"x": "Users", "y": ""},trust)
+        bar_chart('#chart3',{"x": "Users", "y": ""},fair,3,200,300)
+        bar_chart('#chart3',{"x": "Users", "y": ""},accurate,3)
+        bar_chart('#chart3',{"x": "Users", "y": ""},trust,3)
       </script>
     </div>
     <div id="chart4" align="center">
@@ -69,7 +69,7 @@
     <div id="chart5" align="center">
       <script>
         // Arguments are: div_id, user_data, datafile, left margin width
-        horizontal_bar_chart('#chart5',{"x": "Take no action", "y": "0"},remediation_options,374)
+        horizontal_bar_chart('#chart5',{"x": "Take no action", "y": "0"},remediation_options,374,1,500,300)
       </script>
     </div>
     <div id="chart6" align="center">
