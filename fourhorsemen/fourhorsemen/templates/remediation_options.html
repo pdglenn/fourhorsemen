@@ -2,8 +2,8 @@
 {% block content %}
 {% load static %}
 
-<!-- <script> var data = "{% static 'data/one_axis_scatter_data.json' %}" </script>
-<script src="{% static 'js/one_axis_scatter.js' %}"></script> -->
+<script> var data = "{% static 'data/remediation_options.json' %}" </script>
+<script src="{% static 'js/horizontal_bar_chart.js' %}"></script>
 <script src="{% static 'js/remediation_options.js' %}"></script>
 
 <!-- Page Content -->
@@ -14,12 +14,12 @@
         <p class="lead">Thinking back to the message you saw earlier, which action would you want to take in response to it?</p>
         <section>
           <div class="col-lg-6">
-            <p>Description of option 1, which was ranked similarly for severity but is more remediative</p>
-            <button class="btn btn-primary last next_button" type="button" style="margin:auto;display:block" onclick="remediationOptions(1)">Take this action</button>
+            <p>Prevent the user from posting again until they have completed an empathy exercise</p>
+            <button class="btn btn-primary last next_button" type="button" style="margin:auto;display:block" onclick="remediationOptions('Require poster to complete an empathy exercise')">Take this action</button>
           </div>
           <div class="col-lg-6">
-            <p class="message-caption">Description of option 2, which was ranked similarly for severity but is more punitive</p>
-            <button class="btn btn-primary last next_button" type="button" style="margin:auto;display:block" onclick="remediationOptions(2)">Take this action</button>
+            <p class="message-caption">Temporarily suspend the poster</p>
+            <button class="btn btn-primary last next_button" type="button" style="margin:auto;display:block" onclick="remediationOptions('Temporarily suspend the poster')">Take this action</button>
           </div>
         </section>
       </div>
@@ -42,8 +42,6 @@
 
         <section id="chart">
           <div id="chart" align="center">
-            <script>var csv_url = "{% static '/data/testdata.csv' %}" </script>
-            <script src="{% static '/js/test.js' %}"></script>
           </div>
         </section>
 
