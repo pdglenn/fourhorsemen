@@ -24,6 +24,31 @@ class SocialMostForm(forms.Form):
                                            empty_label=None,
                                            label='What site do you spend the most time on?',)
 
+class WhoModeratesForm(forms.Form):
+    most_fair = forms.ModelChoiceField(queryset=models.WhichModerator.objects.all(),
+                                       widget=forms.RadioSelect(renderer=HorizRadioRenderer),
+                                       required=False,
+                                       empty_label=None,
+                                       label='Which of these do you think is the most fair?')
+
+    most_accurate = forms.ModelChoiceField(queryset=models.WhichModerator.objects.all(),
+                                       widget=forms.RadioSelect(renderer=HorizRadioRenderer),
+                                       required=False,
+                                       empty_label=None,
+                                       label='Which of these do you think is the most accurate?')
+
+    most_trustworthy = forms.ModelChoiceField(queryset=models.WhichModerator.objects.all(),
+                                       widget=forms.RadioSelect(renderer=HorizRadioRenderer),
+                                       required=False,
+                                       empty_label=None,
+                                       label='Which of these do you think is the most trustworthy?')
+
+class AlgorithmicFactorsForm(forms.Form):
+    most_fair = forms.ModelChoiceField(queryset=models.ComputationalModeration.objects.all(),
+                                       widget=forms.RadioSelect(),
+                                       required=False,
+                                       empty_label=None,
+                                       label='Which of these factors is it most important to include?')
 
     # how_abusive = forms.ModelChoiceField(queryset=models.HowAbusive.objects.all(),
     #                                      widget=forms.RadioSelect(),

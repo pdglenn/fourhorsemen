@@ -30,7 +30,7 @@
 - model: fourhorsemen.computationalmoderation
   pk: 8
   fields:
-    moderation: Other - What other elements would you include?
+    moderation: Other
 # ------------------------
 # ----- howsevere ---------
 - model: fourhorsemen.howsevere
@@ -421,6 +421,20 @@
   pk: 5
   fields:
     abusive: Extremely abusive
+# ------------------------
+# ----- whichmoderator ---------
+- model: fourhorsemen.whichmoderator
+  pk: 1
+  fields:
+    moderatorchoice: A Human Moderator
+- model: fourhorsemen.whichmoderator
+  pk: 2
+  fields:
+    moderatorchoice: An Algorithm
+- model: fourhorsemen.whichmoderator
+  pk: 3
+  fields:
+    moderatorchoice: Other Users
 # ------------------------
 # ----- yesno ---------
 - model: fourhorsemen.yesno

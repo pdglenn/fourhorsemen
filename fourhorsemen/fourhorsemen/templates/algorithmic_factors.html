@@ -11,14 +11,14 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2">
-        <p class="lead">Imagine you are creating an algorithm to detect harassing content. Choose the top 3 considerations you would want to include:</p>
+        <p class="lead">Imagine you are creating an algorithm to detect harassing content. Which factor about a piece of content do you think it's most important that your algorithm consider in making its moderation decision?</p>
       </div>
       <div class="col-lg-8 col-lg-offset-2">
         <form action="/content_assessment/" method="POST" role="form">
           {% csrf_token %}
           <div class="form-group">
             <br><br>
-            {{ form.errors }}
+           <!--  {{ form.errors }}
             {% for f in form %}
               <b class="question">{{ f.label }}</b>
               <table>
@@ -36,7 +36,8 @@
                 </tr>
               </table>
               <br><br>
-            {% endfor %}
+            {% endfor %} -->
+            {{ form }}
           </div>
           <p>form stuff should be appearing above this</p>
           <button type="button" id="next_button" class="btn btn-primary last" onclick="algorithmicFactors(0)">Click to See Results</button>

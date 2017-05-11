@@ -80,7 +80,15 @@ data = {
                                                 "Image recognition - does the message contain any images that are recognized as commonly harassing or abusive?",
                                                 "Message has been flagged by other humans",
                                                 "Poster has previously been flagged for harassing content",
-                                                "Other - What other elements would you include?"]),
+                                                "Other"]),
+    # 'computationalmoderation': ('moderation', ["Flagged by other humans", 
+    #                                             "Poster harassment history", 
+    #                                             "Image recognition",
+    #                                             "Keywords",
+    #                                             "Sentiment analysis",
+    #                                             "Conversational balance",
+    #                                             "Length of Message",
+    #                                             ]),
     'importantprevent': ('prevention', ['Non-harassing and non-abusive messages being flagged as "harassing" or "abusive" and potentially subjected to remediation ("false positive" result)',
                                         'Harassing or abusive content not being flagged and not subjected to remediation ("false negative" results)',
                                         "I don't know"]),
@@ -95,6 +103,7 @@ data = {
                                 "Impersonation",
                                 "Other"]),
     'yesno': ('answer', ['Yes', 'No', "I don't know"]),
+    'whichmoderator': ('moderatorchoice', ['A Human Moderator', 'An Algorithm', 'Other Users'])
 }
 
 text = '''- model: fourhorsemen.{}
