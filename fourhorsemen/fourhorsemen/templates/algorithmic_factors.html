@@ -18,28 +18,17 @@
           {% csrf_token %}
           <div class="form-group">
             <br><br>
-           <!--  {{ form.errors }}
+            {{ form.errors }}
             {% for f in form %}
               <b class="question">{{ f.label }}</b>
-              <table>
-                <tr>
-                  {% for value, text in f.field.choices %}
-                    <th width="20%" class="matrix-centered options">{{ text }}</th>
-                  {% endfor %}
-                </tr>
-                <tr>
-                  {% for value, text in f.field.choices %}
-                    <td class="matrix-centered scale">
-                      <input type="radio" name="{{ f.html_name }}" value="{{ value }}">
-                    </td>
-                  {% endfor %}
-                </tr>
-              </table>
-              <br><br>
-            {% endfor %} -->
-            {{ form }}
+              <ul class="options" style="list-style: none;">
+                {% for value, text in f.field.choices %}
+                  <li><input type="radio" name="{{ f.html_name }}" value="{{ value }}"> {{ text }}</li>
+                {% endfor %}
+
+              </ul>
+            {% endfor %}
           </div>
-          <p>form stuff should be appearing above this</p>
           <button type="button" id="next_button" class="btn btn-primary last" onclick="algorithmicFactors(0)">Click to See Results</button>
         </form>
       </div>  
