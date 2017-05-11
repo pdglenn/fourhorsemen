@@ -2,8 +2,10 @@
 {% block content %}
 {% load static %}
 
-<!-- <script> var data = "{% static 'data/one_axis_scatter_data.json' %}" </script>
-<script src="{% static 'js/one_axis_scatter.js' %}"></script> -->
+<script> var fair = "{% static 'data/fair.json' %}" </script>
+<script> var accurate = "{% static 'data/accurate.json' %}" </script>
+<script> var trust = "{% static 'data/trust.json' %}" </script>
+<script src="{% static 'js/bar_chart.js' %}"></script>
 <script src="{% static 'js/who_moderates.js' %}"></script>
   <!-- Page Content -->
 <div id="page-content-wrapper">
@@ -73,8 +75,6 @@
         <section id="chart">
           <script src="https://d3js.org/d3.v4.min.js"></script>
           <div id="chart" align="center">
-            <script>var csv_url = "{% static '/data/testdata.csv' %}" </script>
-            <script src="{% static '/js/test.js' %}"></script>
           </div>
         </section>                   
 
