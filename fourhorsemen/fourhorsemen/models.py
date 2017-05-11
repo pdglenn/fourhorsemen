@@ -156,6 +156,12 @@ class YesNo(models.Model):
     answer = models.TextField()
     def __str__(self):
         return self.answer
+
+
+class WhichModerator(models.Model):
+    moderatorchoice = models.TextField()
+    def __str__(self):
+        return self.moderatorchoice
 # class UserDemographic(models.Model):
 #     user = models.ForeignKey(Users)
 #     demo_type = models.ForeignKey(DemoTypes)

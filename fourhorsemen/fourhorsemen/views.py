@@ -41,7 +41,7 @@ def who_moderates(request):
     request.session['images_seen'] = images_seen
     
     if request.method == 'POST':
-        form = forms.ContentAssessmentForm(request.POST)
+        form = forms.WhoModeratesForm(request.POST)
         if form.is_valid():
             request.session['image'] = image
             request.session['form'] = form.cleaned_data
@@ -49,7 +49,10 @@ def who_moderates(request):
             return HttpResponseRedirect(reverse('algorithmic_factors'))
                                                                
     else:
-        form = forms.ContentAssessmentForm()
+        form = forms.WhoModeratesForm()
+        print('for f in form print f')
+        for f in form:
+            print(f)
 
     return render(request, 'who_moderates.html', {'form': form, 'image': image,
                                                   'next': reverse('algorithmic_factors')})
@@ -60,11 +63,11 @@ def algorithmic_factors(request):
         form = forms.ContentAssessmentForm(request.POST)
         if form.is_valid():
             request.session['form'] = form.cleaned_data
-            form = forms.ContentAssessmentForm()
+            form = forms.AlgorithmicFactorsForm()
             return HttpResponseRedirect(reverse('remediation_options'))
                                                                
     else:
-        form = forms.ContentAssessmentForm()
+        form = forms.AlgorithmicFactorsForm()
 
     return render(request, 'algorithmic_factors.html', {'form': form, 
                                                         'next': reverse('remediation_options')})
