@@ -10,12 +10,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2">
-        <p class="lead">This is placeholder for the interaction instructions:</p>
-        <div class="col-lg-8 col-lg-offset-1">
-          <img src="{{ baseURL }}{{ image }}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
-        </div>
-      </div>
-      <div class="col-lg-8 col-lg-offset-2">
+        <p class="lead">Which platform do you spend the most time on?</p>
         <form action="/content_assessment/" method="POST" role="form">
           {% csrf_token %}
           <div class="form-group">
@@ -41,7 +36,7 @@
             {% endfor %}
           </div>
 
-          <button type="button" id="next_button" class="btn btn-primary last" onclick="contextMatters()">Click to reveal stuff below</button>
+          <button type="button" id="next_button" class="btn btn-primary last" onclick="contextMatters()">Click to See Results</button>
         </form>
 
         <div class="bottom_content">
@@ -55,13 +50,6 @@
             <p>Would you want to go there?</p>
           </section>
 
-          <section id="">
-              <i class="fa fa-area-chart fa-5x" style="color:white"></i>
-              <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
-              <i class="fa fa-line-chart fa-5x" style="color:white"></i>
-              <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
-          </section>
-
           <section id="chart">
             <div id="chart" align="center">
 
@@ -71,7 +59,7 @@
               <p>What chart should go above?</p>
           </section>                        
           <section class="last">
-            <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
+            <a href="{{ next }}"><button class="btn btn-primary" type="button">Next Page</button></a>
           </section>
         </div>
       </div>
