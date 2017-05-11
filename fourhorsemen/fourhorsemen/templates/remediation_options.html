@@ -11,17 +11,19 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2">
-        <p class="lead">Thinking back to the message you saw earlier, which action would you want to take in response to it?</p>
-        <section>
-          <div class="col-lg-6">
-            <p>Prevent the user from posting again until they have completed an empathy exercise</p>
-            <button class="btn btn-primary last next_button" type="button" style="margin:auto;display:block" onclick="remediationOptions('Require poster to complete an empathy exercise')">Take this action</button>
-          </div>
-          <div class="col-lg-6">
-            <p class="message-caption">Temporarily suspend the poster</p>
-            <button class="btn btn-primary last next_button" type="button" style="margin:auto;display:block" onclick="remediationOptions('Temporarily suspend the poster')">Take this action</button>
-          </div>
-        </section>
+        <p class="lead">Here again is the message you rated earlier. Which action would you rather have the platform take against it?</p>
+        <div class="col-lg-8 col-lg-offset-1" style="padding-bottom:40px">
+          <img src="{% static 'img/no_flag-dir-no_corners.png' %}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
+        </div>
+        <div class="col-lg-6">
+          <p style="text-align:center">Prevent the user from posting again until they have completed an empathy exercise</p>
+          <button class="btn btn-primary last next_button" type="button" style="margin:auto;display:block" onclick="remediationOptions('Require poster to complete an empathy exercise')">Take This Action</button>
+        </div>
+        <div class="col-lg-6">
+          <p style="text-align:center">Temporarily suspend the poster</p>
+          <br>
+          <button class="btn btn-primary last next_button" type="button" style="margin:auto;display:block" onclick="remediationOptions('Temporarily suspend the poster')">Take This Action</button>
+        </div>
       </div>
     </div>
     <div class="row bottom_content">
@@ -31,13 +33,6 @@
           <h3>Remediation Options</h3>
           <p>We didn’t ask our survey respondents this exact question, but we noticed a trend in what remediation options they preferred to apply to the messages they saw. We provided them with options that included common and relatively punitive actions, along with uncommon but potentially useful remediative actions. The main difference between those two might be considered as the difference between a short-term solution and longer-term solution: i.e. dealing with the symptom (harassing or violent messages) rather than the underlying problem (non-compliance with social norms, mental health issues, etc.).</p>
           <p>We were surprised that a large number of people chose the uncommon remediative options as one of their top three methods:</p>
-        </section>
-
-        <section id="">
-          <i class="fa fa-area-chart fa-5x" style="color:white"></i>
-          <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
-          <i class="fa fa-line-chart fa-5x" style="color:white"></i>
-          <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
         </section>
 
         <section id="chart">
@@ -50,7 +45,7 @@
         </section>                       
 
         <section class="last">
-          <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
+          <a href="{{ next }}"><button class="btn btn-primary" type="button">Next Page</button></a>
         </section>
       </div>
     </div>
