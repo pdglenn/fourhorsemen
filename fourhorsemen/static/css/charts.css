@@ -8,6 +8,12 @@
   stroke: none;
 }
 
+.axis_line path,
+.axis_line line {
+  stroke: rgba(255, 255, 255, 0.7);
+  stroke-width: 3px;
+}
+
 .d3_line {
   fill: none;
   stroke-width: 1.5px;
@@ -18,7 +24,7 @@
 }
 
 .d3_user {
-  fill: #34495e;
+  fill: #1abc9c;
 }
 
 .d3_fixed {

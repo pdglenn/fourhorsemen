@@ -1,23 +1,31 @@
 // Code highly modified from https://bl.ocks.org/mbostock/3887118
 
-function line_plot(div_id,user_data,file) {
+function line_plot(div_id,user_data,file,multiples,spec_width,spec_height) {
   
-  var margin = {top: 30, right: 90, bottom: 30, left: 110},
+  var margin = {top: 0, right: 0, bottom: 0, left: 130},
       width = 960 - margin.left - margin.right,
-      height = 90 - margin.top - margin.bottom;
+      height = 80 - margin.top - margin.bottom;
 
-  // var xScale = d3.scalePoint()
-  //     .domain(['Not at all harassing','Slightly harassing','Somewhat harassing','Very harassing','Extremely harassing'])
-  //     .range([0, width]);
+  if (typeof multiples != 'undefined') {
+    width = width / multiples;
+  };
 
-  var xScale = d3.scaleLinear()
-      .domain([1, 5])
+  if (typeof spec_width != 'undefined') {
+    width = spec_width - margin.left - margin.right;
+  };
+
+  if (typeof spec_height != 'undefined') {
+    height = spec_height - margin.top - margin.bottom;
+  };
+
+  var xScale = d3.scaleOrdinal()
+      .domain([1, 2, 3, 4, 5])
       .range([0, width]);
 
   var yScale = d3.scaleLinear()
       .range([height/2, 0]);
 
-  var xAxis = d3.axisBottom(xScale);
+  var xAxis = d3.axisBottom(xScale).tickPadding([10]);
   var yAxis = d3.axisLeft(yScale);
 
   var svg = d3.select(div_id).append('svg')
@@ -32,28 +40,26 @@ function line_plot(div_id,user_data,file) {
     // Update radius scaling here
     var first = data[0]['r']/5;
     var last = data.slice(-1)[0]['r']/5;
-    xScale.range([0+first, width-last]);
+    // xScale.range([0+first, width-last]);
+    xScale.range(Array.from(new Array(data.length),(val,index)=>index).map(function(x) { return x * (width / 4.5); }));
+
+    svg.append('g')
+      .attr('class', 'x axis_line')
+      .attr('transform', 'translate(0,' + yScale(0) + ')')
+      .call(xAxis);
 
     svg.selectAll('.d3_dot')
         .data(data)
         .enter().append('circle')
         .attr('class', 'd3_dot')
-        .attr('r', function(d) { return 15; })
+        .attr('r', function(d) { return 12; })
         .attr('cx', function(d) { return xScale(d.x); })
-        .attr('cy', function(d) { return yScale(d.y); })
-        .on('mouseover', function() { tooltip.style('display', null); })
-        .on('mouseout', function() { tooltip.style('display', 'none'); })
-        .on('mousemove', function(d) {
-          var xPosition = d3.mouse(this)[0] - 23;
-          var yPosition = d3.mouse(this)[1] - 25;
-          tooltip.attr('transform', 'translate(' + xPosition + ',' + yPosition + ')');
-          tooltip.select('text').text(d.r);
-        });
+        .attr('cy', function(d) { return yScale(d.y); });
 
     svg.append('circle')
         .attr('class', 'd3_fixed')
         .attr('r', 12 ) // Update radius scaling here
-        .attr('cx', xScale(4.2) )
+        .attr('cx', 3.2 * (width /4.5) )
         .attr('cy', yScale(0) )
         .on('mouseover', function() { tooltip_text.style('display', null); })
         .on('mouseout', function() { tooltip_text.style('display', 'none'); })
@@ -80,26 +86,6 @@ function line_plot(div_id,user_data,file) {
         });
     };
 
-    svg.append('g')
-        .attr('class', 'x axis')
-        .attr('transform', 'translate(0,' + height + ')')
-        .call(xAxis);
-
-    var tooltip = svg.append('g')
-      .attr('class', 'd3_tooltip')
-      .style('display', 'none');
-        
-    tooltip.append('rect')
-      .attr('width', 44)
-      .attr('height', 20)
-      .attr('fill', 'white')
-      .style('opacity', 0.33);
-    tooltip.append('text')
-      .attr('x', 22)
-      .attr('dy', '1.2em')
-      .style('text-anchor', 'middle')
-      .attr('font-size', '12px');
-
     var tooltip_text = svg.append('g')
       .attr('class', 'd3_tooltip')
       .style('display', 'none');
@@ -115,6 +101,4 @@ function line_plot(div_id,user_data,file) {
       .style('text-anchor', 'middle')
       .attr('font-size', '12px');
   });
-
-  
 };

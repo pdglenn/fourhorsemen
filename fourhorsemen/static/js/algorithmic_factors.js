@@ -1,5 +1,18 @@
-function algorithmicFactors(userChoice){
-    var chartDiv = '#chart'
-    // one_axis_scatter(chartDiv, {"x": userChoice, "y": "0", "r": "30"}, data);
+function algorithmicFactors(unused){
+    var chartDiv = '#chart';
+    var userChoice = $('input:checked').val();
+    console.log(userChoice)
+    choiceMap = {1: "Keywords",
+                 2: "Sentiment analysis",
+                 3: "Length of message",
+                 4: "Conversational balance",
+                 5: "Image recognition",
+                 6: "Flagged by other humans",
+                 7: "Poster harassment history",
+                 8: "Other"}
+
+    console.log(choiceMap[userChoice])
+
+    horizontal_bar_chart(chartDiv,{"x": choiceMap[userChoice], "y": "0"},data ,200)
     revealBottomContent();
 }
