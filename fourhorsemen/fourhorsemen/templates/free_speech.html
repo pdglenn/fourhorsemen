@@ -3,8 +3,8 @@
 {% load static %}
 <!-- Page Content -->
 
-<!-- <script> var data = "{% static 'data/one_axis_scatter_data.json' %}" </script>
-<script src="{% static 'js/one_axis_scatter.js' %}"></script> -->
+<script> var data = "{% static 'data/false_pos_neg.json' %}" </script>
+<script src="{% static 'js/bar_chart_percent.js' %}"></script>
 <script src="{% static 'js/free_speech.js' %}"></script>
 
 <div id="page-content-wrapper">
@@ -15,12 +15,12 @@
         <div class="col-lg-6">
           <img src="{% static 'img/generic-un-free_speech.png' %}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
           <p class="message-caption">Non-harassing content being flagged as harassing and potentially subjected to remediation</p>
-          <button class="btn btn-primary next_button last" type="button" style="margin:auto;display:block" onclick="freeSpeech(1)">Prevent False Positives</button>
+          <button class="btn btn-primary next_button last" type="button" style="margin:auto;display:block" onclick="freeSpeech('False Positive')">Prevent False Positives</button>
         </div>
         <div class="col-lg-6">
           <img src="{% static 'img/no_flag-un-free_speech.png' %}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
           <p class="message-caption">Harassing content not being flagged as harassing and not subjected to remediation</p>
-          <button class="btn btn-primary next_button last" type="button" style="margin:auto;display:block" onclick="freeSpeech(1)">Prevent False Negatives</button>
+          <button class="btn btn-primary next_button last" type="button" style="margin:auto;display:block" onclick="freeSpeech('False Negative')">Prevent False Negatives</button>
         </div>
       </div>
     </div>
@@ -34,8 +34,6 @@
 
         <section id="chart">
           <div id="chart" align="center">
-            <script>var csv_url = "{% static '/data/testdata.csv' %}" </script>
-            <script src="{% static '/js/test.js' %}"></script>
           </div>
         </section>
 
