@@ -12,10 +12,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2">
-        <p class="lead">Replace these with our questions for fairness, accuracy, trustworthiness:</p>
-        <div class="col-lg-8 col-lg-offset-1">
-          <img src="{{ baseURL }}{{ image }}" class="img-responsive center-block" alt="image of a potentially harassing social media post">
-        </div>
+        <p class="lead">In identifying potentially harassing content, which would you prefer as a moderator?</p>
       </div>
       <div class="col-lg-8 col-lg-offset-2">
         <form action="/content_assessment/" method="POST" role="form">
@@ -42,7 +39,7 @@
           <br><br>
           {% endfor %}
         </div>
-        <button type="button" id="next_button" class="btn btn-primary last" onclick="whoModerates(0)">Click to reveal stuff below</button>
+        <button type="button" id="next_button" class="btn btn-primary last" onclick="whoModerates(0)">Click to See Results</button>
         </form>
       </div>
     </div>
@@ -65,13 +62,6 @@
           <p>But the fact remains that most of us don’t trust algorithms and computers to make these kinds of decisions for us:</p>
         </section>
 
-        <section id="">
-          <i class="fa fa-area-chart fa-5x" style="color:white"></i>
-          <i class="fa fa-bar-chart fa-5x" style="color:white"></i>
-          <i class="fa fa-line-chart fa-5x" style="color:white"></i>
-          <i class="fa fa-pie-chart fa-5x" style="color:white"></i>
-        </section>
-
         <section id="chart">
           <script src="https://d3js.org/d3.v4.min.js"></script>
           <div id="chart" align="center">
@@ -79,7 +69,7 @@
         </section>                   
 
         <section class="last">
-          <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
+          <a href="{{ next }}"><button class="btn btn-primary" type="button">Next Page</button></a>
         </section>
       </div>
     </div>

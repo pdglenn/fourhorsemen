@@ -11,7 +11,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2">
-        <p class="lead">What factors would you want to include in your own algorithm?</p>
+        <p class="lead">Imagine you are creating an algorithm to detect harassing content. Choose the top 3 considerations you would want to include:</p>
       </div>
       <div class="col-lg-8 col-lg-offset-2">
         <form action="/content_assessment/" method="POST" role="form">
@@ -39,7 +39,7 @@
             {% endfor %}
           </div>
           <p>form stuff should be appearing above this</p>
-          <button type="button" id="next_button" class="btn btn-primary last" onclick="algorithmicFactors(0)">Click to reveal stuff below</button>
+          <button type="button" id="next_button" class="btn btn-primary last" onclick="algorithmicFactors(0)">Click to See Results</button>
         </form>
       </div>  
     </div>      
@@ -48,7 +48,8 @@
       <div class="col-lg-8 col-lg-offset-2">
         <a name="bottom_content"></a>
         <section id="">
-          <p>We found it interesting that a large number of respondents replied with image recognition. This might show that they have come across offensive or harassing images quite often, though we didn’t ask them about that.</p>
+          <h3>Algorithmic Factors</h3>
+          <p>We found it interesting that a large number of respondents replied with image recognition. This might indicate that they've come across offensive or harassing images quite often. Have you?</p>
         </section>
 
         <section id="chart">
@@ -57,8 +58,12 @@
           </div>
         </section>
 
+        <section id="">
+          <p>As previously discussed, presently the bulk of the work of content moderation is done by human moderators, but platforms are more and more turning to automated, algorithmic mechanisms to support or take over the work of addressing the problem of harassment at scale. For example, Jigsaw recently released <a href="http://www.perspectiveapi.com/" target="_blank">Perspective</a>, an algorithm that attempts to counter abuse by assigning a piece of text a “toxicity” score, which could conceivably be used by a platform to remove messages over a certain threshold. This algorithm focuses entirely on the text content of the message itself. The first release of the Jigsaw API gives a toxicity score of 78% to “I hate bananas,” while it assigns a toxicity score of only 37% to “We must secure our existence and a future for white children” which is considered to be the most popular white supremacist slogan in the world. This highlights challenges with this approach.</p>
+        </section>
+
         <section class="last">
-          <a href="{{ next }}"><button class="btn btn-primary" type="button">Next</button></a>
+          <a href="{{ next }}"><button class="btn btn-primary" type="button">Next Page</button></a>
         </section>
       </div>
     </div>
