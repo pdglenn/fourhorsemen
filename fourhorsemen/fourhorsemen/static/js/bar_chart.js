@@ -2,11 +2,23 @@
 // Mike Bostock: https://bl.ocks.org/mbostock/3886208 and
 // Michael Stanaland: http://bl.ocks.org/mstanaland/6100713
 
-function bar_chart(div_id,user_data,file) {
+function bar_chart(div_id,user_data,file,multiples,spec_width,spec_height) {
 
   var margin = {top: 20, right: 0, bottom: 30, left: 45},
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
+
+  if (typeof multiples != 'undefined') {
+    width = width / multiples;
+  };
+
+  if (typeof spec_width != 'undefined') {
+    width = spec_width - margin.left - margin.right;
+  };
+
+  if (typeof spec_height != 'undefined') {
+    height = spec_height - margin.top - margin.bottom;
+  };
 
   var xScale = d3.scaleOrdinal()
       .range([0,width]);
