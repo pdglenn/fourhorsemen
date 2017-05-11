@@ -1,5 +1,7 @@
 function contextMatters(){
     var chartDiv = '#chart'
-    bar_chart(chartDiv, {"x": 'Instagram', "y": "0"}, data);
+    var userChoice = $('input:checked').val();
+
+    bar_chart(chartDiv, {"x": userChoice, "y": "0"}, data);
     revealBottomContent();
 }
