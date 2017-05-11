@@ -13,6 +13,6 @@ function algorithmicFactors(unused){
 
     console.log(choiceMap[userChoice])
 
-    horizontal_bar_chart(chartDiv,{"x": choiceMap[userChoice], "y": "0"},data,200,1,750,400)
+    horizontal_bar_chart(chartDiv,{"x": choiceMap[userChoice], "y": "0"},data,200,1,750,400,13)
     revealBottomContent();
 }
