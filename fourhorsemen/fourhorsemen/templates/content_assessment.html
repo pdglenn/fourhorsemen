@@ -3,8 +3,14 @@
 {% load static %}
 
 <!-- Page Content -->
-<script> var data = "{% static 'data/one_axis_scatter_data.json' %}" </script>
+<script> var harassment_distribution = "{% static 'data/harassment_distribution.json' %}" </script>
+<script> var harassment_distribution_bar = "{% static 'data/harassment_distribution_bar.json' %}" </script>
+<script> var harassment_distribution_line = "{% static 'data/harassment_distribution_line.json' %}" </script>
+
+
 <script src="{% static 'js/one_axis_scatter.js' %}"></script>
+<script src="{% static 'js/line_plot.js' %}"></script>
+<script src="{% static 'js/bar_chart_percent.js' %}"></script>
 <script src="{% static 'js/content_assessment.js' %}"></script>
 
 
