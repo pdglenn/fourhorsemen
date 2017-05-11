@@ -1,6 +1,6 @@
 .tick text {
   fill: rgba(255, 255, 255, 0.7);
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .axis path,
@@ -37,4 +37,8 @@
 
 .d3_rect {
   fill: rgba(255, 255, 255, 0.7);
+}
+
+.chart_multiples {
+  display: inline-block;
 }
