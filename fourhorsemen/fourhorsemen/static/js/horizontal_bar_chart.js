@@ -2,7 +2,7 @@
 // Mike Bostock: https://bl.ocks.org/mbostock/3886208 and
 // Michael Stanaland: http://bl.ocks.org/mstanaland/6100713
 
-function horizontal_bar_chart(div_id,user_data,file,left_mar,multiples,spec_width,spec_height) {
+function horizontal_bar_chart(div_id,user_data,file,left_mar,multiples,spec_width,spec_height,dot_size) {
 
   var margin = {top: 22, right: 17, bottom: 0, left: left_mar},
       width = 960 - margin.left - margin.right,
@@ -83,7 +83,7 @@ function horizontal_bar_chart(div_id,user_data,file,left_mar,multiples,spec_widt
     if (user_data.x) {
       svg.append('circle')
         .attr('class', 'd3_user')
-        .attr('r', 17 )
+        .attr('r', dot_size )
         .attr('cx', yScale(user_data.y) - 6)
         .attr('cy', xScale(user_data.x) + (height / data.length - 10) / 2 )
         .on('mouseover', function() { tooltip_text.style('display', null); })
