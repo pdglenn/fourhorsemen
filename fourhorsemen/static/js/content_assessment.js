@@ -11,8 +11,8 @@ function contentAssessment(){
      choiceNum = choiceMap[userChoice]
 
 
-        
-        bar_chart_percent(chartDiv,{"x": userChoice, "y": "0"},harassment_distribution_bar);
+            one_axis_scatter(chartDiv,{"x": userChoice, "y": "0", "r": "30"},harassment_distribution);
         line_plot(chartDiv,{"x": choiceNum},harassment_distribution_line);
+        bar_chart_percent(chartDiv,{"x": userChoice, "y": "0"},harassment_distribution_bar)
     revealBottomContent();
 }
