@@ -2,8 +2,8 @@
 {% block content %}
 {% load static %}
 
-<!-- <script> var data = "{% static 'data/one_axis_scatter_data.json' %}" </script>
-<script src="{% static 'js/one_axis_scatter.js' %}"></script> -->
+<script> var data = "{% static 'data/algorithmic_features.json' %}" </script>
+<script src="{% static 'js/horizontal_bar_chart.js' %}"></script>
 <script src="{% static 'js/algorithmic_factors.js' %}"></script>
 
   <!-- Page Content -->
@@ -49,6 +49,12 @@
         <a name="bottom_content"></a>
         <section id="">
           <p>We found it interesting that a large number of respondents replied with image recognition. This might show that they have come across offensive or harassing images quite often, though we didn’t ask them about that.</p>
+        </section>
+
+        <section id="chart">
+          <script src="https://d3js.org/d3.v4.min.js"></script>
+          <div id="chart" align="center">
+          </div>
         </section>
 
         <section class="last">
