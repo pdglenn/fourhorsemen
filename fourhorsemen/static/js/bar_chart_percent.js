@@ -87,7 +87,7 @@ function bar_chart_percent(div_id,user_data,file,multiples,spec_width,spec_heigh
     if (user_data.x) {
       svg.append('circle')
         .attr('class', 'd3_user')
-        .attr('r', 30 )
+        .attr('r', 10 )
         .attr('cx', xScale(user_data.x) + (width / data.length - 10) / 2 )
         .attr('cy', yScale(user_data.y) )
         .on('mouseover', function() { tooltip_text.style('display', null); })
